@@ -367,14 +367,17 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-  @media (min-width: 769px) {
+/* Desktop */
+@media (min-width: 769px) {
   .hamburger {
     display: none;
   }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav {
+    display: none;
   }
 
   .hero-title {
