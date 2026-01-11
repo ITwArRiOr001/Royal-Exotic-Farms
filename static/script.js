@@ -1,4 +1,4 @@
-/* ---- SCROLL REVEAL (Sections)---- */
+/* ---------------------------   SCROLL REVEAL (Section)--------------------------- */
 function initScrollReveal() {
   const sections = document.querySelectorAll("section");
 
@@ -12,7 +12,7 @@ function initScrollReveal() {
   };
 
   window.addEventListener("scroll", reveal, { passive: true });
-  reveal(); // initial
+  reveal(); // initial trigger
 }
 
 /* ---------------------------
@@ -50,7 +50,7 @@ function initModalSafety() {
 }
 
 /* ---------------------------
-   MOBILE MENU
+   MOBILE MENU (SAFE & ALIGNED)
 --------------------------- */
 function toggleMobileMenu() {
   const menu = document.querySelector(".mobile-menu");
@@ -76,7 +76,7 @@ function initAccordion() {
 }
 
 /* ---------------------------
-   PRODUCT FILTERS (If Exists)
+   PRODUCT FILTERS (SAFE IF PAGE EXISTS)
 --------------------------- */
 function normalize(text) {
   return (text || "").toLowerCase().trim();
@@ -105,7 +105,7 @@ function applyProductFilters() {
 }
 
 /* ---------------------------
-   FLASH AUTO DISMISS
+   FLASH MESSAGE AUTO DISMISS
 --------------------------- */
 function initFlashDismiss() {
   setTimeout(() => {
@@ -117,24 +117,40 @@ function initFlashDismiss() {
   }, 3000);
 }
 
-/* ---------------------------
-   INIT ON LOAD
---------------------------- */
+/* =========================================================
+   INIT ON LOAD – SAFE, ORDERED, GUARDED
+   ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* 🔒 FORCE SAFE UI STATE ON LOAD */
+  document.querySelector(".mobile-menu")?.classList.remove("open");
+  document.querySelector(".overlay")?.classList.remove("open");
+
+  /* Core initializers */
   initScrollReveal();
   initModalSafety();
   initAccordion();
   initFlashDismiss();
 
-  /* Product filter bindings (safe if missing) */
-  document.getElementById("category-filter")?.addEventListener("change", applyProductFilters);
-  document.getElementById("search-bar")?.addEventListener("input", applyProductFilters);
+  /* Product filters (safe if page doesn’t have them) */
+  document.getElementById("category-filter")
+    ?.addEventListener("change", applyProductFilters);
+
+  document.getElementById("search-bar")
+    ?.addEventListener("input", applyProductFilters);
+
   applyProductFilters();
 
-  /* Mobile menu close on link click */
+  /* Mobile menu close on navigation */
   document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", toggleMobileMenu);
+    link.addEventListener("click", () => {
+      const menu = document.querySelector(".mobile-menu");
+      if (menu?.classList.contains("open")) {
+        toggleMobileMenu();
+      }
+    });
   });
 
-  document.querySelector(".overlay")?.addEventListener("click", toggleMobileMenu);
+  document.querySelector(".overlay")
+    ?.addEventListener("click", toggleMobileMenu);
 });
