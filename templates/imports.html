@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Import to India from China & Global Markets | Royal Exotic Farms</title>
+  <meta name="description" content="Royal Exotic Farms helps Indian entrepreneurs import to India from China and global markets with full compliance, customs guidance, landed cost clarity, and honest trade support.">
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+
+<!-- ================= FLASH ================= -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+  {% for category, message in messages %}
+  <div class="flash-message {{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu">
+  <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/exports">Exports</a></li>
+    <li><a href="/imports">Imports</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+<div class="overlay" onclick="toggleMobileMenu()"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="hero small-hero">
+  <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Import to India, Made Clear & Compliant</h1>
+    <p class="hero-subtitle">
+      Import from China & Global Markets<br>
+      Guidance for Indian Entrepreneurs and Businesses
+    </p>
+
+    <div class="hero-cta">
+      <button class="cta-btn" onclick="openModal('importQuoteModal')">
+        Request Import Assistance
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <a href="/">Home</a>
+  <a href="/exports">Exports</a>
+  <a href="/imports" class="active">Imports</a>
+  <a href="/services">Services</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<!-- ================= INTRO ================= -->
+<section class="about">
+  <h2>Helping Indian Businesses Import with Confidence</h2>
+
+  <p>
+    Importing into India can feel complex — especially for first-time
+    entrepreneurs and growing businesses.
+    Royal Exotic Farms exists to make <strong>import to India</strong>
+    structured, compliant, and predictable.
+  </p>
+
+  <p>
+    We support Indian traders in sourcing and importing products from
+    <strong>China and other global markets</strong>, while ensuring
+    documentation, duties, and customs processes are handled correctly.
+  </p>
+</section>
+
+<!-- ================= WHAT WE HELP IMPORT ================= -->
+<section class="services">
+  <h2>What We Help You Import</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>🏭 Products from China</h3>
+      <p>
+        Support for importing machinery, components, consumer goods,
+        packaging materials, and business supplies from China to India.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📦 Commercial & Trade Goods</h3>
+      <p>
+        Assistance with legally importable goods suited for resale,
+        manufacturing, or internal business use.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📑 Documentation-Critical Imports</h3>
+      <p>
+        Guidance for products requiring HS classification, special
+        declarations, or regulatory clearance.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= HOW WE SUPPORT ================= -->
+<section class="about alt">
+  <h2>How We Support Indian Importers</h2>
+
+  <ul class="process-list">
+    <li><strong>Product Understanding:</strong> Clarifying what can and cannot be imported</li>
+    <li><strong>HS Code Guidance:</strong> Correct classification to avoid penalties</li>
+    <li><strong>Landed Cost Estimation:</strong> Duty, GST, freight transparency</li>
+    <li><strong>Documentation Support:</strong> IEC, invoices, packing lists</li>
+    <li><strong>Customs Coordination:</strong> Helping you move smoothly through clearance</li>
+  </ul>
+</section>
+
+<!-- ================= TRUST SECTION ================= -->
+<section class="services">
+  <h2>Why Indian Entrepreneurs Trust Us</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>🧠 No False Promises</h3>
+      <p>
+        We do not promise shortcuts or duty avoidance.
+        We focus on lawful, sustainable importing that protects your business.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📊 Cost Clarity</h3>
+      <p>
+        Clear guidance on duties, taxes, and logistics so you can plan
+        pricing and margins confidently.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>🤝 Long-Term Approach</h3>
+      <p>
+        We work best with entrepreneurs who value transparency,
+        learning, and long-term trade growth.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-final">
+  <h2>Planning to Import into India?</h2>
+  <p>
+    Whether you are importing for the first time or expanding your supply chain,
+    we are here to guide you honestly and professionally.
+  </p>
+
+  <button class="cta-btn" onclick="openModal('importQuoteModal')">
+    Request Import Guidance
+  </button>
+</section>
+
+<!-- ================= IMPORT QUOTE MODAL ================= -->
+<div class="modal" id="importQuoteModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('importQuoteModal')">&times;</span>
+
+    <h3>Import Assistance Request</h3>
+
+    <form action="/submit-form" method="POST">
+      <input type="hidden" name="form_type" value="Import Assistance">
+
+      <label>Product You Want to Import</label>
+      <input type="text" name="product" placeholder="e.g. Electronics, Machinery" required>
+
+      <label>Country of Origin</label>
+      <input type="text" name="origin" placeholder="e.g. China" required>
+
+      <label>Estimated Quantity / Value</label>
+      <input type="text" name="quantity" placeholder="Approximate volume or value" required>
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Your Business Stage</label>
+      <select name="stage" required>
+        <option value="First-time importer">First-time Importer</option>
+        <option value="Growing business">Growing Business</option>
+        <option value="Established trader">Established Trader</option>
+      </select>
+
+      <label>Questions or Concerns</label>
+      <textarea name="message" rows="3" placeholder="Customs, duties, risks, timelines…"></textarea>
+
+      <button type="submit" class="cta-btn">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="trust-badges">
+    <img src="/static/images/iec-badge.png" alt="IEC Registered">
+    <img src="/static/images/fssai-badge.png" alt="FSSAI">
+  </div>
+
+  <p>© 2024 Royal Exotic Farms. Import to India Guidance for Entrepreneurs.</p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="/static/script.js"></script>
+
+<script>
+setTimeout(() => {
+  document.querySelectorAll('.flash-message').forEach(el => {
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 400);
+  });
+}, 3000);
+</script>
+
+</body>
+</html>
