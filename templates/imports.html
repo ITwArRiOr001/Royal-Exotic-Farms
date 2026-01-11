@@ -82,9 +82,7 @@
 
 <body>
 
-<body>
-
-<!-- ================= FLASH MESSAGES ================= -->
+<!-- ================= FLASH ================= -->
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
 <div class="flash-container">
@@ -108,202 +106,155 @@
 </div>
 <div class="overlay" onclick="toggleMobileMenu()"></div>
 
-<!-- ================= HERO (IMAGE-LED, PREMIUM) ================= -->
-<header class="hero hero-home">
-  <!-- Background image handled via CSS -->
+<!-- ================= HERO ================= -->
+<header class="hero small-hero import-hero">
+  <!-- Background image via CSS -->
   <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
 
   <div class="hero-content">
-    <h1 class="hero-title">Royal Exotic Farms</h1>
-
+    <h1 class="hero-title">Import to India, Made Clear & Compliant</h1>
     <p class="hero-subtitle">
-      Export from India to Gulf Countries<br>
-      Smart Import to India for Entrepreneurs
+      Import from China & Global Markets<br>
+      Guidance for Indian Entrepreneurs
     </p>
 
     <div class="hero-cta">
-      <button class="cta-btn" onclick="openModal('quoteModal')">
-        Export / Import Quote
+      <button class="cta-btn" onclick="openModal('importQuoteModal')">
+        Request Import Assistance
       </button>
-      <a href="/contact" class="cta-btn secondary">
-        Contact Our Trade Team
-      </a>
     </div>
   </div>
-
-  <div id="google_translate_element"></div>
 </header>
 
 <!-- ================= NAV ================= -->
 <nav>
-  <a href="/" class="active">Home</a>
+  <a href="/">Home</a>
   <a href="/exports">Exports</a>
-  <a href="/imports">Imports</a>
+  <a href="/imports" class="active">Imports</a>
   <a href="/services">Services</a>
   <a href="/contact">Contact</a>
 </nav>
 
-<!-- ================= TRUST STRIP ================= -->
-<section class="trust-strip">
-  <div>❄️ Cold Chain Export India</div>
-  <div>🇦🇪 Gulf Market Focus</div>
-  <div>📦 Import to India Support</div>
-  <div>🤝 Family-Run Trade Ethics</div>
-</section>
-
-<!-- ================= ABOUT (TEXT + IMAGE) ================= -->
+<!-- ================= INTRO ================= -->
 <section class="about split-section">
   <div class="text-block">
-    <h2>A Trusted Trade Bridge Between India and the World</h2>
+    <h2>Helping Indian Businesses Import with Confidence</h2>
 
     <p>
-      Royal Exotic Farms is a family-operated import–export firm based in India,
-      focused on <strong>export from India to Gulf countries</strong> and
-      <strong>import to India</strong> for entrepreneurs and growing businesses.
+      Royal Exotic Farms makes <strong>import to India</strong> structured,
+      compliant, and predictable for entrepreneurs.
     </p>
 
     <p>
-      With deep expertise in cold-chain logistics, agricultural exports,
-      and international trade compliance, we help Gulf buyers receive
-      <strong>fresh, quality-assured Indian produce</strong>, while enabling
-      Indian businesses to confidently <strong>import from global markets</strong>.
+      We support imports from <strong>China and global markets</strong>
+      with clear cost, duty, and documentation guidance.
     </p>
   </div>
 
   <div class="image-block">
-    <!-- PLACEHOLDER: Indian farm / harvest / cold-chain origin -->
-    <img src="/static/images/placeholder-farm.jpg" alt="Indian farms and cold-chain origin">
+    <!-- PLACEHOLDER: Containers / port / import -->
+    <img src="/static/images/placeholder-import.jpg" alt="Import to India logistics">
   </div>
 </section>
 
-<!-- ================= EXPORTS (IMAGE-ASSISTED) ================= -->
+<!-- ================= WHAT WE HELP IMPORT ================= -->
 <section class="services">
-  <h2>Export from India to Gulf Countries</h2>
+  <h2>What We Help You Import</h2>
 
   <div class="service-grid">
 
     <div class="service-card">
-      <img src="/static/images/placeholder-coldchain.jpg" alt="Cold chain export India">
-      <h3>❄️ Cold Chain Export India</h3>
-      <p>
-        Reefer container exports ensuring freshness and shelf life
-        from Indian farms to Gulf ports.
-      </p>
+      <img src="/static/images/placeholder-china.jpg" alt="China imports">
+      <h3>🏭 Products from China</h3>
+      <p>Machinery, components, and consumer goods.</p>
     </div>
 
     <div class="service-card">
-      <img src="/static/images/placeholder-banana.jpg" alt="Banana export to Gulf">
-      <h3>🍌 Banana & Fresh Produce Export</h3>
-      <p>
-        Agricultural exports aligned with Gulf quality,
-        phytosanitary, and compliance standards.
-      </p>
+      <img src="/static/images/placeholder-commercial.jpg" alt="Commercial goods">
+      <h3>📦 Commercial & Trade Goods</h3>
+      <p>Legally importable goods for resale or manufacturing.</p>
     </div>
 
     <div class="service-card">
-      <img src="/static/images/placeholder-docs.jpg" alt="Export documentation">
-      <h3>📄 Gulf Documentation</h3>
-      <p>
-        APEDA, FSSAI, customs clearance, port handling,
-        and destination-specific documentation support.
-      </p>
+      <img src="/static/images/placeholder-docs.jpg" alt="Import documentation">
+      <h3>📑 Documentation-Critical Imports</h3>
+      <p>HS code, declarations, and compliance-heavy products.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= IMPORTS (IMAGE-ASSISTED) ================= -->
-<section class="services alt">
-  <h2>Import to India for Smart Businesses</h2>
+<!-- ================= SUPPORT PROCESS ================= -->
+<section class="about alt split-section">
+  <div class="image-block">
+    <!-- PLACEHOLDER: Customs / paperwork -->
+    <img src="/static/images/placeholder-customs.jpg" alt="Customs and compliance">
+  </div>
+
+  <div class="text-block">
+    <h2>How We Support Indian Importers</h2>
+
+    <ul class="process-list">
+      <li><strong>Product Understanding</strong></li>
+      <li><strong>HS Code Guidance</strong></li>
+      <li><strong>Landed Cost Estimation</strong></li>
+      <li><strong>Documentation Support</strong></li>
+      <li><strong>Customs Coordination</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section class="services">
+  <h2>Why Indian Entrepreneurs Trust Us</h2>
 
   <div class="service-grid">
 
     <div class="service-card">
-      <img src="/static/images/placeholder-import.jpg" alt="Import to India">
-      <h3>📦 Import from China & Global Markets</h3>
-      <p>
-        Reliable sourcing support for Indian entrepreneurs
-        importing goods from international suppliers.
-      </p>
+      <h3>🧠 No False Promises</h3>
+      <p>Only lawful, sustainable import guidance.</p>
     </div>
 
     <div class="service-card">
-      <img src="/static/images/placeholder-duty.jpg" alt="Customs duty guidance">
-      <h3>📑 Customs & Duty Guidance</h3>
-      <p>
-        HS code classification, landed cost estimation,
-        and compliance handled professionally.
-      </p>
+      <h3>📊 Cost Clarity</h3>
+      <p>Transparent duty, GST, and freight planning.</p>
     </div>
 
     <div class="service-card">
-      <img src="/static/images/placeholder-logistics.jpg" alt="Trade coordination">
-      <h3>🤝 End-to-End Coordination</h3>
-      <p>
-        One-point coordination from supplier to Indian delivery
-        with transparency and cost clarity.
-      </p>
+      <h3>🤝 Long-Term Approach</h3>
+      <p>Built for growth, not shortcuts.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= STATS ================= -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-value">Cold Chain</span>
-      <span class="stat-label">Export Focus</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-value">Gulf</span>
-      <span class="stat-label">Primary Markets</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-value">Import + Export</span>
-      <span class="stat-label">Trade Expertise</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-value">Family-Run</span>
-      <span class="stat-label">Business Model</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CTA (VISUAL READY) ================= -->
+<!-- ================= CTA ================= -->
 <section class="cta-final">
-  <div class="cta-inner">
-    <h2>Ready to Export from India or Import to India?</h2>
-    <p>
-      We build long-term trade relationships based on trust,
-      compliance, and clear communication.
-    </p>
-    <button class="cta-btn" onclick="openModal('quoteModal')">
-      Request a Trade Quote
-    </button>
-  </div>
+  <h2>Planning to Import into India?</h2>
+  <p>We guide you step by step — honestly and professionally.</p>
+
+  <button class="cta-btn" onclick="openModal('importQuoteModal')">
+    Request Import Guidance
+  </button>
 </section>
 
-<!-- ================= QUOTE MODAL ================= -->
-<div class="modal" id="quoteModal">
+<!-- ================= IMPORT MODAL ================= -->
+<div class="modal" id="importQuoteModal">
   <div class="modal-content">
-    <span onclick="closeModal('quoteModal')" class="modal-close">&times;</span>
+    <span class="modal-close" onclick="closeModal('importQuoteModal')">&times;</span>
 
-    <h3>Trade Quote Request</h3>
+    <h3>Import Assistance Request</h3>
 
     <form action="/submit-form" method="POST">
-      <input type="hidden" name="form_type" value="Quote Request">
+      <input type="hidden" name="form_type" value="Import Assistance">
 
-      <label>Trade Type</label>
-      <select name="type" required>
-        <option value="Export">Export from India</option>
-        <option value="Import">Import to India</option>
-      </select>
-
-      <label>Product / Commodity</label>
+      <label>Product</label>
       <input type="text" name="product" required>
 
-      <label>Quantity / Volume</label>
+      <label>Country of Origin</label>
+      <input type="text" name="origin" required>
+
+      <label>Estimated Quantity / Value</label>
       <input type="text" name="quantity" required>
 
       <label>Your Name</label>
@@ -311,12 +262,6 @@
 
       <label>Email</label>
       <input type="email" name="email" required>
-
-      <label>Route</label>
-      <input type="text" name="route" placeholder="India → UAE" required>
-
-      <label>Additional Details</label>
-      <textarea name="message" rows="3"></textarea>
 
       <button type="submit" class="cta-btn">Submit Request</button>
     </form>
@@ -326,17 +271,12 @@
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="trust-badges">
-    <img src="/static/images/apeda-badge.png" alt="APEDA">
-    <img src="/static/images/fssai-badge.png" alt="FSSAI">
-    <img src="/static/images/iec-badge.png" alt="IEC">
+    <img src="/static/images/iec-badge.png">
+    <img src="/static/images/fssai-badge.png">
   </div>
 
-  <p>© 2024 Royal Exotic Farms. All Rights Reserved.</p>
-  <a href="/privacy">Privacy Policy</a> |
-  <a href="/terms">Terms</a> |
-  <a href="/disclaimer">Disclaimer</a>
+  <p>© 2024 Royal Exotic Farms. Import to India Guidance.</p>
 </footer>
-
 <!-- ================= SCRIPTS ================= -->
 <script src="/static/script.js"></script>
 
