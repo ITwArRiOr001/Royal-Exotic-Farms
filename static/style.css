@@ -115,6 +115,11 @@ p {
     text-align: center;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    padding: 70px 18px 60px;
+  }
+}
 /* ===================== HAMBURGER ===================== */
 .hamburger {
   position: absolute;
