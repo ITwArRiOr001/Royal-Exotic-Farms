@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Trade Services | Export from India & Import to India | Royal Exotic Farms</title>
+  <meta name="description" content="Royal Exotic Farms provides professional export from India and import to India services including cold-chain logistics, Gulf trade support, China sourcing, and compliance-driven processes.">
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+
+<!-- ================= FLASH ================= -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+  {% for category, message in messages %}
+  <div class="flash-message {{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu">
+  <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/exports">Exports</a></li>
+    <li><a href="/imports">Imports</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+<div class="overlay" onclick="toggleMobileMenu()"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="hero small-hero">
+  <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Our Trade Services</h1>
+    <p class="hero-subtitle">
+      Structured. Compliant. Relationship-Driven.<br>
+      Export & Import Services Built for Long-Term Trade
+    </p>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <a href="/">Home</a>
+  <a href="/exports">Exports</a>
+  <a href="/imports">Imports</a>
+  <a href="/services" class="active">Services</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<!-- ================= INTRO ================= -->
+<section class="about">
+  <h2>End-to-End Trade Services, Without the Confusion</h2>
+
+  <p>
+    International trade succeeds when processes are clear, risks are understood,
+    and compliance is respected. Royal Exotic Farms offers carefully structured
+    services for businesses involved in <strong>export from India</strong> and
+    <strong>import to India</strong>.
+  </p>
+
+  <p>
+    We do not operate as brokers chasing volume — we operate as a
+    <strong>trade partner</strong>, guiding clients through each step with clarity
+    and accountability.
+  </p>
+</section>
+
+<!-- ================= EXPORT SERVICES ================= -->
+<section class="services">
+  <h2>Export Services (India → Gulf & Select Global Markets)</h2>
+
+  <p class="section-intro">
+    Our core expertise lies in exporting Indian products — especially
+    cold-chain and agri-commodities — to high-demand Gulf markets.
+  </p>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>❄️ Cold-Chain Export Management</h3>
+      <p>
+        End-to-end handling of temperature-sensitive exports including
+        bananas, fruits, and perishables using reefer containers and
+        controlled logistics.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📄 Export Documentation & Compliance</h3>
+      <p>
+        IEC, APEDA, FSSAI alignment, phytosanitary certificates,
+        invoices, packing lists, and shipping documentation handled correctly.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>🚢 Gulf-Focused Shipping Coordination</h3>
+      <p>
+        Trade routes into UAE, Saudi Arabia, Qatar, Oman, and Bahrain
+        with awareness of port procedures and buyer expectations.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="process-box">
+    <h3>Our Export Process</h3>
+    <ol>
+      <li>Product & quality readiness assessment</li>
+      <li>Cold-chain & packaging preparation</li>
+      <li>Documentation & regulatory checks</li>
+      <li>Shipping & tracking coordination</li>
+      <li>Support through destination clearance</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= IMPORT SERVICES ================= -->
+<section class="services alt">
+  <h2>Import Services (China & Global Markets → India)</h2>
+
+  <p class="section-intro">
+    We assist Indian entrepreneurs and businesses with compliant,
+    well-planned imports — especially from China and other sourcing markets.
+  </p>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>🔍 Import Feasibility Guidance</h3>
+      <p>
+        Understanding whether a product can be imported legally,
+        documentation required, and risks involved — before money is spent.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📊 Landed Cost & Duty Clarity</h3>
+      <p>
+        HS code guidance, duty structure awareness, GST impact,
+        and realistic landed cost estimation.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📦 Customs & Clearance Support</h3>
+      <p>
+        Coordinating paperwork and clearance processes to avoid
+        delays, penalties, and compliance issues.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="process-box">
+    <h3>Our Import Process</h3>
+    <ol>
+      <li>Product & sourcing discussion</li>
+      <li>HS classification & duty guidance</li>
+      <li>Shipping & documentation preparation</li>
+      <li>Indian customs coordination</li>
+      <li>Post-clearance trade guidance</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="about">
+  <h2>Why Businesses Choose Royal Exotic Farms</h2>
+
+  <ul class="trust-list">
+    <li><strong>Compliance-First Approach</strong> — No shortcuts, no risky promises</li>
+    <li><strong>Gulf Trade Understanding</strong> — Culture, expectations, and reliability matter</li>
+    <li><strong>Entrepreneur-Friendly Guidance</strong> — Especially for first-time importers</li>
+    <li><strong>Family-Operated Ethics</strong> — Long-term relationships over quick margins</li>
+  </ul>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-final">
+  <h2>Let’s Discuss Your Trade Requirements</h2>
+  <p>
+    Whether you are planning exports from India or imports into India,
+    we’ll guide you honestly and professionally.
+  </p>
+
+  <button class="cta-btn" onclick="openModal('serviceConsultModal')">
+    Request Consultation
+  </button>
+</section>
+
+<!-- ================= CONSULT MODAL ================= -->
+<div class="modal" id="serviceConsultModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('serviceConsultModal')">&times;</span>
+
+    <h3>Trade Consultation Request</h3>
+
+    <form action="/submit-form" method="POST">
+      <input type="hidden" name="form_type" value="Service Consultation">
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>I Need Help With</label>
+      <select name="type" required>
+        <option value="Export">Export from India</option>
+        <option value="Import">Import to India</option>
+        <option value="Both">Export & Import</option>
+        <option value="Compliance">Compliance & Documentation</option>
+      </select>
+
+      <label>Brief Description</label>
+      <textarea name="message" rows="3" placeholder="Your trade idea or concern"></textarea>
+
+      <button type="submit" class="cta-btn">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="trust-badges">
+    <img src="/static/images/apeda-badge.png" alt="APEDA">
+    <img src="/static/images/fssai-badge.png" alt="FSSAI">
+    <img src="/static/images/iec-badge.png" alt="IEC">
+  </div>
+
+  <p>© 2024 Royal Exotic Farms. Professional Trade Services.</p>
+</footer>
+
+<script src="/static/script.js"></script>
+
+<script>
+setTimeout(() => {
+  document.querySelectorAll('.flash-message').forEach(el => {
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 400);
+  });
+}, 3000);
+</script>
+
+</body>
+</html>
