@@ -31,7 +31,7 @@
 
 <body>
 
-<!-- ================= FLASH MESSAGES ================= -->
+<!-- ================= FLASH ================= -->
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
 <div class="flash-container">
@@ -55,15 +55,16 @@
 </div>
 <div class="overlay" onclick="toggleMobileMenu()"></div>
 
-<!-- ================= HEADER ================= -->
-<header class="hero small-hero">
+<!-- ================= HERO ================= -->
+<header class="hero small-hero contact-hero">
+  <!-- Background image via CSS -->
   <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
 
   <div class="hero-content">
     <h1 class="hero-title">Contact Royal Exotic Farms</h1>
     <p class="hero-subtitle">
       Direct. Professional. Confidential.<br>
-      Trade conversations handled with clarity and respect.
+      Trade conversations handled with respect.
     </p>
   </div>
 </header>
@@ -78,19 +79,26 @@
 </nav>
 
 <!-- ================= INTRO ================= -->
-<section class="about">
-  <h2>Let’s Discuss Your Trade Requirements</h2>
+<section class="about split-section">
+  <div class="text-block">
+    <h2>Let’s Discuss Your Trade Requirements</h2>
 
-  <p>
-    Whether you are a Gulf buyer seeking reliable Indian supply,
-    or an Indian entrepreneur planning imports — we welcome
-    serious, transparent trade discussions.
-  </p>
+    <p>
+      Whether you are a Gulf buyer seeking reliable Indian supply
+      or an Indian entrepreneur planning imports —
+      we welcome serious trade discussions.
+    </p>
 
-  <p>
-    All inquiries are handled personally and responded to
-    within <strong>24 hours</strong>.
-  </p>
+    <p>
+      All inquiries are handled personally
+      and responded to within <strong>24 hours</strong>.
+    </p>
+  </div>
+
+  <div class="image-block">
+    <!-- PLACEHOLDER: Business meeting / port / handshake -->
+    <img src="/static/images/placeholder-contact.jpg" alt="Trade discussion">
+  </div>
 </section>
 
 <!-- ================= CONTACT CHANNELS ================= -->
@@ -101,18 +109,14 @@
       <div class="channel-icon">📧</div>
       <h3>Email</h3>
       <p>Business & Trade Inquiries</p>
-      <a href="mailto:royalexoticfarms@gmail.com">
-        royalexoticfarms@gmail.com
-      </a>
+      <a href="mailto:royalexoticfarms@gmail.com">royalexoticfarms@gmail.com</a>
     </div>
 
     <div class="channel-card">
       <div class="channel-icon">💬</div>
       <h3>WhatsApp</h3>
       <p>Fast response for trade discussions</p>
-      <a href="https://wa.me/919511757301" target="_blank">
-        +91 95117 57301
-      </a>
+      <a href="https://wa.me/919511757301" target="_blank">+91 95117 57301</a>
     </div>
 
     <div class="channel-card">
@@ -121,9 +125,6 @@
       <p>
         <strong>Mumbai Port Region</strong><br>
         Maharashtra, India
-      </p>
-      <p style="font-size:14px; color:#777;">
-        Strategically located for export & import logistics
       </p>
     </div>
 
@@ -135,14 +136,12 @@
   <h3>Strategic Trade Location</h3>
 
   <div class="map-card">
-    <h4>Mumbai Port Trust (India)</h4>
     <iframe
       src="https://www.google.com/maps?q=Mumbai+Port+Trust&output=embed"
       width="100%"
       height="350"
       style="border:0;"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
+      loading="lazy">
     </iframe>
   </div>
 </section>
@@ -152,10 +151,7 @@
   <div class="form-container">
 
     <h3>Send Us a Message</h3>
-    <p>
-      Share your requirement briefly.
-      A trade specialist will respond personally.
-    </p>
+    <p>A trade specialist will respond personally.</p>
 
     <form action="/submit-form" method="POST">
       <input type="hidden" name="form_type" value="Contact Message">
@@ -174,21 +170,13 @@
 
       <div class="form-group full">
         <label>Your Message *</label>
-        <textarea
-          name="message"
-          rows="6"
-          required
-          placeholder="Export from India, import to India, Gulf trade, sourcing, or general inquiry">
-        </textarea>
+        <textarea name="message" rows="6" required></textarea>
       </div>
 
-      <button type="submit" class="cta-btn">
-        Send Message
-      </button>
+      <button type="submit" class="cta-btn">Send Message</button>
 
       <p class="form-note">
-        🔒 Your information is treated confidentially and used only
-        to respond to your inquiry.
+        🔒 Your information is treated confidentially.
       </p>
     </form>
 
@@ -198,9 +186,9 @@
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="trust-badges">
-    <img src="/static/images/apeda-badge.png" alt="APEDA">
-    <img src="/static/images/fssai-badge.png" alt="FSSAI">
-    <img src="/static/images/iec-badge.png" alt="IEC">
+    <img src="/static/images/apeda-badge.png">
+    <img src="/static/images/fssai-badge.png">
+    <img src="/static/images/iec-badge.png">
   </div>
 
   <p>© 2024 Royal Exotic Farms. Trusted Import & Export Partner.</p>
