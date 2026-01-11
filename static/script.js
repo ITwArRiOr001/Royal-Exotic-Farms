@@ -1,23 +1,31 @@
-/* ---------------------------   SCROLL REVEAL (Section)--------------------------- */
+/* ===============SCROLL REVEAL (Optimized)============= */
 function initScrollReveal() {
   const sections = document.querySelectorAll("section");
+  let ticking = false;
 
-  const reveal = () => {
+  function reveal() {
     sections.forEach(sec => {
       const rect = sec.getBoundingClientRect();
       if (rect.top < window.innerHeight - 120) {
         sec.classList.add("visible");
       }
     });
-  };
+    ticking = false;
+  }
 
-  window.addEventListener("scroll", reveal, { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(reveal);
+      ticking = true;
+    }
+  }, { passive: true });
+
   reveal(); // initial trigger
 }
 
-/* ---------------------------
-   MODALS (Open / Close)
---------------------------- */
+/* =========================================================
+   MODALS
+   ========================================================= */
 function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -34,7 +42,6 @@ function closeModal(id) {
   document.body.style.overflow = "";
 }
 
-/* Close modal on outside click + ESC */
 function initModalSafety() {
   document.querySelectorAll(".modal").forEach(modal => {
     modal.addEventListener("click", e => {
@@ -49,35 +56,35 @@ function initModalSafety() {
   });
 }
 
-/* ---------------------------
-   MOBILE MENU (SAFE & ALIGNED)
---------------------------- */
+/* =========================================================
+   MOBILE MENU (BODY LOCKED)
+   ========================================================= */
 function toggleMobileMenu() {
   const menu = document.querySelector(".mobile-menu");
   const overlay = document.querySelector(".overlay");
-  const hamburger = document.querySelector(".hamburger");
 
   if (!menu || !overlay) return;
 
-  menu.classList.toggle("open");
+  const isOpen = menu.classList.toggle("open");
   overlay.classList.toggle("open");
-  hamburger?.classList.toggle("open");
+
+  document.body.style.overflow = isOpen ? "hidden" : "";
 }
 
-/* ---------------------------
-   ACCORDION (FAQ)
---------------------------- */
-function initAccordion() {
-  document.querySelectorAll(".accordion-button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.parentElement.classList.toggle("active");
+/* =========================================================
+   FAQ ACCORDION (MATCHES .faq-item)
+   ========================================================= */
+function initFAQ() {
+  document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("active");
     });
   });
 }
 
-/* ---------------------------
-   PRODUCT FILTERS (SAFE IF PAGE EXISTS)
---------------------------- */
+/* =========================================================
+   PRODUCT FILTERS (SAFE)
+   ========================================================= */
 function normalize(text) {
   return (text || "").toLowerCase().trim();
 }
@@ -104,9 +111,9 @@ function applyProductFilters() {
   });
 }
 
-/* ---------------------------
-   FLASH MESSAGE AUTO DISMISS
---------------------------- */
+/* =========================================================
+   FLASH AUTO DISMISS
+   ========================================================= */
 function initFlashDismiss() {
   setTimeout(() => {
     document.querySelectorAll(".flash-message").forEach(msg => {
@@ -118,21 +125,51 @@ function initFlashDismiss() {
 }
 
 /* =========================================================
-   INIT ON LOAD – SAFE, ORDERED, GUARDED
+   SMOOTH ANCHOR SCROLL
+   ========================================================= */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
+/* =========================================================
+   RESPONSIVE SAFETY
+   ========================================================= */
+function initResizeSafety() {
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      document.querySelector(".mobile-menu")?.classList.remove("open");
+      document.querySelector(".overlay")?.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  });
+}
+
+/* =========================================================
+   INIT
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* 🔒 FORCE SAFE UI STATE ON LOAD */
+  /* Force safe default UI state */
   document.querySelector(".mobile-menu")?.classList.remove("open");
   document.querySelector(".overlay")?.classList.remove("open");
+  document.body.style.overflow = "";
 
-  /* Core initializers */
   initScrollReveal();
   initModalSafety();
-  initAccordion();
+  initFAQ();
   initFlashDismiss();
+  initSmoothScroll();
+  initResizeSafety();
 
-  /* Product filters (safe if page doesn’t have them) */
+  /* Filters (safe) */
   document.getElementById("category-filter")
     ?.addEventListener("change", applyProductFilters);
 
@@ -141,14 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyProductFilters();
 
-  /* Mobile menu close on navigation */
+  /* Close mobile menu on link click */
   document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      const menu = document.querySelector(".mobile-menu");
-      if (menu?.classList.contains("open")) {
-        toggleMobileMenu();
-      }
-    });
+    link.addEventListener("click", toggleMobileMenu);
   });
 
   document.querySelector(".overlay")
