@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Exotic Farms | Cold Chain Export & Import Experts</title>
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+
+<!-- ================= FLASH MESSAGES ================= -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+  {% for category, message in messages %}
+  <div class="flash-message {{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu">
+  <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/inquiry">Trade Inquiry</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+<div class="overlay" onclick="toggleMobileMenu()"></div>
+
+<!-- ================= HEADER / HERO ================= -->
+<header class="hero">
+  <div class="hamburger" onclick="toggleMobileMenu()">
+    ☰
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Royal Exotic Farms</h1>
+    <p class="hero-subtitle">
+      Premium Cold-Chain Exports from India to the Gulf <br />
+      Smart Imports for Indian Entrepreneurs
+    </p>
+
+    <div class="hero-cta">
+      <button class="cta-btn" onclick="openModal('quoteModal')">Request Trade Quote</button>
+      <a href="/inquiry" class="cta-btn secondary">Trade Inquiry</a>
+    </div>
+  </div>
+
+  <div id="google_translate_element"></div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <a href="/" class="active">Home</a>
+  <a href="/services">Services</a>
+  <a href="/products">Products</a>
+  <a href="/inquiry">Trade Inquiry</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust-strip">
+  <div>🇦🇪 Gulf Market Focus</div>
+  <div>❄️ Cold Chain Specialists</div>
+  <div>📦 Export & Import Support</div>
+  <div>🤝 Family-Owned Trade Ethics</div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about">
+  <h2>Trade Built on Trust, Quality & Experience</h2>
+
+  <p>
+    Royal Exotic Farms is a family-driven international trade firm focused on
+    exporting premium Indian agricultural and cold-chain products to
+    high-value Gulf markets such as UAE, Saudi Arabia, Qatar, and Oman.
+  </p>
+
+  <p>
+    Alongside exports, we empower Indian entrepreneurs by sourcing reliable,
+    cost-effective products from China and other global markets — managing
+    documentation, customs, and logistics end-to-end.
+  </p>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services">
+  <h2>What We Do</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>❄️ Cold Chain Exports</h3>
+      <p>
+        Temperature-controlled export of bananas, fruits, vegetables,
+        and perishables — ensuring freshness from Indian farms to Gulf shelves.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>🌍 Gulf Market Supply</h3>
+      <p>
+        Focused trade routes into UAE, KSA, and GCC countries where quality,
+        consistency, and trust command premium pricing.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📦 Imports into India</h3>
+      <p>
+        Helping Indian businesses import products from China and global suppliers
+        with complete compliance and cost clarity.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📑 Compliance & Documentation</h3>
+      <p>
+        IEC, APEDA, FSSAI, customs clearance, HS codes, and regulatory guidance —
+        handled professionally.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-value">20+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">GCC</span>
+      <span class="stat-label">Primary Markets</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">Cold Chain</span>
+      <span class="stat-label">Core Expertise</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">End-to-End</span>
+      <span class="stat-label">Trade Support</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery">
+  <h2>Trade in Action</h2>
+
+  <div class="image-grid">
+    <img src="/static/images/bananas-loading.jpg" alt="Banana export loading" />
+    <img src="/static/images/reefer-truck.jpg" alt="Cold chain logistics" />
+    <img src="/static/images/bananas-cold.jpg" alt="Cold storage quality check" />
+    <img src="/static/images/loadreefer.jpg" alt="Reefer container loading" />
+    <img src="/static/images/gulf-port.jpg" alt="Gulf port delivery" />
+    <img src="/static/images/china-factory.jpg" alt="China sourcing factory" />
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-final">
+  <h2>Let’s Build a Profitable Trade Relationship</h2>
+  <p>
+    Whether you’re a Gulf buyer seeking reliable Indian supply,
+    or an Indian entrepreneur planning imports — we guide you transparently.
+  </p>
+  <button class="cta-btn" onclick="openModal('quoteModal')">Request a Quote</button>
+</section>
+
+<!-- ================= QUOTE MODAL ================= -->
+<div class="modal" id="quoteModal">
+  <div class="modal-content">
+    <span onclick="closeModal('quoteModal')" class="modal-close">&times;</span>
+
+    <h3>Trade Quote Request</h3>
+
+    <form action="/submit-form" method="POST">
+      <input type="hidden" name="form_type" value="Quote Request" />
+
+      <label>Trade Type</label>
+      <select name="type" required>
+        <option value="Export">Export (India → Gulf / World)</option>
+        <option value="Import">Import (World → India)</option>
+      </select>
+
+      <label>Product / Commodity</label>
+      <input type="text" name="product" required />
+
+      <label>Quantity / Volume</label>
+      <input type="text" name="quantity" required />
+
+      <label>Your Name</label>
+      <input type="text" name="name" required />
+
+      <label>Email</label>
+      <input type="email" name="email" required />
+
+      <label>Route</label>
+      <input type="text" name="route" placeholder="India → UAE" required />
+
+      <label>Additional Details</label>
+      <textarea name="message" rows="3"></textarea>
+
+      <button type="submit" class="cta-btn">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="trust-badges">
+    <img src="/static/images/apeda-badge.png" alt="APEDA" />
+    <img src="/static/images/fssai-badge.png" alt="FSSAI" />
+    <img src="/static/images/iec-badge.png" alt="IEC" />
+  </div>
+
+  <p>© 2026 Royal Exotic Farms. All Rights Reserved.</p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="/static/script.js"></script>
+
+<script>
+setTimeout(() => {
+  document.querySelectorAll('.flash-message').forEach(el => {
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 400);
+  });
+}, 3000);
+</script>
+
+</body>
+</html>
 
