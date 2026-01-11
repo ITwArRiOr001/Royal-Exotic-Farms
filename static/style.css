@@ -1,0 +1,357 @@
+/* ===============================
+   GLOBAL RESET & BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0b1f33;       /* Royal Navy */
+  --secondary: #c9a24d;     /* Soft Gold */
+  --accent: #1f7a5a;        /* Trade Green */
+  --light-bg: #f7f9fb;
+  --dark-text: #1c1c1c;
+  --muted-text: #6b7280;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--white);
+  color: var(--dark-text);
+  line-height: 1.6;
+}
+
+/* ===============================
+   FLASH MESSAGES
+================================ */
+.flash-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.flash-message {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+}
+
+/* ===============================
+   HEADER / HERO
+================================ */
+header.hero {
+  background: linear-gradient(
+      rgba(11, 31, 51, 0.75),
+      rgba(11, 31, 51, 0.75)
+    ),
+    url("/static/images/gulf-port.jpg") center/cover no-repeat;
+  padding: 100px 20px 80px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+header.small-hero {
+  padding: 80px 20px 60px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.hero-subtitle {
+  margin-top: 15px;
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #e5e7eb;
+}
+
+/* ===============================
+   NAVIGATION
+================================ */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 16px 20px;
+  background: var(--white);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark-text);
+  font-weight: 500;
+  font-size: 15px;
+  padding-bottom: 4px;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--primary);
+  border-bottom: 2px solid var(--secondary);
+}
+
+/* ===============================
+   MOBILE MENU
+================================ */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 260px;
+  height: 100%;
+  background: var(--primary);
+  padding: 30px 20px;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu li {
+  margin-bottom: 20px;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+section {
+  padding: 70px 20px;
+}
+
+section h2 {
+  text-align: center;
+  font-size: clamp(26px, 4vw, 36px);
+  margin-bottom: 25px;
+  color: var(--primary);
+}
+
+section p {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: var(--muted-text);
+  font-size: 16px;
+}
+
+/* ===============================
+   TRUST STRIP
+================================ */
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 15px;
+  background: var(--light-bg);
+  padding: 30px 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===============================
+   SERVICE CARDS
+================================ */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.service-card p {
+  text-align: left;
+  color: var(--muted-text);
+}
+
+/* ===============================
+   STATS
+================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--muted-text);
+}
+
+/* ===============================
+   CTA BUTTONS
+================================ */
+.cta-btn {
+  background: var(--secondary);
+  color: #000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #b8913f;
+}
+
+.cta-final {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+}
+
+.cta-final h2 {
+  color: #fff;
+}
+
+.cta-final p {
+  color: #d1d5db;
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.modal-close {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+  background: #0b1f33;
+  color: #d1d5db;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.trust-badges img {
+  height: 45px;
+  margin: 10px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+}
