@@ -1,1 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Export from India to Gulf | Cold Chain & Banana Export | Royal Exotic Farms</title>
+  <meta name="description" content="Royal Exotic Farms specializes in export from India to Gulf countries including UAE and Saudi Arabia. Cold chain exports, banana export, agri commodities, and compliant trade solutions.">
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+
+<!-- ================= FLASH ================= -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+  {% for category, message in messages %}
+  <div class="flash-message {{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu">
+  <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/exports">Exports</a></li>
+    <li><a href="/imports">Imports</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+<div class="overlay" onclick="toggleMobileMenu()"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="hero small-hero">
+  <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Export from India to Gulf Countries</h1>
+    <p class="hero-subtitle">
+      Cold Chain • Agri Commodities • Banana Export<br>
+      Trusted Indian Export Partner for Gulf Markets
+    </p>
+
+    <div class="hero-cta">
+      <button class="cta-btn" onclick="openModal('exportQuoteModal')">
+        Request Export Quote
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <a href="/">Home</a>
+  <a href="/exports" class="active">Exports</a>
+  <a href="/imports">Imports</a>
+  <a href="/services">Services</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<!-- ================= INTRO ================= -->
+<section class="about">
+  <h2>Reliable Export from India to the Gulf</h2>
+
+  <p>
+    Royal Exotic Farms is a family-run export firm specializing in
+    <strong>export from India to Gulf countries</strong> including
+    UAE, Saudi Arabia, Qatar, Oman, and Bahrain.
+  </p>
+
+  <p>
+    We focus on high-quality Indian agricultural and cold-chain products
+    where freshness, consistency, and compliance command premium value
+    in Gulf markets.
+  </p>
+</section>
+
+<!-- ================= WHAT WE EXPORT ================= -->
+<section class="services">
+  <h2>What We Export</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>🍌 Banana Export from India</h3>
+      <p>
+        Specialized banana export to UAE and Saudi Arabia using
+        temperature-controlled reefer containers to preserve shelf life
+        and quality.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>❄️ Cold Chain Agricultural Exports</h3>
+      <p>
+        Export of fruits and perishables requiring cold-chain handling
+        from farm sourcing to Gulf port delivery.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>🌾 Dry & Packaged Commodities</h3>
+      <p>
+        Select dry and packaged agri products compliant with Gulf
+        food safety and import regulations.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= HOW WE WORK ================= -->
+<section class="about alt">
+  <h2>Our Export Process</h2>
+
+  <ul class="process-list">
+    <li><strong>Product Sourcing:</strong> Verified farms and suppliers in India</li>
+    <li><strong>Quality Inspection:</strong> Pre-dispatch checks and grading</li>
+    <li><strong>Cold Chain Handling:</strong> Reefer containers & monitoring</li>
+    <li><strong>Documentation:</strong> APEDA, FSSAI, phytosanitary, customs</li>
+    <li><strong>Gulf Delivery:</strong> Port coordination and buyer handover</li>
+  </ul>
+</section>
+
+<!-- ================= WHY GULF CLIENTS TRUST US ================= -->
+<section class="services">
+  <h2>Why Gulf Buyers Choose Royal Exotic Farms</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>🤝 Relationship-First Trade</h3>
+      <p>
+        We believe Gulf trade is built on long-term relationships,
+        transparency, and consistent supply — not one-time deals.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📄 Compliance Without Risk</h3>
+      <p>
+        Strict adherence to export documentation and destination
+        requirements to avoid port delays or rejections.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📦 End-to-End Responsibility</h3>
+      <p>
+        From Indian origin to Gulf destination — one accountable export partner.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-final">
+  <h2>Looking to Import from India into the Gulf?</h2>
+  <p>
+    If you value consistency, compliance, and honest communication —
+    we are ready to work with you.
+  </p>
+
+  <button class="cta-btn" onclick="openModal('exportQuoteModal')">
+    Request Export Quote
+  </button>
+</section>
+
+<!-- ================= EXPORT QUOTE MODAL ================= -->
+<div class="modal" id="exportQuoteModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('exportQuoteModal')">&times;</span>
+
+    <h3>Export Quote Request</h3>
+
+    <form action="/submit-form" method="POST">
+      <input type="hidden" name="form_type" value="Export Quote">
+
+      <label>Product / Commodity</label>
+      <input type="text" name="product" placeholder="e.g. Bananas" required>
+
+      <label>Quantity / Volume</label>
+      <input type="text" name="quantity" placeholder="e.g. 1 x 40ft reefer" required>
+
+      <label>Origin (India)</label>
+      <input type="text" name="origin" placeholder="e.g. Maharashtra" required>
+
+      <label>Destination (Gulf)</label>
+      <input type="text" name="destination" placeholder="e.g. Dubai, UAE" required>
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Additional Requirements</label>
+      <textarea name="message" rows="3" placeholder="Cold chain, delivery timeline, etc."></textarea>
+
+      <button type="submit" class="cta-btn">Submit Export Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="trust-badges">
+    <img src="/static/images/apeda-badge.png" alt="APEDA">
+    <img src="/static/images/fssai-badge.png" alt="FSSAI">
+    <img src="/static/images/iec-badge.png" alt="IEC">
+  </div>
+
+  <p>© 2024 Royal Exotic Farms. Import from India Specialists.</p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="/static/script.js"></script>
+
+<script>
+setTimeout(() => {
+  document.querySelectorAll('.flash-message').forEach(el => {
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 400);
+  });
+}, 3000);
+</script>
+
+</body>
+</html>
 
