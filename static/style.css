@@ -1,44 +1,35 @@
 /* ==========================================================================
-   Royal Exotic Farms - Premium Family Trade Business CSS
-   Version: 2026 Elite Edition
-   Target: Gulf Importers + Indian Entrepreneurs
+   Royal Exotic Farms – Family Business Website
+   Final Elite Version • January 2026
+   Mobile-First • Premium • Trustworthy • Gulf + Indian Appeal
    ========================================================================== */
 
-/* ==========================================================================
-   1. ROOT VARIABLES - Color Palette & Typography
-   ========================================================================== */
 :root {
-  /* === Main Brand Colors === */
-  --color-primary:    #1a3c5e;      /* Deep navy - trust, professionalism */
-  --color-primary-dark: #102841;
-  --color-accent:     #c9a24a;      /* Warm gold - luxury, premium, Gulf appeal */
-  --color-accent-dark:#a68438;
-  --color-fresh:      #2e7d32;      /* Fresh green - agriculture, quality, growth */
-  --color-light:      #f8f9fa;
-  --color-white:      #ffffff;
-  --color-dark:       #111827;
-  --color-gray:       #4b5563;
-  --color-gray-light: #9ca3af;
+  /* === Core Brand Colors === */
+  --primary:     #0f2a4a;          /* Deep professional navy */
+  --primary-dark:#081c32;
+  --gold:        #d4af37;          /* Luxurious warm gold – very appreciated in GCC */
+  --gold-dark:   #b8962f;
+  --green-fresh: #1e6b24;          /* Fresh, agriculture, quality */
+  --bg:          #ffffff;
+  --bg-light:    #f9fafb;
+  --text:        #0f172a;
+  --text-light:  #475569;
+  --gray:        #64748b;
+  --border:      #e2e8f0;
 
-  /* === Semantic colors === */
-  --bg-main:          var(--color-white);
-  --text-main:        var(--color-dark);
-  --text-muted:       var(--color-gray);
-  --border-light:     #e5e7eb;
+  /* Typography */
+  --font-body:   'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading:'Playfair Display', Georgia, serif;
 
-  /* === Typography === */
-  --font-primary:     'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading:     'Playfair Display', serif;
-
-  /* === Shadows & Transitions === */
-  --shadow-sm:        0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-  --shadow-md:        0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-  --transition-base:  all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow:  all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Effects */
+  --shadow-soft: 0 6px 20px rgba(0,0,0,0.08);
+  --shadow-card: 0 10px 30px rgba(212,175,55,0.12);
+  --transition:  all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ==========================================================================
-   2. BASE & RESET
+   BASE & RESET
    ========================================================================== */
 * {
   margin: 0;
@@ -51,238 +42,268 @@ html {
 }
 
 body {
-  font-family: var(--font-primary);
-  color: var(--text-main);
-  background-color: var(--bg-main);
-  line-height: 1.6;
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.68;
+  font-size: 1.06rem;
   overflow-x: hidden;
 }
 
-/* Headings */
+/* Headings - much better mobile scaling */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  line-height: 1.2;
-  color: var(--color-primary);
+  line-height: 1.18;
+  color: var(--primary);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); font-weight: 700; }
-h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 1.4rem; }
-h3 { font-size: 1.9rem; margin-bottom: 1rem; }
+h1 { font-size: clamp(2.6rem, 8vw, 4.6rem); font-weight: 800; letter-spacing: -0.8px; }
+h2 { font-size: clamp(2rem, 6vw, 3.4rem); margin-bottom: 1.3rem; }
+h3 { font-size: clamp(1.65rem, 4.5vw, 2.1rem); margin-bottom: 1rem; }
 
 /* Links */
 a {
-  color: var(--color-accent);
+  color: var(--gold);
   text-decoration: none;
-  transition: var(--transition-base);
+  transition: var(--transition);
 }
 
-a:hover {
-  color: var(--color-accent-dark);
-}
+a:hover { color: var(--gold-dark); }
 
 /* ==========================================================================
-   3. LAYOUT & CONTAINERS
+   LAYOUT
    ========================================================================== */
 .container {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
-.section-padding {
-  padding: 7rem 0;
+.section {
+  padding: 5rem 0 4rem;
 }
 
-.section-padding-sm {
-  padding: 4.5rem 0;
+@media (min-width: 768px) {
+  .section { padding: 8rem 0 6rem; }
 }
 
+/* ==========================================================================
+   HERO – Fixed mobile disaster
+   ========================================================================== */
 .hero {
   position: relative;
-  min-height: 85vh;
-  background: linear-gradient(rgba(26, 60, 94, 0.78), rgba(26, 60, 94, 0.88)),
-              url('/static/images/hero-bg.jpg') center/cover no-repeat;
+  min-height: 70vh;
+  background: linear-gradient(rgba(15, 42, 74, 0.84), rgba(15, 42, 74, 0.92)),
+              url('/static/images/hero-bg.jpg') center/cover no-repeat fixed;
   color: white;
   display: flex;
   align-items: center;
+  text-align: center;
+  padding: 5rem 1rem 4rem;
 }
 
-/* Wave divider */
-.wave-divider {
-  position: relative;
-  height: 120px;
-  overflow: hidden;
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.wave-divider::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") bottom/cover;
+.hero-title {
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.6);
 }
 
-/* ==========================================================================
-   4. NAVIGATION
-   ========================================================================== */
-.main-nav {
-  position: sticky;
-  top: 0;
-  background: white;
-  box-shadow: var(--shadow-sm);
-  z-index: 1000;
-  padding: 1rem 0;
+.hero-subtitle {
+  font-size: clamp(1.3rem, 4vw, 1.65rem);
+  font-weight: 400;
+  opacity: 0.94;
+  max-width: 720px;
+  margin: 0 auto 2.2rem;
 }
 
-.main-nav a {
-  padding: 0.8rem 1.4rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  transition: var(--transition-base);
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--color-accent);
-  background: rgba(201, 162, 74, 0.08);
-  border-radius: 6px;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-  position: fixed;
-  inset: 0;
-  background: var(--color-primary);
-  color: white;
-  transform: translateX(100%);
-  transition: transform 0.5s ease;
-  z-index: 2000;
-}
-
-.mobile-menu.active {
-  transform: translateX(0);
+@media (min-width: 640px) {
+  .hero-cta { flex-direction: row; justify-content: center; }
 }
 
 /* ==========================================================================
-   5. BUTTONS & CTAs
+   BUTTONS – Premium feel
    ========================================================================== */
 .cta-btn {
-  display: inline-block;
-  padding: 1rem 2.2rem;
-  background: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.05rem 2.3rem;
+  background: var(--gold);
   color: white;
   font-weight: 600;
+  font-size: 1.05rem;
   border-radius: 50px;
-  transition: var(--transition-base);
-  box-shadow: 0 4px 14px rgba(201, 162, 74, 0.3);
+  box-shadow: 0 6px 22px rgba(212,175,55,0.3);
+  transition: var(--transition);
   border: none;
   cursor: pointer;
 }
 
 .cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(201, 162, 74, 0.4);
-  background: var(--color-accent-dark);
-}
-
-.cta-btn.primary {
-  background: var(--color-accent);
+  transform: translateY(-4px) scale(1.025);
+  box-shadow: 0 14px 32px rgba(212,175,55,0.42);
+  background: var(--gold-dark);
 }
 
 .cta-btn.secondary {
   background: transparent;
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
+  border: 2.5px solid var(--gold);
+  color: var(--gold);
 }
 
 .cta-btn.secondary:hover {
-  background: var(--color-accent);
+  background: var(--gold);
   color: white;
 }
 
 /* ==========================================================================
-   6. CARDS & GRIDS
+   CARDS & GRIDS
    ========================================================================== */
-.service-grid,
-.channels-grid,
-.trust-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.2rem;
+  gap: 2rem;
   margin: 3rem 0;
 }
 
-.service-card,
-.channel-card,
-.trust-item {
+.card {
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-slow);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  border: 1px solid rgba(212,175,55,0.12);
 }
 
-.service-card:hover,
-.channel-card:hover,
-.trust-item:hover {
+.card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.14);
 }
 
-.service-card img,
-.channel-card img {
+.card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   transition: transform 0.8s ease;
 }
 
-.service-card:hover img {
-  transform: scale(1.08);
+.card:hover img {
+  transform: scale(1.09);
+}
+
+.card-content {
+  padding: 1.8rem;
 }
 
 /* ==========================================================================
-   7. HERO & TEXT EMPHASIS
+   NAVIGATION
    ========================================================================== */
-.hero-title {
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
-  font-weight: 800;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+.main-nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: var(--shadow-soft);
+  z-index: 1000;
+  padding: 1rem 0;
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  opacity: 0.95;
-  max-width: 700px;
+.main-nav a {
+  padding: 0.75rem 1.3rem;
+  color: var(--primary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--gold);
+  background: rgba(212,175,55,0.08);
+  border-radius: 8px;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--primary);
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.55s cubic-bezier(0.77,0,0.175,1);
+  z-index: 2000;
+  padding: 5rem 2rem;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
 }
 
 /* ==========================================================================
-   8. FORM STYLING
+   TRUST & FOOTER
+   ========================================================================== */
+.trust-strip {
+  background: rgba(15,42,74,0.04);
+  padding: 1.8rem;
+  border-radius: 12px;
+  margin: 2.5rem auto;
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.trust-badges img {
+  height: 72px;
+  filter: grayscale(40%) brightness(105%);
+  transition: filter 0.4s;
+}
+
+.trust-badges img:hover {
+  filter: grayscale(0%) brightness(100%);
+}
+
+/* ==========================================================================
+   FORMS
    ========================================================================== */
 .form-group {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.55rem;
   font-weight: 500;
-  color: var(--color-primary);
+  color: var(--primary);
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 0.9rem 1.2rem;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
+  padding: 0.95rem 1.3rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
   font-size: 1.05rem;
   transition: border-color 0.3s;
 }
@@ -291,29 +312,22 @@ a:hover {
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(201, 162, 74, 0.15);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.15);
 }
 
 /* ==========================================================================
-   9. TRUST & CERTIFICATES
+   RESPONSIVE FIXES
    ========================================================================== */
-.trust-badges img {
-  height: 80px;
-  margin: 0 1.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-
-/* ==========================================================================
-   10. RESPONSIVE DESIGN
-   ========================================================================== */
-@media (max-width: 1024px) {
-  .section-padding { padding: 5rem 0; }
-  .hero { min-height: 70vh; }
-}
-
 @media (max-width: 768px) {
-  .main-nav { display: none; }
-  .hero-title { font-size: 3.2rem; }
-  .cta-btn { padding: 0.9rem 1.8rem; }
+  .section { padding: 4rem 0 3rem; }
+  .hero { min-height: 65vh; padding: 4rem 1rem 3rem; }
+  .hero-title { font-size: clamp(2.4rem, 9vw, 3.8rem); }
+  .hero-subtitle { font-size: 1.3rem; }
+  .trust-strip { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  h2 { font-size: 2.1rem; }
+  .cta-btn { padding: 0.95rem 1.8rem; font-size: 1rem; }
 }
