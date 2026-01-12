@@ -1,31 +1,35 @@
 /* ==========================================================================
    Royal Exotic Farms – Family Business Website
-   Final Elite Version • January 2026
-   Mobile-First • Premium • Trustworthy • Gulf + Indian Appeal
+   Final Elite & Trustworthy Version • January 2026
+   Mobile-First • Premium • Professional • Gulf + Indian Market Appeal
    ========================================================================== */
 
 :root {
-  /* === Core Brand Colors === */
-  --primary:     #0f2a4a;          /* Deep professional navy */
-  --primary-dark:#081c32;
-  --gold:        #d4af37;          /* Luxurious warm gold – very appreciated in GCC */
-  --gold-dark:   #b8962f;
-  --green-fresh: #1e6b24;          /* Fresh, agriculture, quality */
-  --bg:          #ffffff;
-  --bg-light:    #f9fafb;
-  --text:        #0f172a;
-  --text-light:  #475569;
-  --gray:        #64748b;
-  --border:      #e2e8f0;
+  /* Core Colors – Trust + Premium + Fresh */
+  --primary-navy:    #0f2a4a;          /* Deep professional navy */
+  --navy-dark:       #081c32;
+  --gold-premium:    #d4af37;          /* Luxurious Gulf gold */
+  --gold-dark:       #b8962f;
+  --green-fresh:     #1e6b24;          /* Agriculture, quality, growth */
+  --bg-white:        #ffffff;
+  --bg-soft:         #f9fafb;
+  --text-dark:       #0f172a;
+  --text-muted:      #475569;
+  --gray-border:     #e2e8f0;
+  --shadow-soft:     0 8px 24px rgba(15,42,74,0.08);
+  --shadow-medium:   0 12px 36px rgba(212,175,55,0.18);
+  --shadow-card:     0 16px 48px rgba(0,0,0,0.12);
+  --modal-overlay:   rgba(15,42,74,0.85);
 
   /* Typography */
-  --font-body:   'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading:'Playfair Display', Georgia, serif;
+  --font-body:       'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading:    'Playfair Display', Georgia, serif;
 
-  /* Effects */
-  --shadow-soft: 0 6px 20px rgba(0,0,0,0.08);
-  --shadow-card: 0 10px 30px rgba(212,175,55,0.12);
-  --transition:  all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Radii & Transitions */
+  --radius-sm:       8px;
+  --radius-md:       12px;
+  --radius-lg:       20px;
+  --transition:      all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ==========================================================================
@@ -43,27 +47,50 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--text);
-  background: var(--bg);
+  color: var(--text-dark);
+  background: var(--bg-white);
   line-height: 1.68;
   font-size: 1.06rem;
   overflow-x: hidden;
 }
 
-/* Headings - much better mobile scaling */
+/* Headings – Proper mobile scaling + premium gold underline */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   line-height: 1.18;
-  color: var(--primary);
+  color: var(--primary-navy);
+  position: relative;
+  display: inline-block;
 }
 
-h1 { font-size: clamp(2.6rem, 8vw, 4.6rem); font-weight: 800; letter-spacing: -0.8px; }
-h2 { font-size: clamp(2rem, 6vw, 3.4rem); margin-bottom: 1.3rem; }
-h3 { font-size: clamp(1.65rem, 4.5vw, 2.1rem); margin-bottom: 1rem; }
+h1 { font-size: clamp(2.6rem, 8vw, 4.8rem); font-weight: 800; letter-spacing: -0.6px; }
+h2 { font-size: clamp(2rem, 6vw, 3.6rem); margin-bottom: 1.4rem; }
+h3 { font-size: clamp(1.7rem, 4.8vw, 2.3rem); margin-bottom: 1.1rem; }
+
+/* Gold underline – luxury touch */
+h2:after, h3:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: var(--gold-premium);
+  border-radius: 2px;
+}
+
+/* Lead paragraph – hierarchy */
+.lead {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
+  line-height: 1.75;
+}
 
 /* Links */
 a {
-  color: var(--gold);
+  color: var(--gold-premium);
   text-decoration: none;
   transition: var(--transition);
 }
@@ -71,61 +98,84 @@ a {
 a:hover { color: var(--gold-dark); }
 
 /* ==========================================================================
-   LAYOUT
+   SURFACE SYSTEM – Core visual container (ONE IDEA PER SURFACE)
    ========================================================================== */
-.container {
-  width: 100%;
-  max-width: 1280px;
+.surface {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  box-shadow: var(--shadow-soft);
+  max-width: 1200px;
+}
+
+.surface.alt {
+  background: linear-gradient(180deg, #f0f7ff, #ffffff);
+}
+
+.surface.cta-final {
+  background: linear-gradient(rgba(15,42,74,0.92), rgba(15,42,74,0.84));
+  color: white;
+}
+
+.surface-inner {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.25rem;
 }
 
-.section {
-  padding: 5rem 0 4rem;
+/* Flow between surfaces – subtle overlap */
+.surface + .surface {
+  margin-top: -2rem;
 }
 
-@media (min-width: 768px) {
-  .section { padding: 8rem 0 6rem; }
+/* Split layout inside surfaces */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .split-section { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 /* ==========================================================================
-   HERO – Fixed mobile disaster
+   HERO – Unified but emotionally distinct per page via background image
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: 70vh;
-  background: linear-gradient(rgba(15, 42, 74, 0.84), rgba(15, 42, 74, 0.92)),
+  min-height: 65vh;
+  background: linear-gradient(rgba(15,42,74,0.84), rgba(15,42,74,0.92)),
               url('/static/images/hero-bg.jpg') center/cover no-repeat fixed;
   color: white;
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 5rem 1rem 4rem;
+  padding: 5rem 1.2rem 4rem;
 }
 
+.hero.small-hero { min-height: 55vh; }
+
 .hero-content {
-  max-width: 900px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
-.hero-title {
-  margin-bottom: 1.2rem;
-  text-shadow: 0 4px 16px rgba(0,0,0,0.6);
-}
+.hero-title { margin-bottom: 1rem; text-shadow: 0 4px 16px rgba(0,0,0,0.65); }
 
 .hero-subtitle {
-  font-size: clamp(1.3rem, 4vw, 1.65rem);
-  font-weight: 400;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  max-width: 90%;
+  margin: 0 auto 2rem;
   opacity: 0.94;
-  max-width: 720px;
-  margin: 0 auto 2.2rem;
 }
 
 .hero-cta {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-  margin-top: 1.5rem;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
 }
 
 @media (min-width: 640px) {
@@ -133,54 +183,55 @@ a:hover { color: var(--gold-dark); }
 }
 
 /* ==========================================================================
-   BUTTONS – Premium feel
+   BUTTONS – Premium & trustworthy
    ========================================================================== */
 .cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.05rem 2.3rem;
-  background: var(--gold);
+  padding: 1.1rem 2.4rem;
+  background: linear-gradient(135deg, var(--gold-premium), #e0c04a);
   color: white;
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   border-radius: 50px;
-  box-shadow: 0 6px 22px rgba(212,175,55,0.3);
+  box-shadow: 0 6px 22px rgba(212,175,55,0.32);
   transition: var(--transition);
-  border: none;
+  border: 1px solid rgba(255,255,255,0.25);
   cursor: pointer;
+  min-width: 240px;
 }
 
 .cta-btn:hover {
-  transform: translateY(-4px) scale(1.025);
-  box-shadow: 0 14px 32px rgba(212,175,55,0.42);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 34px rgba(212,175,55,0.45);
   background: var(--gold-dark);
 }
 
 .cta-btn.secondary {
   background: transparent;
-  border: 2.5px solid var(--gold);
-  color: var(--gold);
+  border: 2.5px solid var(--gold-premium);
+  color: var(--gold-premium);
 }
 
 .cta-btn.secondary:hover {
-  background: var(--gold);
+  background: var(--gold-premium);
   color: white;
 }
 
 /* ==========================================================================
-   CARDS & GRIDS
+   GRID & CARD SYSTEM – Unified & Modern (ONLY SYSTEM USED)
    ========================================================================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.2rem;
+  margin: 2.8rem 0;
 }
 
 .card {
   background: white;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: var(--transition);
@@ -189,26 +240,22 @@ a:hover { color: var(--gold-dark); }
 
 .card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.14);
+  box-shadow: 0 28px 56px rgba(0,0,0,0.16);
 }
 
 .card img {
   width: 100%;
-  height: 220px;
+  height: 200px;
   object-fit: cover;
   transition: transform 0.8s ease;
 }
 
-.card:hover img {
-  transform: scale(1.09);
-}
+.card:hover img { transform: scale(1.09); }
 
-.card-content {
-  padding: 1.8rem;
-}
+.card-content { padding: 1.8rem; }
 
 /* ==========================================================================
-   NAVIGATION
+   NAVIGATION & MOBILE MENU – Fully scoped
    ========================================================================== */
 .main-nav {
   position: sticky;
@@ -220,62 +267,73 @@ a:hover { color: var(--gold-dark); }
 }
 
 .main-nav a {
-  padding: 0.75rem 1.3rem;
-  color: var(--primary);
+  padding: 0.8rem 1.4rem;
+  color: var(--primary-navy);
   font-weight: 500;
   transition: var(--transition);
 }
 
 .main-nav a:hover,
 .main-nav a.active {
-  color: var(--gold);
+  color: var(--gold-premium);
   background: rgba(212,175,55,0.08);
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 /* Mobile menu */
 .mobile-menu {
   position: fixed;
   inset: 0;
-  background: var(--primary);
+  background: var(--primary-navy);
   color: white;
   transform: translateX(100%);
   transition: transform 0.55s cubic-bezier(0.77,0,0.175,1);
   z-index: 2000;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
 }
 
-.mobile-menu.open {
-  transform: translateX(0);
+.mobile-menu.open { transform: translateX(0); }
+
+.mobile-menu a {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.3rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.mobile-menu a:hover {
+  background: rgba(255,255,255,0.12);
 }
 
 /* ==========================================================================
-   TRUST & FOOTER
+   TRUST & CERTIFICATES
    ========================================================================== */
 .trust-strip {
   background: rgba(15,42,74,0.04);
-  padding: 1.8rem;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
   margin: 2.5rem auto;
   max-width: 1100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  font-size: 1.1rem;
+  gap: 1.8rem;
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .trust-badges {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: 2.5rem;
+  margin: 3.5rem 0;
 }
 
 .trust-badges img {
-  height: 72px;
-  filter: grayscale(40%) brightness(105%);
+  height: 78px;
+  filter: grayscale(35%) brightness(108%);
   transition: filter 0.4s;
 }
 
@@ -284,27 +342,27 @@ a:hover { color: var(--gold-dark); }
 }
 
 /* ==========================================================================
-   FORMS
+   FORMS & MODALS – Strong visual anchoring
    ========================================================================== */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.55rem;
-  font-weight: 500;
-  color: var(--primary);
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--primary-navy);
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 0.95rem 1.3rem;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  font-size: 1.05rem;
+  padding: 1rem 1.4rem;
+  border: 1.5px solid var(--gray-border);
+  border-radius: var(--radius-md);
+  font-size: 1.06rem;
   transition: border-color 0.3s;
 }
 
@@ -312,22 +370,48 @@ a:hover { color: var(--gold-dark); }
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--gold);
+  border-color: var(--gold-premium);
   box-shadow: 0 0 0 4px rgba(212,175,55,0.15);
 }
 
-/* ==========================================================================
-   RESPONSIVE FIXES
-   ========================================================================== */
-@media (max-width: 768px) {
-  .section { padding: 4rem 0 3rem; }
-  .hero { min-height: 65vh; padding: 4rem 1rem 3rem; }
-  .hero-title { font-size: clamp(2.4rem, 9vw, 3.8rem); }
-  .hero-subtitle { font-size: 1.3rem; }
-  .trust-strip { flex-direction: column; text-align: center; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
 }
 
-@media (max-width: 480px) {
-  h2 { font-size: 2.1rem; }
-  .cta-btn { padding: 0.95rem 1.8rem; font-size: 1rem; }
+.modal {
+  background: var(--modal-overlay);
+}
+
+.modal-content {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+}
+
+.modal-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.full-width { width: 100%; }
+
+/* ==========================================================================
+   RESPONSIVE – Mobile-first priority
+   ========================================================================== */
+@media (max-width: 992px) {
+  .surface { padding: 2rem; margin: 2rem auto; }
+  .hero { min-height: 60vh; padding: 4rem 1rem 3.5rem; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: clamp(2.4rem, 10vw, 3.6rem); }
+  h2 { font-size: 2.2rem; }
+  .cta-btn { min-width: 100%; padding: 1rem 1.6rem; }
+  .trust-strip { flex-direction: column; text-align: center; gap: 1.2rem; }
+  .form-grid { grid-template-columns: 1fr; }
 }
