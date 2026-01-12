@@ -295,7 +295,7 @@ a:hover { color: var(--gold-muted); }
 
 .card-content { padding: 1.5rem; }
 
-//* ===================== CARD IMAGE – FINAL FIT ===================== */
+/* ===================== CARD IMAGE – FINAL FIT ===================== */
 
 .card img {
   width: 100%;
@@ -313,7 +313,7 @@ a:hover { color: var(--gold-muted); }
     height: 150px;
     padding: 16px;
   }
-}
+
 }
 /* ===================== TRUST STRIP ===================== */
 .trust-strip {
