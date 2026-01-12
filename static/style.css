@@ -317,6 +317,31 @@ a:hover { color: var(--gold-muted); }
 .card-content {
   padding: 1.5rem;
 }
+/* Prevent tap pause & flicker on mobile */
+.card video {
+  pointer-events: none;
+}
+/* ===================== CARD MEDIA (IMAGE + VIDEO) ===================== */
+
+.card img,
+.card video {
+  width: 100%;
+  height: 160px;           /* REQUIRED */
+  object-fit: cover;      /* PROFESSIONAL crop */
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: #000;       /* prevents white flash */
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Desktop refinement */
+@media (min-width: 992px) {
+  .card img,
+  .card video {
+    height: 190px;
+  }
+}
 /* ===================== TRUST STRIP ===================== */
 .trust-strip {
   display: flex;
