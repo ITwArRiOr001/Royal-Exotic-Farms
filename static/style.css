@@ -1,35 +1,35 @@
 /* ==========================================================================
    Royal Exotic Farms – Family Business Website
-   Final Elite & Trustworthy Version • January 2026
-   Mobile-First • Premium • Professional • Gulf + Indian Market Appeal
+   Updated Compact & Professional Version • January 2026
+   Mobile-First • Premium • Serious • Gulf + Indian Market Appeal
    ========================================================================== */
 
 :root {
   /* Core Colors – Trust + Premium + Fresh */
-  --primary-navy:    #0f2a4a;          /* Deep professional navy */
+  --primary-navy:    #0f2a4a;
   --navy-dark:       #081c32;
-  --gold-premium:    #d4af37;          /* Luxurious Gulf gold */
+  --gold-premium:    #d4af37;
   --gold-dark:       #b8962f;
-  --green-fresh:     #1e6b24;          /* Agriculture, quality, growth */
+  --green-fresh:     #1e6b24;
   --bg-white:        #ffffff;
   --bg-soft:         #f9fafb;
   --text-dark:       #0f172a;
   --text-muted:      #475569;
   --gray-border:     #e2e8f0;
-  --shadow-soft:     0 8px 24px rgba(15,42,74,0.08);
-  --shadow-medium:   0 12px 36px rgba(212,175,55,0.18);
-  --shadow-card:     0 16px 48px rgba(0,0,0,0.12);
-  --modal-overlay:   rgba(15,42,74,0.85);
+  --shadow-soft:     0 4px 16px rgba(15,42,74,0.07);
+  --shadow-medium:   0 8px 28px rgba(212,175,55,0.16);
+  --shadow-card:     0 10px 32px rgba(0,0,0,0.10);
+  --modal-overlay:   rgba(15,42,74,0.88);
 
   /* Typography */
   --font-body:       'Inter', system-ui, -apple-system, sans-serif;
   --font-heading:    'Playfair Display', Georgia, serif;
 
   /* Radii & Transitions */
-  --radius-sm:       8px;
-  --radius-md:       12px;
-  --radius-lg:       20px;
-  --transition:      all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --radius-sm:       6px;
+  --radius-md:       10px;
+  --radius-lg:       16px;
+  --transition:      all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================================================
@@ -49,46 +49,42 @@ body {
   font-family: var(--font-body);
   color: var(--text-dark);
   background: var(--bg-white);
-  line-height: 1.68;
-  font-size: 1.06rem;
-  overflow-x: hidden;
+  line-height: 1.62;
+  font-size: 1.03rem;
 }
 
-/* Headings – Proper mobile scaling + premium gold underline */
+/* Headings – tighter & more professional */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  line-height: 1.18;
+  line-height: 1.15;
   color: var(--primary-navy);
-  position: relative;
-  display: inline-block;
 }
 
-h1 { font-size: clamp(2.6rem, 8vw, 4.8rem); font-weight: 800; letter-spacing: -0.6px; }
-h2 { font-size: clamp(2rem, 6vw, 3.6rem); margin-bottom: 1.4rem; }
-h3 { font-size: clamp(1.7rem, 4.8vw, 2.3rem); margin-bottom: 1.1rem; }
+h1 { font-size: clamp(2.3rem, 7vw, 4.2rem); font-weight: 800; letter-spacing: -0.5px; }
+h2 { font-size: clamp(1.85rem, 5.5vw, 3.1rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1.55rem, 4.4vw, 2.1rem); margin-bottom: 0.9rem; }
 
-/* Gold underline – luxury touch */
+/* Gold underline – shorter & subtler */
 h2:after, h3:after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 0;
-  width: 70px;
-  height: 4px;
+  width: 60px;
+  height: 3px;
   background: var(--gold-premium);
   border-radius: 2px;
 }
 
-/* Lead paragraph – hierarchy */
+/* Lead paragraph */
 .lead {
-  font-size: 1.18rem;
+  font-size: 1.08rem;
   font-weight: 500;
   color: var(--text-muted);
-  margin-bottom: 1.6rem;
-  line-height: 1.75;
+  margin-bottom: 1.3rem;
+  line-height: 1.65;
 }
 
-/* Links */
 a {
   color: var(--gold-premium);
   text-decoration: none;
@@ -98,345 +94,183 @@ a {
 a:hover { color: var(--gold-dark); }
 
 /* ==========================================================================
-   SURFACE SYSTEM – Core visual container (ONE IDEA PER SURFACE)
+   SURFACE – More compact containers
    ========================================================================== */
 .surface {
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  background: white;
   border-radius: var(--radius-lg);
-  padding: 3rem 2rem;
-  margin: 3rem auto;
+  padding: 2.2rem 1.5rem;
+  margin: 2rem auto;
   box-shadow: var(--shadow-soft);
-  max-width: 1200px;
+  max-width: 1180px;
 }
 
 .surface.alt {
-  background: linear-gradient(180deg, #f0f7ff, #ffffff);
+  background: #f8fbff;
 }
 
 .surface.cta-final {
-  background: linear-gradient(rgba(15,42,74,0.92), rgba(15,42,74,0.84));
+  background: linear-gradient(rgba(15,42,74,0.94), rgba(15,42,74,0.88));
   color: white;
 }
 
 .surface-inner {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
-/* Flow between surfaces – subtle overlap */
-.surface + .surface {
-  margin-top: -2rem;
-}
-
-/* Split layout inside surfaces */
-.split-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-@media (max-width: 992px) {
-  .split-section { grid-template-columns: 1fr; gap: 2.5rem; }
-}
-
 /* ==========================================================================
-   HERO – COMPACT & SERIOUS ON MOBILE – Final Fix
+   HERO – Much more compact on mobile, serious business feel
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: 38vh;                   /* Short & professional on mobile – real business feel */
-  background: linear-gradient(rgba(15,42,74,0.88), rgba(15,42,74,0.94)),
-              url('/static/images/hero-bg.jpg') center/cover no-repeat fixed;
+  min-height: 34vh;                   /* ← main change – feels much tighter */
+  background: linear-gradient(rgba(15,42,74,0.90), rgba(15,42,74,0.94)),
+              url('/static/images/hero-bg.jpg') center/cover no-repeat;
   color: white;
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 2.5rem 1rem 2.5rem;        /* Tight padding – no wasted space */
+  padding: 2rem 1.2rem;
 }
 
 .hero.small-hero {
-  min-height: 35vh;                   /* Even shorter for sub-pages */
+  min-height: 30vh;
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
 .hero-title {
-  font-size: clamp(1.9rem, 6.5vw, 3.8rem); /* Much smaller mobile title – serious */
-  margin-bottom: 0.6rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  font-weight: 700;
+  font-size: clamp(1.95rem, 6.2vw, 3.6rem);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.65);
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 3.5vw, 1.35rem);
-  max-width: 85%;
-  margin: 0 auto 1.5rem;
-  opacity: 0.95;
-  font-weight: 400;
+  font-size: clamp(1.02rem, 3.4vw, 1.28rem);
+  max-width: 88%;
+  margin: 0 auto 1.2rem;
+  opacity: 0.96;
 }
 
 .hero-cta {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  margin-top: 1rem;
+  gap: 0.8rem;
 }
 
-/* Override any old conflicting media query */
-@media (max-width: 992px) {
-  .hero {
-    min-height: 38vh !important;
-    padding: 2.5rem 1rem 2.5rem !important;
-  }
-  .hero.small-hero {
-    min-height: 35vh !important;
-  }
-}
-
-/* Desktop – still looks premium & spacious */
+/* Desktop override */
 @media (min-width: 993px) {
   .hero {
-    min-height: 55vh;
-    padding: 5rem 2rem 4rem;
+    min-height: 50vh;
+    padding: 4.5rem 2rem;
   }
-  .hero-title { font-size: clamp(3.2rem, 7.5vw, 4.8rem); }
-  .hero-subtitle { font-size: clamp(1.3rem, 3vw, 1.6rem); }
-  .hero-cta { flex-direction: row; justify-content: center; gap: 1.5rem; }
+  .hero-title { font-size: clamp(3rem, 7vw, 4.4rem); }
+  .hero-subtitle { font-size: clamp(1.25rem, 2.8vw, 1.5rem); }
+  .hero-cta { flex-direction: row; gap: 1.4rem; }
 }
 
 /* ==========================================================================
-   BUTTONS – Premium & trustworthy
+   BUTTONS – Slightly smaller & denser
    ========================================================================== */
 .cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2rem;
+  padding: 0.8rem 1.9rem;
   background: linear-gradient(135deg, var(--gold-premium), #e0c04a);
   color: white;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.98rem;
   border-radius: 50px;
-  box-shadow: 0 6px 22px rgba(212,175,55,0.32);
-  transition: var(--transition);
-  border: 1px solid rgba(255,255,255,0.25);
-  cursor: pointer;
-  min-width: 220px;
+  box-shadow: 0 5px 18px rgba(212,175,55,0.3);
+  min-width: 200px;
 }
 
 .cta-btn:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 14px 34px rgba(212,175,55,0.45);
-  background: var(--gold-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(212,175,55,0.42);
 }
 
 .cta-btn.secondary {
   background: transparent;
-  border: 2.5px solid var(--gold-premium);
+  border: 2px solid var(--gold-premium);
   color: var(--gold-premium);
 }
 
-.cta-btn.secondary:hover {
-  background: var(--gold-premium);
-  color: white;
-}
-
 /* ==========================================================================
-   GRID & CARD SYSTEM – Unified & Modern (ONLY SYSTEM USED)
+   GRID & CARDS – Tighter layout
    ========================================================================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.2rem;
-  margin: 2.8rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  margin: 2rem 0;
 }
 
 .card {
-  background: white;
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: var(--transition);
-  border: 1px solid rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.1);
 }
 
 .card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 28px 56px rgba(0,0,0,0.16);
+  transform: translateY(-8px);
 }
 
 .card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.8s ease;
+  height: 180px;
 }
 
-.card:hover img { transform: scale(1.09); }
-
-.card-content { padding: 1.8rem; }
-
 /* ==========================================================================
-   NAVIGATION & MOBILE MENU – Fully scoped
+   NAV & MOBILE MENU – Cleaner
    ========================================================================== */
 .main-nav {
-  position: sticky;
-  top: 0;
-  background: white;
-  box-shadow: var(--shadow-soft);
-  z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.9rem 0;
 }
 
-.main-nav a {
-  padding: 0.8rem 1.4rem;
-  color: var(--primary-navy);
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--gold-premium);
-  background: rgba(212,175,55,0.08);
-  border-radius: 10px;
-}
-
-/* Mobile menu */
 .mobile-menu {
-  position: fixed;
-  inset: 0;
-  background: var(--primary-navy);
-  color: white;
-  transform: translateX(100%);
-  transition: transform 0.55s cubic-bezier(0.77,0,0.175,1);
-  z-index: 2000;
-  padding: 6rem 2rem;
+  padding: 5rem 1.8rem;
 }
-
-.mobile-menu.open { transform: translateX(0); }
 
 .mobile-menu a {
-  display: block;
-  padding: 1.2rem 1.5rem;
-  font-size: 1.3rem;
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
-}
-
-.mobile-menu a:hover {
-  background: rgba(255,255,255,0.12);
+  padding: 1rem 1.3rem;
+  font-size: 1.22rem;
 }
 
 /* ==========================================================================
-   TRUST & CERTIFICATES
+   TRUST & ICON BLOCKS – More compact
    ========================================================================== */
 .trust-strip {
-  background: rgba(15,42,74,0.04);
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  margin: 2.5rem auto;
-  max-width: 1100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.8rem;
-  font-size: 1.15rem;
-  font-weight: 500;
+  padding: 1.6rem;
+  margin: 2rem auto;
+  gap: 1.4rem;
+  font-size: 1.08rem;
 }
 
 .trust-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem;
-  margin: 3.5rem 0;
+  gap: 2rem;
+  margin: 2.5rem 0;
 }
 
 .trust-badges img {
-  height: 78px;
-  filter: grayscale(35%) brightness(108%);
-  transition: filter 0.4s;
-}
-
-.trust-badges img:hover {
-  filter: grayscale(0%) brightness(100%);
+  height: 68px;
 }
 
 /* ==========================================================================
-   FORMS & MODALS – Strong visual anchoring
-   ========================================================================== */
-.form-group {
-  margin-bottom: 1.8rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.6rem;
-  font-weight: 600;
-  color: var(--primary-navy);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 1rem 1.4rem;
-  border: 1.5px solid var(--gray-border);
-  border-radius: var(--radius-md);
-  font-size: 1.06rem;
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--gold-premium);
-  box-shadow: 0 0 0 4px rgba(212,175,55,0.15);
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.8rem;
-}
-
-.modal {
-  background: var(--modal-overlay);
-}
-
-.modal-content {
-  background: white;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-medium);
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2.5rem;
-}
-
-.modal-subtitle {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-}
-
-.full-width { width: 100%; }
-
-/* ==========================================================================
-   RESPONSIVE – Mobile-first priority (no more conflicting hero overrides)
+   RESPONSIVE – Final tightening
    ========================================================================== */
 @media (max-width: 992px) {
-  .surface { padding: 2rem; margin: 2rem auto; }
+  .surface { padding: 1.8rem 1.3rem; margin: 1.6rem auto; }
+  .grid { gap: 1.4rem; }
 }
 
 @media (max-width: 640px) {
-  h1 { font-size: clamp(2.4rem, 10vw, 3.6rem); }
-  h2 { font-size: 2.2rem; }
-  .cta-btn { min-width: 100%; padding: 1rem 1.6rem; }
-  .trust-strip { flex-direction: column; text-align: center; gap: 1.2rem; }
-  .form-grid { grid-template-columns: 1fr; }
+  body { font-size: 1rem; line-height: 1.6; }
+  h1 { font-size: clamp(2.1rem, 9vw, 3.3rem); }
+  h2 { font-size: 2rem; }
+  .cta-btn { min-width: 100%; padding: 0.95rem 1.5rem; font-size: 0.97rem; }
+  .hero { padding: 1.8rem 1rem; min-height: 32vh; }
+  .trust-strip { padding: 1.4rem; gap: 1.1rem; }
 }
