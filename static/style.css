@@ -3,7 +3,7 @@
   --brand-blue: #0d2b4f;
   --brand-green: #28a745;
   --brand-gold: #c9a24d;
-  --brand-light: #f8f9fa;
+  --brand-light: #f5f7fb;
   --brand-accent: #007bff;
 
   --text-dark: #1f2937;
@@ -44,17 +44,13 @@ body {
 /* ===================== TYPOGRAPHY ===================== */
 h1, h2, h3, h4 {
   margin-top: 0;
-  line-height: 1.25;
   font-weight: 700;
+  line-height: 1.25;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 1.25rem;
 }
 
 p {
@@ -66,15 +62,15 @@ p {
 .hero {
   position: relative;
   background:
-    linear-gradient(rgba(13,43,79,0.78), rgba(13,43,79,0.78)),
+    linear-gradient(rgba(13,43,79,0.82), rgba(13,43,79,0.82)),
     url("/static/images/hero-placeholder.jpg") center/cover no-repeat;
   color: #fff;
-  padding: 90px 20px;
+  padding: 100px 20px 90px;
   text-align: center;
 }
 
 .small-hero {
-  padding: 70px 20px;
+  padding: 80px 20px;
 }
 
 .hero-content {
@@ -86,40 +82,25 @@ p {
   font-size: 2.8rem;
 }
 
-.hero-subtitle {
-  font-size: 1.15rem;
-  margin-top: 12px;
-  opacity: 0.95;
-}
 .hero-title span {
   color: var(--brand-gold);
 }
-/* ===================== HERO CTA LAYOUT ===================== */
 
+.hero-subtitle {
+  font-size: 1.15rem;
+  margin-top: 14px;
+  opacity: 0.95;
+}
+
+/* ===================== HERO CTA ===================== */
 .hero-cta {
   display: flex;
   justify-content: center;
   gap: 18px;
-  margin-top: 28px;
+  margin-top: 30px;
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  .hero-cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-cta .cta-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-@media (max-width: 768px) {
-  .hero {
-    padding: 70px 18px 60px;
-  }
-}
 /* ===================== HAMBURGER ===================== */
 .hamburger {
   position: absolute;
@@ -156,8 +137,8 @@ nav a.active::after {
   background: var(--brand-green);
   border-radius: 3px;
 }
-/* ===================== MOBILE MENU (ELITE UX) ===================== */
 
+/* ===================== MOBILE MENU ===================== */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -180,7 +161,6 @@ nav a.active::after {
 .mobile-menu ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .mobile-menu li {
@@ -188,14 +168,13 @@ nav a.active::after {
 }
 
 .mobile-menu a {
-  text-decoration: none;
   font-size: 18px;
   font-weight: 600;
   color: var(--brand-blue);
-  display: block;
+  text-decoration: none;
 }
 
-/* Close button */
+/* Close */
 .close-menu {
   position: absolute;
   top: 20px;
@@ -207,7 +186,6 @@ nav a.active::after {
   height: 42px;
   border-radius: 50%;
   font-size: 20px;
-  cursor: pointer;
 }
 
 /* Overlay */
@@ -218,7 +196,6 @@ nav a.active::after {
   z-index: 1200;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
 .overlay.open {
@@ -229,8 +206,11 @@ nav a.active::after {
 /* ===================== SECTIONS ===================== */
 section {
   max-width: 1200px;
-  margin: auto;
-  padding: 80px 20px;
+  margin: 60px auto;
+  padding: 80px 30px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -241,18 +221,9 @@ section.visible {
   transform: translateY(0);
 }
 
-/* ===================== SPLIT SECTION ===================== */
-.split-section {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.image-block img {
-  width: 100%;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+/* Alternating background */
+section.alt {
+  background: linear-gradient(135deg, #eef3f9, #ffffff);
 }
 
 /* ===================== TRUST STRIP ===================== */
@@ -260,25 +231,15 @@ section.visible {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
   gap: 18px;
-  background: #eef3f8;
+  background: linear-gradient(135deg,#eef3f8,#ffffff);
   border-radius: var(--radius-lg);
-  margin: 40px auto;
-  padding: 30px 20px;
+  padding: 30px;
   text-align: center;
   font-weight: 600;
   color: var(--brand-blue);
 }
 
 /* ===================== SERVICES ===================== */
-.services {
-  background: transparent;
-}
-
-.services.alt {
-  background: #eef4f9;
-  border-radius: var(--radius-lg);
-}
-
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
@@ -287,19 +248,11 @@ section.visible {
 }
 
 .service-card {
-  background: #fff;
+  background: linear-gradient(180deg,#ffffff,#f9fbff);
   border-radius: var(--radius-lg);
   padding: 28px;
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
-}
-
-.service-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  margin-bottom: 18px;
 }
 
 .service-card:hover {
@@ -310,26 +263,31 @@ section.visible {
 /* ===================== PROCESS ===================== */
 .process-box {
   margin-top: 50px;
-  background: #fff;
+  background: #ffffff;
   padding: 30px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
 }
 
-.process-box ol {
-  padding-left: 18px;
+.process-list li {
+  list-style: none;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  position: relative;
 }
 
-.process-list {
-  padding-left: 20px;
-  line-height: 1.9;
+.process-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--brand-green);
+  font-weight: 700;
 }
 
 /* ===================== STATS ===================== */
 .stats-section {
-  background: var(--brand-blue);
-  color: #fff;
-  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg,#0d2b4f,#123c6b);
+  color: white;
 }
 
 .stats-grid {
@@ -342,23 +300,13 @@ section.visible {
   text-align: center;
 }
 
-.stat-value {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.stat-label {
-  opacity: 0.9;
-}
-
 /* ===================== CTA ===================== */
 .cta-final {
   background:
-    linear-gradient(rgba(13,43,79,0.85), rgba(13,43,79,0.85)),
+    linear-gradient(rgba(13,43,79,0.9), rgba(13,43,79,0.9)),
     url("/static/images/cta-placeholder.jpg") center/cover no-repeat;
-  color: #fff;
+  color: white;
   text-align: center;
-  border-radius: var(--radius-lg);
 }
 
 .cta-final p {
@@ -368,8 +316,8 @@ section.visible {
 /* ===================== BUTTONS ===================== */
 button,
 .cta-btn {
-  background: var(--brand-green);
-  color: #fff;
+  background: linear-gradient(135deg,#2fb65d,#28a745);
+  color: white;
   border: none;
   padding: 14px 30px;
   font-size: 16px;
@@ -381,46 +329,29 @@ button,
 
 .cta-btn.secondary {
   background: transparent;
-  border: 2px solid #fff;
+  border: 2px solid white;
 }
 
 button:hover,
 .cta-btn:hover {
-  background: #1e8e3e;
   transform: translateY(-2px);
 }
 
-/* ===================== CONTACT ===================== */
-.contact-channels .channels-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 30px;
-}
-
-.channel-card {
-  background: #fff;
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  text-align: center;
-}
-
-.channel-icon {
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-
-.contact-form-section {
-  background: #eef4f9;
-  border-radius: var(--radius-lg);
-}
-
-.form-container {
-  max-width: 720px;
-  margin: auto;
-}
-
 /* ===================== FORMS ===================== */
+.form-container,
+.modal-content {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-medium);
+}
+
+form label {
+  font-weight: 600;
+  margin-top: 18px;
+  display: block;
+}
+
 input, textarea, select {
   width: 100%;
   padding: 14px;
@@ -434,117 +365,47 @@ input:focus, textarea:focus, select:focus {
   border-color: var(--brand-accent);
 }
 
-/* ===================== FOOTER ===================== */
-footer {
-  background: var(--brand-blue);
-  color: #fff;
-  text-align: center;
-  padding: 28px 16px;
-  margin-top: auto;
-}
-
-.trust-badges {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-
-.trust-badges img {
-  height: 48px;
-}
-
-/* ===================== MOBILE ===================== */
-@media (max-width: 900px) {
-  .split-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Desktop */
-@media (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-  }
-}
-/* ===================== FAQ ACCORDION ===================== */
+/* ===================== FAQ ===================== */
 .faq-section {
   max-width: 900px;
-  margin: auto;
 }
 
 .faq-item {
-  background: white;
+  background: linear-gradient(180deg,#ffffff,#f7f9fc);
   border-radius: var(--radius-lg);
   padding: 22px 26px;
   margin-bottom: 18px;
   box-shadow: var(--shadow-soft);
-  cursor: pointer;
-  transition: box-shadow var(--transition), transform var(--transition);
-}
-
-.faq-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
 }
 
 .faq-item h4 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
   color: var(--brand-blue);
-  position: relative;
-  padding-right: 30px;
-}
-
-/* Plus / Minus icon */
-.faq-item h4::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 22px;
-  color: var(--brand-green);
-  transition: transform 0.3s ease;
 }
 
 .faq-item p {
-  margin-top: 14px;
-  color: var(--text-muted);
-  font-size: 15.5px;
-  line-height: 1.7;
   display: none;
+  margin-top: 14px;
 }
 
-/* Active state */
 .faq-item.active p {
   display: block;
 }
 
-.faq-item.active h4::after {
-  content: "−";
+/* ===================== FOOTER ===================== */
+footer {
+  background: var(--brand-blue);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
 }
 
-/* Mobile refinement */
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
-  .faq-item {
-    padding: 18px 20px;
-  }
-
-  .faq-item h4 {
-    font-size: 16px;
-  }
+  nav { display: none; }
+  .hero-title { font-size: 2.2rem; }
+  .hero-cta { flex-direction: column; }
 }
 
+@media (min-width: 769px) {
+  .hamburger { display: none; }
+}
