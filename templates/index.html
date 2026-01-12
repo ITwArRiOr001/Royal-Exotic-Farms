@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Royal Exotic Farms | Premium Export to Gulf • Import Support India</title>
+  <meta name="description" content="Family-run Indian business specializing in premium cold-chain exports to Gulf countries and professional, compliant import support for Indian entrepreneurs."/>
 
-  <!-- Primary Meta Tags -->
-  <title>Royal Exotic Farms | Export from India to Gulf | Import Solutions</title>
-  <meta name="description" content="Royal Exotic Farms – trusted family-run export company from India to Gulf countries (UAE, Saudi Arabia, Qatar, Oman, Bahrain) with cold-chain expertise. Professional import support from China & global markets for Indian businesses."/>
-
-  <!-- Open Graph / Social Sharing -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Royal Exotic Farms | Export India → Gulf • Import to India"/>
   <meta property="og:description" content="Cold-chain exports of fresh produce & professional import solutions from China and worldwide."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://royalexoticfarms.onrender.com"/>
   <meta property="og:image" content="https://royalexoticfarms.onrender.com/static/images/og-image.jpg"/>
 
-  <!-- Structured Data -->
+  <!-- Structured Data – Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,15 +22,7 @@
     "url": "https://royalexoticfarms.onrender.com",
     "logo": "https://royalexoticfarms.onrender.com/static/images/logo.png",
     "description": "Family-operated Indian export-import company specializing in cold-chain exports to Gulf countries and professional import support from China & global markets.",
-    "foundingLocation": {
-      "@type": "Place",
-      "name": "Mumbai, India"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Mumbai",
-      "addressCountry": "IN"
-    },
+    "foundingLocation": {"@type": "Place", "name": "Mumbai, India"},
     "areaServed": [
       {"@type": "Country", "name": "India"},
       {"@type": "Country", "name": "United Arab Emirates"},
@@ -52,27 +41,9 @@
   }
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Royal Exotic Farms",
-    "url": "https://royalexoticfarms.onrender.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://royalexoticfarms.onrender.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Styles & Favicons -->
   <link rel="stylesheet" href="/static/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-
-  <!-- You can add your Google Fonts here if needed -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -82,7 +53,7 @@
   {% if messages %}
   <div class="flash-container" role="alert">
     {% for category, message in messages %}
-    <div class="flash-message {{ category }}" aria-live="polite">{{ message }}</div>
+    <div class="flash-message {{ category }}">{{ message }}</div>
     {% endfor %}
   </div>
   {% endif %}
@@ -90,12 +61,7 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <button 
-    class="close-menu" 
-    aria-label="Close mobile menu"
-    onclick="toggleMobileMenu()"
-  >×</button>
-  
+  <button class="close-menu" aria-label="Close mobile menu" onclick="toggleMobileMenu()">×</button>
   <nav aria-label="Mobile navigation">
     <ul>
       <li><a href="/">Home</a></li>
@@ -106,18 +72,15 @@
     </ul>
   </nav>
 </div>
-
 <div class="overlay" id="overlay" onclick="toggleMobileMenu()" aria-hidden="true"></div>
 
 <!-- Hero -->
 <header class="hero">
-  <button 
-    class="hamburger" 
-    aria-label="Open mobile menu"
-    aria-expanded="false"
-    aria-controls="mobileMenu"
-    onclick="toggleMobileMenu()"
-  >☰</button>
+  <button class="hamburger" 
+          aria-label="Open mobile menu" 
+          aria-expanded="false" 
+          aria-controls="mobileMenu"
+          onclick="toggleMobileMenu()">☰</button>
 
   <div class="hero-content">
     <h1 class="hero-title">Royal Exotic Farms</h1>
@@ -127,23 +90,16 @@
     </p>
 
     <div class="hero-cta">
-      <button 
-        type="button"
-        class="cta-btn primary"
-        aria-label="Open quote request form"
-        onclick="openModal('quoteModal')"
-      >
+      <button type="button" 
+              class="cta-btn primary"
+              onclick="openModal('quoteModal')">
         Get Export / Import Quote
       </button>
-      
       <a href="/contact" class="cta-btn secondary">
         Contact Trade Team
       </a>
     </div>
   </div>
-
-  <!-- Optional: Language selector container -->
-  <div id="google_translate_element" class="translate-widget"></div>
 </header>
 
 <!-- Main Navigation -->
@@ -156,118 +112,139 @@
 </nav>
 
 <!-- Trust Strip -->
-<section class="trust-strip" aria-label="Our strengths">
-  <div>❄️ Cold Chain Excellence</div>
-  <div>🇦🇪 Gulf Market Specialists</div>
-  <div>📦 Professional Import Support</div>
-  <div>🤝 Family-Run • Trust First</div>
-</section>
-
-<!-- About -->
-<section class="about">
-  <h2>A Reliable Trade Bridge Between India & The World</h2>
-
-  <div class="about-content">
-    <p>
-      Royal Exotic Farms is a family-operated Indian company focused on 
-      <strong>premium exports to Gulf countries</strong> and 
-      <strong>professional import solutions</strong> for growing Indian businesses.
-    </p>
-    
-    <p>
-      We specialize in cold-chain logistics for fresh produce, banana exports, 
-      and full compliance support — while helping entrepreneurs confidently 
-      import from China and global markets.
-    </p>
+<section aria-label="Our core strengths">
+  <div class="surface" style="padding: 1.8rem; margin: 2rem auto;">
+    <div class="surface-inner">
+      <div class="trust-strip">
+        <div>❄️ Cold Chain Excellence</div>
+        <div>🇦🇪 Gulf Market Specialists</div>
+        <div>📦 Professional Import Support</div>
+        <div>🤝 Family-Run • Trust First</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Export Services Teaser -->
-<section class="services">
-  <h2>Export from India to Gulf Countries</h2>
-  
-  <div class="service-grid">
-    <article class="service-card">
-      <h3>❄️ Cold Chain Export</h3>
-      <p>Reefer container shipments preserving freshness from Indian farms to Gulf ports.</p>
-    </article>
-
-    <article class="service-card">
-      <h3>🍌 Banana & Fresh Produce</h3>
-      <p>Specialized export of bananas and agricultural commodities meeting strict Gulf standards.</p>
-    </article>
-
-    <article class="service-card">
-      <h3>📄 Full Compliance Support</h3>
-      <p>APEDA, FSSAI, phytosanitary certificates, customs clearance & destination documentation.</p>
-    </article>
+<!-- About / Intro -->
+<section aria-label="About Royal Exotic Farms">
+  <div class="surface">
+    <div class="surface-inner">
+      <h2>A Reliable Trade Bridge Between India & The World</h2>
+      <p class="lead">
+        Royal Exotic Farms is a family-operated business based near Mumbai, specializing in 
+        premium exports to Gulf countries and honest, compliant import support for Indian entrepreneurs.
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- Import Services Teaser -->
-<section class="services alt">
-  <h2>Smart Import Solutions for India</h2>
-  
-  <div class="service-grid">
-    <article class="service-card">
-      <h3>📦 Import from China & Global</h3>
-      <p>Reliable sourcing and end-to-end coordination for Indian entrepreneurs.</p>
-    </article>
+<!-- Exports Teaser -->
+<section aria-label="Export services to Gulf">
+  <div class="surface alt">
+    <div class="surface-inner">
+      <h2>Export from India to Gulf Countries</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-content">
+            <h3>❄️ Cold Chain Export</h3>
+            <p>Reefer containers ensuring freshness from Indian farms to Gulf ports.</p>
+          </div>
+        </div>
 
-    <article class="service-card">
-      <h3>📑 Customs & Duty Expertise</h3>
-      <p>HS code classification, landed cost calculation, GST & compliance guidance.</p>
-    </article>
+        <div class="card">
+          <div class="card-content">
+            <h3>🍌 Banana & Fresh Produce</h3>
+            <p>Specialized export meeting strict GCC quality standards.</p>
+          </div>
+        </div>
 
-    <article class="service-card">
-      <h3>🤝 Single-Point Coordination</h3>
-      <p>Transparent process from supplier to final delivery in India.</p>
-    </article>
+        <div class="card">
+          <div class="card-content">
+            <h3>📄 Full Compliance Support</h3>
+            <p>APEDA, FSSAI, phytosanitary, customs — handled correctly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Imports Teaser -->
+<section aria-label="Import support for India">
+  <div class="surface">
+    <div class="surface-inner">
+      <h2>Smart Import Solutions for India</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-content">
+            <h3>📦 Import from China & Global</h3>
+            <p>Reliable sourcing and coordination for Indian businesses.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>📑 Customs & Duty Expertise</h3>
+            <p>HS code, landed cost, GST — transparent guidance.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>🤝 Single-Point Coordination</h3>
+            <p>From supplier to delivery — clear and accountable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Final CTA -->
-<section class="cta-final">
-  <h2>Ready to Start Your Trade Journey?</h2>
-  <p>We build long-term relationships based on trust, transparency and compliance.</p>
-  
-  <button 
-    type="button"
-    class="cta-btn large"
-    aria-label="Open trade quote request form"
-    onclick="openModal('quoteModal')"
-  >
-    Request Trade Quote
-  </button>
+<section aria-label="Call to action">
+  <div class="surface cta-final">
+    <div class="surface-inner" style="text-align: center;">
+      <h2>Ready to Start Your Trade Journey?</h2>
+      <p class="lead">
+        We build long-term relationships based on trust, transparency, and compliance.
+      </p>
+      <button type="button" 
+              class="cta-btn primary large"
+              onclick="openModal('quoteModal')">
+        Request Trade Quote
+      </button>
+    </div>
+  </div>
 </section>
 
 <!-- Quote Modal -->
-<dialog class="modal" id="quoteModal">
+<dialog class="modal" id="quoteModal" aria-label="Trade quote request modal">
   <div class="modal-content">
-    <button 
-      type="button"
-      class="modal-close"
-      aria-label="Close quote request form"
-      onclick="closeModal('quoteModal')"
-    >×</button>
+    <button type="button" 
+            class="modal-close" 
+            aria-label="Close quote modal"
+            onclick="closeModal('quoteModal')">×</button>
 
     <h3>Trade Quote Request</h3>
+    <p class="modal-subtitle">We usually reply within 24 hours</p>
 
     <form action="/submit-form" method="POST" novalidate>
       <input type="hidden" name="form_type" value="Quote Request"/>
 
-      <div class="form-group">
-        <label for="trade-type">Trade Type</label>
-        <select id="trade-type" name="type" required>
-          <option value="" disabled selected>Select type</option>
-          <option value="Export">Export from India</option>
-          <option value="Import">Import to India</option>
-        </select>
-      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="type">Trade Type</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Select type</option>
+            <option value="Export">Export from India</option>
+            <option value="Import">Import to India</option>
+          </select>
+        </div>
 
-      <div class="form-group">
-        <label for="product">Product / Commodity</label>
-        <input type="text" id="product" name="product" required/>
+        <div class="form-group">
+          <label for="product">Product / Commodity</label>
+          <input type="text" id="product" name="product" required/>
+        </div>
       </div>
 
       <div class="form-group">
@@ -295,20 +272,20 @@
         <textarea id="message" name="message" rows="4"></textarea>
       </div>
 
-      <button type="submit" class="cta-btn">Submit Request</button>
+      <button type="submit" class="cta-btn full-width">Submit Request</button>
     </form>
   </div>
 </dialog>
 
 <!-- Footer -->
-<footer>
-  <div class="trust-badges" aria-label="Certifications">
-    <img src="/static/images/apeda-badge.png" alt="APEDA Certified Exporter" loading="lazy"/>
+<footer aria-label="Footer">
+  <div class="trust-badges" aria-label="Our Certifications">
+    <img src="/static/images/apeda-badge.png" alt="APEDA Registered" loading="lazy"/>
     <img src="/static/images/fssai-badge.png" alt="FSSAI Licensed" loading="lazy"/>
-    <img src="/static/images/iec-badge.png"    alt="IEC Registered" loading="lazy"/>
+    <img src="/static/images/iec-badge.png" alt="IEC Registered" loading="lazy"/>
   </div>
 
-  <p class="copyright">© 2026 Royal Exotic Farms. All rights reserved.</p>
+  <p class="copyright">© 2026 Royal Exotic Farms – Family Business</p>
 
   <div class="footer-links">
     <a href="/privacy">Privacy Policy</a> •
@@ -319,14 +296,14 @@
 
 <script src="/static/script.js"></script>
 
-<!-- Auto-dismiss flash messages -->
 <script>
+// Flash auto-dismiss – consistent across all pages
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.flash-message').forEach(msg => {
     setTimeout(() => {
       msg.style.opacity = '0';
-      setTimeout(() => msg.remove(), 400);
-    }, 3800);
+      setTimeout(() => msg.remove(), 500);
+    }, 4500);
   });
 });
 </script>
