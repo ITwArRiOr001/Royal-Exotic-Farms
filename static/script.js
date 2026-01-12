@@ -78,10 +78,72 @@ function initFlashDismiss() {
   }, 3000);
 }
 
+/* =========================================================
+   VIDEO FADE-IN ON LOAD
+   ========================================================= */
+function initVideoFadeIn() {
+  document.querySelectorAll(".card video").forEach(video => {
+    video.addEventListener("loadeddata", () => {
+      video.classList.add("is-loaded");
+    }, { once: true });
+  });
+}
+
+/* =========================================================
+   PAUSE VIDEOS WHEN OFF-SCREEN (DESKTOP ONLY)
+   ========================================================= */
+function initCardVideoObserver() {
+
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  const videos = document.querySelectorAll(".card video");
+  if (!videos.length) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+
+      if (!entry.isIntersecting) {
+        video.pause();
+        video.currentTime = 0;
+        video.dataset.visible = "false";
+      } else {
+        video.dataset.visible = "true";
+      }
+    });
+  }, { threshold: 0.25 });
+
+  videos.forEach(video => observer.observe(video));
+}
+
+/* =========================================================
+   HOVER PLAY (DESKTOP ONLY)
+   ========================================================= */
+function initCardVideoHover() {
+
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  document.querySelectorAll(".card").forEach(card => {
+    const video = card.querySelector("video");
+    if (!video) return;
+
+    card.addEventListener("mouseenter", () => {
+      if (video.dataset.visible === "true") {
+        video.play().catch(() => {});
+      }
+    });
+
+    card.addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+}
+
 /* ===================== INIT ===================== */
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Force safe defaults
+  // Safe defaults
   document.querySelector(".mobile-menu")?.classList.remove("open");
   document.querySelector(".overlay")?.classList.remove("open");
   document.body.style.overflow = "";
@@ -90,6 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initModalSafety();
   initFAQ();
   initFlashDismiss();
+
+  initVideoFadeIn();
+  initCardVideoObserver();
+  initCardVideoHover();
 
   // Close mobile menu on link click
   document.querySelectorAll(".mobile-menu a").forEach(link => {
