@@ -141,7 +141,7 @@ a:hover { color: var(--gold-dark); }
 }
 
 /* ==========================================================================
-   HERO – Now compact, serious & business-like on mobile
+   HERO – COMPACT & SERIOUS ON MOBILE – Final Fix
    ========================================================================== */
 .hero {
   position: relative;
@@ -186,23 +186,28 @@ a:hover { color: var(--gold-dark); }
   margin-top: 1rem;
 }
 
-.cta-btn {
-  padding: 0.9rem 2rem;               /* Slightly smaller buttons on mobile */
-  font-size: 1rem;
-  min-width: 220px;
+/* Override any old conflicting media query */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 38vh !important;
+    padding: 2.5rem 1rem 2.5rem !important;
+  }
+  .hero.small-hero {
+    min-height: 35vh !important;
+  }
 }
 
 /* Desktop – still looks premium & spacious */
-@media (min-width: 640px) {
+@media (min-width: 993px) {
   .hero {
-    min-height: 55vh;                 /* Desktop can afford more height */
+    min-height: 55vh;
     padding: 5rem 2rem 4rem;
   }
   .hero-title { font-size: clamp(3.2rem, 7.5vw, 4.8rem); }
   .hero-subtitle { font-size: clamp(1.3rem, 3vw, 1.6rem); }
   .hero-cta { flex-direction: row; justify-content: center; gap: 1.5rem; }
-  .cta-btn { padding: 1.1rem 2.4rem; min-width: 240px; font-size: 1.06rem; }
 }
+
 /* ==========================================================================
    BUTTONS – Premium & trustworthy
    ========================================================================== */
@@ -210,17 +215,17 @@ a:hover { color: var(--gold-dark); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 2.4rem;
+  padding: 0.9rem 2rem;
   background: linear-gradient(135deg, var(--gold-premium), #e0c04a);
   color: white;
   font-weight: 600;
-  font-size: 1.06rem;
+  font-size: 1rem;
   border-radius: 50px;
   box-shadow: 0 6px 22px rgba(212,175,55,0.32);
   transition: var(--transition);
   border: 1px solid rgba(255,255,255,0.25);
   cursor: pointer;
-  min-width: 240px;
+  min-width: 220px;
 }
 
 .cta-btn:hover {
@@ -422,11 +427,10 @@ a:hover { color: var(--gold-dark); }
 .full-width { width: 100%; }
 
 /* ==========================================================================
-   RESPONSIVE – Mobile-first priority
+   RESPONSIVE – Mobile-first priority (no more conflicting hero overrides)
    ========================================================================== */
 @media (max-width: 992px) {
   .surface { padding: 2rem; margin: 2rem auto; }
-  .hero { min-height: 60vh; padding: 4rem 1rem 3.5rem; }
 }
 
 @media (max-width: 640px) {
