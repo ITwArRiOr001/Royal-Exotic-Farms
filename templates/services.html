@@ -2,258 +2,317 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <!-- SEO -->
-  <title>Trade Services | Export from India & Import to India | Royal Exotic Farms</title>
-  <meta name="description" content="Royal Exotic Farms provides professional export from India and import to India services including cold-chain logistics, Gulf trade support, China sourcing, and compliance-driven processes.">
+  <!-- SEO - balanced for both directions of trade -->
+  <title>Our Trade Services | Export to Gulf • Import to India | Royal Exotic Farms</title>
+  <meta name="description" content="Royal Exotic Farms – family-run Indian business offering reliable export to Gulf countries (cold-chain, fresh produce) and practical import support to India from China & global markets. Honest guidance, full compliance, long-term relationships."/>
 
-  <link rel="stylesheet" href="/static/style.css" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Royal Exotic Farms – Family-Run Export & Import Services"/>
+  <meta property="og:description" content="Trusted partner for Gulf exports and Indian imports – cold-chain expertise, compliance support, transparent guidance"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://royalexoticfarms.onrender.com/services"/>
+  <meta property="og:image" content="https://royalexoticfarms.onrender.com/static/images/og-services-family.jpg"/>
+
+  <link rel="stylesheet" href="/static/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 </head>
 
 <body>
 
-<!-- ================= FLASH ================= -->
+<!-- Flash Messages -->
 {% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<div class="flash-container">
-  {% for category, message in messages %}
-  <div class="flash-message {{ category }}">{{ message }}</div>
-  {% endfor %}
-</div>
-{% endif %}
+  {% if messages %}
+  <div class="flash-container" role="alert">
+    {% for category, message in messages %}
+    <div class="flash-message {{ category }}" aria-live="polite">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
 {% endwith %}
 
-<!-- ================= MOBILE MENU ================= -->
-<div class="mobile-menu">
-  <button class="close-menu" onclick="toggleMobileMenu()">×</button>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/exports">Exports</a></li>
-    <li><a href="/imports">Imports</a></li>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="close-menu" aria-label="Close mobile menu" onclick="toggleMobileMenu()">×</button>
+  <nav aria-label="Mobile navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/exports">Exports</a></li>
+      <li><a href="/imports">Imports</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
 </div>
-<div class="overlay" onclick="toggleMobileMenu()"></div>
+<div class="overlay" id="overlay" onclick="toggleMobileMenu()" aria-hidden="true"></div>
 
-<!-- ================= HERO ================= -->
+<!-- Hero -->
 <header class="hero small-hero services-hero">
-  <!-- Background image via CSS -->
-  <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+  <button class="hamburger" 
+          aria-label="Open mobile menu" 
+          aria-expanded="false" 
+          aria-controls="mobileMenu"
+          onclick="toggleMobileMenu()">☰</button>
 
   <div class="hero-content">
-    <h1 class="hero-title">Our Trade Services</h1>
+    <h1 class="hero-title">Our Family Trade Services</h1>
     <p class="hero-subtitle">
-      Structured. Compliant. Relationship-Driven.<br>
-      Export & Import Services Built for Long-Term Trade
+      Honest • Compliant • Relationship-Driven<br>
+      Export to Gulf & Import Support for India
     </p>
   </div>
 </header>
 
-<!-- ================= NAV ================= -->
-<nav>
+<!-- Main Navigation -->
+<nav class="main-nav" aria-label="Main navigation">
   <a href="/">Home</a>
   <a href="/exports">Exports</a>
   <a href="/imports">Imports</a>
-  <a href="/services" class="active">Services</a>
+  <a href="/services" class="active" aria-current="page">Services</a>
   <a href="/contact">Contact</a>
 </nav>
 
-<!-- ================= INTRO ================= -->
+<!-- Intro -->
 <section class="about split-section">
   <div class="text-block">
-    <h2>End-to-End Trade Services, Without the Confusion</h2>
+    <h2>A Family Business Serving Trade Partners</h2>
 
-    <p>
-      International trade succeeds when processes are clear, risks are understood,
-      and compliance is respected. Royal Exotic Farms provides structured
-      services for <strong>export from India</strong> and
-      <strong>import to India</strong>.
+    <p class="lead">
+      At Royal Exotic Farms, we are a family-run Indian business that believes in clear communication, proper compliance and building long-term trust.
     </p>
 
     <p>
-      We do not operate as volume brokers.
-      We operate as a <strong>long-term trade partner</strong>.
+      We offer two main services:<br>
+      • Premium export of fresh produce to Gulf countries<br>
+      • Practical, step-by-step import guidance for Indian entrepreneurs
+    </p>
+
+    <p class="family-note">
+      <strong>We are not a big corporate broker.</strong><br>
+      We work like a traditional family business — personally, honestly, and with full responsibility.
     </p>
   </div>
 
   <div class="image-block">
-    <!-- PLACEHOLDER: Trade planning / documents / handshake -->
-    <img src="/static/images/placeholder-trade-planning.jpg" alt="Structured trade services">
+    <img src="/static/images/family-trade-handshake.jpg" 
+         alt="Family business handshake in trade" 
+         loading="lazy">
   </div>
 </section>
 
-<!-- ================= EXPORT SERVICES ================= -->
-<section class="services">
-  <h2>Export Services (India → Gulf & Select Markets)</h2>
+<!-- Export Services -->
+<section class="services premium">
+  <h2>Export Services – India to Gulf Countries</h2>
 
-  <div class="service-grid">
-
-    <div class="service-card">
-      <img src="/static/images/placeholder-coldchain.jpg" alt="Cold chain export">
+  <div class="service-grid three-col">
+    <article class="service-card">
+      <img src="/static/images/coldchain-reefer.jpg" 
+           alt="Cold chain reefer container for export" 
+           loading="lazy">
       <h3>❄️ Cold-Chain Export Management</h3>
-      <p>
-        Temperature-controlled exports including bananas,
-        fruits, and perishables using reefer logistics.
-      </p>
-    </div>
+      <p>Fresh bananas, fruits and perishables — full temperature control from farm to Gulf ports.</p>
+    </article>
 
-    <div class="service-card">
-      <img src="/static/images/placeholder-docs.jpg" alt="Export documentation">
-      <h3>📄 Export Documentation & Compliance</h3>
-      <p>
-        IEC, APEDA, FSSAI, phytosanitary certificates,
-        invoices, and shipping paperwork handled correctly.
-      </p>
-    </div>
+    <article class="service-card">
+      <img src="/static/images/export-documents.jpg" 
+           alt="Complete export documentation set" 
+           loading="lazy">
+      <h3>📄 Complete Documentation & Compliance</h3>
+      <p>APEDA, FSSAI, phytosanitary, customs, invoice, packing list — everything handled correctly.</p>
+    </article>
 
-    <div class="service-card">
-      <img src="/static/images/placeholder-port.jpg" alt="Gulf shipping routes">
+    <article class="service-card">
+      <img src="/static/images/gulf-shipping.jpg" 
+           alt="Shipping routes to Gulf countries" 
+           loading="lazy">
       <h3>🚢 Gulf-Focused Shipping Coordination</h3>
-      <p>
-        Export routes to UAE, Saudi Arabia, Qatar,
-        Oman, and Bahrain with port-level awareness.
-      </p>
-    </div>
-
+      <p>Experience with main ports: Jebel Ali, Jeddah, Dammam, Doha, Muscat, Manama.</p>
+    </article>
   </div>
 
   <div class="process-box">
-    <h3>Our Export Process</h3>
-    <ol>
-      <li>Product & quality readiness</li>
-      <li>Cold-chain & packaging prep</li>
-      <li>Documentation & compliance checks</li>
-      <li>Shipping & tracking</li>
-      <li>Destination support</li>
+    <h3>Our Export Process – Step by Step</h3>
+    <ol class="process-steps">
+      <li>Farm selection & quality check</li>
+      <li>Pre-cooling & proper packaging</li>
+      <li>Full documentation preparation</li>
+      <li>Reefer container booking & monitoring</li>
+      <li>Delivery coordination at Gulf port</li>
     </ol>
   </div>
 </section>
 
-<!-- ================= IMPORT SERVICES ================= -->
+<!-- Import Services -->
 <section class="services alt">
-  <h2>Import Services (China & Global Markets → India)</h2>
+  <h2>Import Services – Support for Indian Businesses</h2>
 
-  <div class="service-grid">
+  <div class="service-grid three-col">
+    <article class="service-card">
+      <img src="/static/images/import-feasibility.jpg" 
+           alt="Import feasibility checking" 
+           loading="lazy">
+      <h3>🔍 Product & Legal Feasibility Check</h3>
+      <p>Understanding restrictions, licences and realistic possibilities before starting.</p>
+    </article>
 
-    <div class="service-card">
-      <img src="/static/images/placeholder-feasibility.jpg" alt="Import feasibility">
-      <h3>🔍 Import Feasibility Guidance</h3>
-      <p>
-        Legal feasibility, documentation requirements,
-        and risk understanding before importing.
-      </p>
-    </div>
+    <article class="service-card">
+      <img src="/static/images/landed-cost-calculation.jpg" 
+           alt="Landed cost calculation sheet" 
+           loading="lazy">
+      <h3>📊 Realistic Landed Cost Planning</h3>
+      <p>HS code, customs duty, IGST, freight — clear breakdown before you order.</p>
+    </article>
 
-    <div class="service-card">
-      <img src="/static/images/placeholder-cost.jpg" alt="Landed cost planning">
-      <h3>📊 Landed Cost & Duty Clarity</h3>
-      <p>
-        HS code guidance, duty structures,
-        GST impact, and realistic cost planning.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <img src="/static/images/placeholder-customs.jpg" alt="Customs clearance">
-      <h3>📦 Customs & Clearance Support</h3>
-      <p>
-        Documentation coordination and
-        Indian customs process assistance.
-      </p>
-    </div>
-
+    <article class="service-card">
+      <img src="/static/images/customs-support.jpg" 
+           alt="Customs clearance assistance" 
+           loading="lazy">
+      <h3>📦 Customs & Documentation Support</h3>
+      <p>Help preparing papers and coordinating clearance process in India.</p>
+    </article>
   </div>
 
   <div class="process-box">
-    <h3>Our Import Process</h3>
-    <ol>
-      <li>Product discussion</li>
-      <li>HS classification</li>
-      <li>Shipping prep</li>
-      <li>Customs coordination</li>
-      <li>Post-clearance guidance</li>
+    <h3>Our Import Support Process</h3>
+    <ol class="process-steps">
+      <li>Discuss your product & source</li>
+      <li>Check legality & HS classification</li>
+      <li>Calculate realistic total cost</li>
+      <li>Prepare & verify documents</li>
+      <li>Assist during customs clearance</li>
     </ol>
   </div>
 </section>
 
-<!-- ================= WHY US ================= -->
-<section class="about">
-  <h2>Why Businesses Choose Royal Exotic Farms</h2>
+<!-- Why Choose Us -->
+<section class="trust-section">
+  <h2>Why People Trust Our Family Business</h2>
 
-  <ul class="trust-list">
-    <li><strong>Compliance-First Approach</strong></li>
-    <li><strong>Gulf Trade Understanding</strong></li>
-    <li><strong>Entrepreneur-Friendly Guidance</strong></li>
-    <li><strong>Family-Operated Ethics</strong></li>
-  </ul>
+  <div class="trust-grid four-col">
+    <div class="trust-item">
+      <span class="icon">🤝</span>
+      <h3>Personal Relationship Focus</h3>
+      <p>We value long-term partnerships over quick deals</p>
+    </div>
+
+    <div class="trust-item">
+      <span class="icon">🛡️</span>
+      <h3>Strict Compliance Approach</h3>
+      <p>Only legal, correct, and safe trade guidance</p>
+    </div>
+
+    <div class="trust-item">
+      <span class="icon">🌱</span>
+      <h3>Family-operated Ethics</h3>
+      <p>Honesty, responsibility and respect — like family</p>
+    </div>
+
+    <div class="trust-item">
+      <span class="icon">🧠</span>
+      <h3>Practical & Realistic Advice</h3>
+      <p>No false promises — only what is actually possible</p>
+    </div>
+  </div>
 </section>
 
-<!-- ================= CTA ================= -->
+<!-- CTA -->
 <section class="cta-final">
-  <h2>Let’s Discuss Your Trade Requirements</h2>
-  <p>
-    Honest guidance for exports and imports — without shortcuts.
+  <h2>Let’s Have a Proper Conversation</h2>
+  <p class="lead">
+    Whether you want to export fresh produce to Gulf countries<br>
+    or import goods to grow your Indian business — we are here to help.
   </p>
 
-  <button class="cta-btn" onclick="openModal('serviceConsultModal')">
-    Request Consultation
+  <button type="button" 
+          class="cta-btn large primary"
+          aria-label="Open trade consultation form"
+          onclick="openModal('serviceConsultModal')">
+    Request Personal Consultation
   </button>
 </section>
 
-<!-- ================= CONSULT MODAL ================= -->
-<div class="modal" id="serviceConsultModal">
+<!-- Consultation Modal -->
+<dialog class="modal" id="serviceConsultModal">
   <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('serviceConsultModal')">&times;</span>
+    <button type="button" 
+            class="modal-close" 
+            aria-label="Close consultation form"
+            onclick="closeModal('serviceConsultModal')">×</button>
 
     <h3>Trade Consultation Request</h3>
+    <p class="modal-subtitle">We will personally review and reply (usually within 24–48 hours)</p>
 
-    <form action="/submit-form" method="POST">
-      <input type="hidden" name="form_type" value="Service Consultation">
+    <form action="/submit-form" method="POST" novalidate>
+      <input type="hidden" name="form_type" value="Trade Consultation"/>
 
-      <label>Your Name</label>
-      <input type="text" name="name" required>
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required/>
+      </div>
 
-      <label>Email</label>
-      <input type="email" name="email" required>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required/>
+      </div>
 
-      <label>I Need Help With</label>
-      <select name="type" required>
-        <option value="Export">Export from India</option>
-        <option value="Import">Import to India</option>
-        <option value="Both">Export & Import</option>
-        <option value="Compliance">Compliance & Documentation</option>
-      </select>
+      <div class="form-group">
+        <label for="phone">WhatsApp / Mobile</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 / +971"/>
+      </div>
 
-      <label>Brief Description</label>
-      <textarea name="message" rows="3"></textarea>
+      <div class="form-group">
+        <label for="type">I am interested in</label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>Select option</option>
+          <option value="Export">Export to Gulf countries</option>
+          <option value="Import">Import to India</option>
+          <option value="Both">Both Export & Import</option>
+          <option value="General">Just want to discuss / ask questions</option>
+        </select>
+      </div>
 
-      <button type="submit" class="cta-btn">Submit Request</button>
+      <div class="form-group">
+        <label for="message">Briefly tell us about your requirement</label>
+        <textarea id="message" name="message" rows="4" placeholder="Example: Want to export bananas to Dubai twice a month..."></textarea>
+      </div>
+
+      <button type="submit" class="cta-btn full-width">Send Message</button>
     </form>
   </div>
-</div>
+</dialog>
 
-<!-- ================= FOOTER ================= -->
+<!-- Footer -->
 <footer>
-  <div class="trust-badges">
-    <img src="/static/images/apeda-badge.png">
-    <img src="/static/images/fssai-badge.png">
-    <img src="/static/images/iec-badge.png">
+  <div class="trust-badges" aria-label="Our Certifications">
+    <img src="/static/images/apeda-badge.png" alt="APEDA Registered" loading="lazy"/>
+    <img src="/static/images/fssai-badge.png" alt="FSSAI Licensed" loading="lazy"/>
+    <img src="/static/images/iec-badge.png"    alt="IEC Registered" loading="lazy"/>
   </div>
 
-  <p>© 2024 Royal Exotic Farms. Professional Trade Services.</p>
+  <p class="copyright">© 2026 Royal Exotic Farms – Family Business</p>
+
+  <div class="footer-links">
+    <a href="/contact">Contact Us</a> •
+    <a href="/privacy">Privacy Policy</a> •
+    <a href="/terms">Terms of Use</a>
+  </div>
 </footer>
 
 <script src="/static/script.js"></script>
 
 <script>
-setTimeout(() => {
-  document.querySelectorAll('.flash-message').forEach(el => {
-    el.style.opacity = '0';
-    setTimeout(() => el.remove(), 400);
+// Flash auto-dismiss
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.flash-message').forEach(msg => {
+    setTimeout(() => {
+      msg.style.opacity = '0';
+      setTimeout(() => msg.remove(), 500);
+    }, 4500);
   });
-}, 3000);
+});
 </script>
 
 </body>
