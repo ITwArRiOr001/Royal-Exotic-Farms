@@ -295,27 +295,25 @@ a:hover { color: var(--gold-muted); }
 
 .card-content { padding: 1.5rem; }
 
-/* ===================== CARD IMAGE CONTROL ===================== */
+//* ===================== CARD IMAGE – FINAL FIT ===================== */
 
-/* Image wrapper (creates controlled visual zone) */
 .card img {
   width: 100%;
-  height: 140px;               /* KEY: limits image size */
-  object-fit: contain;         /* keeps FULL image visible */
-  background: #f8f9fa;         /* neutral backdrop */
-  padding: 14px;               /* visual breathing space */
+  height: 120px;                /* tighter, more professional */
+  object-fit: contain;          /* keep full image visible */
+  background: #f8f9fa;          /* neutral business backdrop */
+  padding: 12px;
   display: block;
+  border-bottom: 1px solid var(--border-light);
 }
 
-/* Desktop gets slightly taller media */
+/* Desktop gets slightly more presence */
 @media (min-width: 992px) {
   .card img {
-    height: 170px;
-    padding: 18px;
+    height: 150px;
+    padding: 16px;
   }
 }
-.card-content h3 {
-  min-height: 3.2rem; /* aligns titles across cards */
 }
 /* ===================== TRUST STRIP ===================== */
 .trust-strip {
