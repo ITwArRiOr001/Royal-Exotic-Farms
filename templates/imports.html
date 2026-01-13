@@ -101,54 +101,67 @@
   {% endif %}
 {% endwith %}
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <button class="close-menu" aria-label="Close mobile menu" onclick="toggleMobileMenu()">×</button>
-  <nav aria-label="Mobile navigation">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/exports">Exports</a></li>
-      <li><a href="/imports">Imports</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
-</div>
-<div class="overlay" id="overlay" onclick="toggleMobileMenu()" aria-hidden="true"></div>
-
 <!-- Hero -->
-<header class="hero small-hero import-hero">
-  <button class="hamburger" 
-          aria-label="Open mobile menu" 
-          aria-expanded="false" 
-          aria-controls="mobileMenu"
-          onclick="toggleMobileMenu()">☰</button>
-
+<section class="hero" aria-label="Hero">
   <div class="hero-content">
-    <h1 class="hero-title">Import to India – Clear, Compliant, Predictable</h1>
+    <h1 class="hero-title brand-gradient">Royal Exotic Farms</h1>
+
     <p class="hero-subtitle">
-      From China & Global Markets • Professional Guidance for Indian Businesses
+      Premium Export from India to Gulf Countries<br>
+      Professional Import Support for Indian Businesses
     </p>
 
     <div class="hero-cta">
-      <button type="button" 
-              class="cta-btn primary"
-              aria-label="Open import assistance request form"
-              onclick="openModal('importQuoteModal')">
-        Get Import Guidance & Cost Estimate
+      <button
+        type="button"
+        class="cta-btn primary"
+        onclick="openModal('quoteModal')">
+        Get Export / Import Quote
       </button>
+
+      <a href="/contact" class="cta-btn secondary">
+        Contact Trade Team
+      </a>
     </div>
   </div>
-</header>
+</section>
+<!-- ===================== GLOBAL HEADER & NAV ===================== -->
+<header class="site-header">
 
-<!-- Main Navigation -->
-<nav class="main-nav" aria-label="Main navigation">
-  <a href="/">Home</a>
-  <a href="/exports">Exports</a>
-  <a href="/imports" class="active" aria-current="page">Imports</a>
-  <a href="/services">Services</a>
-  <a href="/contact">Contact</a>
-</nav>
+  <!-- Mobile Hamburger (mobile only via CSS) -->
+  <button
+    class="hamburger"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobileMenu"
+    onclick="toggleMobileMenu()">
+    ☰
+  </button>
+
+  <!-- Desktop Navigation -->
+  <nav class="main-nav" aria-label="Primary navigation">
+    <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+    <a href="/exports" class="{% if 'exports' in request.path %}active{% endif %}">Exports</a>
+    <a href="/imports" class="{% if 'imports' in request.path %}active{% endif %}">Imports</a>
+    <a href="/services" class="{% if 'services' in request.path %}active{% endif %}">Services</a>
+    <a href="/contact" class="{% if 'contact' in request.path %}active{% endif %}">Contact</a>
+  </nav>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+    <nav aria-label="Mobile navigation">
+      <a href="/">Home</a>
+      <a href="/exports">Exports</a>
+      <a href="/imports">Imports</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" onclick="toggleMobileMenu()" aria-hidden="true"></div>
+
+</header>
 
 <!-- Intro -->
 <section aria-label="About import services">
