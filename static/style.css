@@ -274,51 +274,52 @@ a:hover { color: var(--gold-muted); }
   .split-section { grid-template-columns: 1fr; }
 }
 /* =========================================================
-   ELITE SPLIT CONTENT POLISH (TEXT + IMAGE BLOCKS)
-   Applies to: Intro, Process, Trust sections
+/* =========================================================
+   ELITE SPLIT CONTENT POLISH (STRUCTURE-AWARE)
+   Works with existing HTML — no class changes needed
    ========================================================= */
 
-/* Base split refinement */
+/* Improve spacing */
 .surface .split-section {
   gap: 3.4rem;
-  /* more breathing room */
 }
 
-/* ---------- TEXT BLOCK ---------- */
-.surface .text-block {
-  max-width: 560px;
-  /* ideal reading width */
+/* ---------- TEXT COLUMN ---------- */
+.surface .split-section > div:first-child {
+  max-width: 560px;               /* editorial reading width */
   position: relative;
 }
 
-.surface .text-block h2 {
+.surface .split-section h2 {
   margin-bottom: 1.2rem;
 }
 
-.surface .text-block .lead {
+.surface .split-section .lead {
   font-size: 1.12rem;
   line-height: 1.7;
   margin-bottom: 1.4rem;
 }
 
-/* Subtle vertical divider (desktop only) */
+/* Subtle divider (desktop only) */
 @media (min-width: 992px) {
-  .surface .text-block::after {
+  .surface .split-section > div:first-child::after {
     content: "";
     position: absolute;
     right: -1.7rem;
     top: 0.3rem;
     height: 85%;
     width: 1px;
-    background: linear-gradient(to bottom,
-        transparent,
-        var(--border-light),
-        transparent);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--border-light),
+      transparent
+    );
   }
 }
 
-/* ---------- IMAGE BLOCK ---------- */
-.surface .image-block {
+/* ---------- IMAGE COLUMN ---------- */
+.surface .split-section > div:last-child {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -326,16 +327,16 @@ a:hover { color: var(--gold-muted); }
   background: #fff;
 }
 
-.surface .image-block img {
+.surface .split-section > div:last-child img {
   width: 100%;
-  height: 100%;
+  height: auto;
   max-height: 360px;
   object-fit: cover;
   display: block;
 }
 
-/* Soft image edge polish */
-.surface .image-block::after {
+/* Subtle frame */
+.surface .split-section > div:last-child::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -346,24 +347,23 @@ a:hover { color: var(--gold-muted); }
 
 /* ---------- MOBILE REFINEMENT ---------- */
 @media (max-width: 900px) {
-  
+
   .surface .split-section {
     gap: 2rem;
   }
-  
-  .surface .text-block {
+
+  .surface .split-section > div:first-child {
     max-width: 100%;
   }
-  
-  .surface .text-block::after {
+
+  .surface .split-section > div:first-child::after {
     display: none;
   }
-  
-  .surface .image-block img {
+
+  .surface .split-section > div:last-child img {
     max-height: 260px;
   }
 }
-
 /* ===================== GRID & CARDS ===================== */
 .grid {
   display: grid;
