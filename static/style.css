@@ -535,25 +535,95 @@ dialog.modal {
   cursor: pointer;
 }
 
-/* ===================== FOOTER ===================== */
-footer {
-  background: var(--primary-navy);
-  color: white;
-  text-align: center;
-  padding: 2.4rem 1rem;
+/* ================= FOOTER – ELITE & TRUST-FOCUSED ================= */
+
+.site-footer {
+  background: #0b2545;
+  color: #d1d5db;
+  padding: 50px 20px 30px;
+  font-size: 14px;
 }
 
-.footer-links a {
-  color: rgba(255,255,255,0.8);
-  margin: 0 0.4rem;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Trust badges */
+.footer-trust {
+  margin-bottom: 35px;
 }
 
 .trust-badges {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 1.2rem;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.trust-badges img {
+  height: 48px;
+  width: auto;
+  filter: grayscale(100%) brightness(1.1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.trust-badges img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* Trust text */
+.trust-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* Bottom strip */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 13.5px;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Mobile polish */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 16px 25px;
+  }
+
+  .trust-badges img {
+    height: 42px;
+  }
+
+  .trust-text {
+    font-size: 13.5px;
+  }
 }
 
 .trust-badges img { height: 64px; }
