@@ -165,3 +165,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".overlay")
     ?.addEventListener("click", toggleMobileMenu);
 });
+/* ===================== IMAGE SCROLL REVEAL (ELITE) ===================== */
+function initImageReveal() {
+  const images = document.querySelectorAll(".image-block");
+
+  if (!("IntersectionObserver" in window)) {
+    images.forEach(img => img.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  images.forEach(img => observer.observe(img));
+}
+
+/* Add to DOMContentLoaded */
+document.addEventListener("DOMContentLoaded", () => {
+  initImageReveal();
+});
