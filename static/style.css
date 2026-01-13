@@ -275,29 +275,16 @@ a:hover { color: var(--gold-muted); }
 }
 
 /* =========================================================
-   ELITE SPLIT CONTENT DESIGN — STRUCTURE SAFE
-   Text clarity • Image authority • B2B polish
+   ELITE SPLIT SECTION ENHANCEMENTS (SAFE + SCOPED)
+   Gold underline • Image reveal • Section numbering
    ========================================================= */
 
-/* ---------- LAYOUT RHYTHM ---------- */
-.surface .split-section {
-  gap: 3.6rem;
-  align-items: center;
-}
-
-/* ---------- TEXT BLOCK ---------- */
-.surface .text-block {
-  max-width: 560px; /* editorial reading width */
-  position: relative;
-}
-
+/* ---------- HEADING GOLD ACCENT (SPLIT SECTIONS ONLY) ---------- */
 .surface .text-block h2 {
-  margin-bottom: 1.3rem;
   position: relative;
   padding-bottom: 0.9rem;
 }
 
-/* Gold underline */
 .surface .text-block h2::after {
   content: "";
   position: absolute;
@@ -313,59 +300,20 @@ a:hover { color: var(--gold-muted); }
   );
 }
 
-.surface .text-block .lead {
-  font-size: 1.12rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* Vertical divider (desktop only) */
-@media (min-width: 992px) {
-  .surface .text-block::after {
-    content: "";
-    position: absolute;
-    right: -1.9rem;
-    top: 0.5rem;
-    height: 80%;
-    width: 1px;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      var(--border-light),
-      transparent
-    );
-  }
-}
-
-/* ---------- IMAGE BLOCK ---------- */
-.surface .image-block {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  background: #fff;
-}
-
-/* Image sizing */
-.surface .image-block img {
-  width: 100%;
-  height: auto;
-  max-height: 360px;
-  object-fit: cover;
+/* ---------- SECTION NUMBERING (OPTIONAL, B2B AUTHORITY) ---------- */
+/* Usage: <section data-section="01"> */
+section[data-section] .text-block h2::before {
+  content: attr(data-section);
   display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--gold-muted);
+  margin-bottom: 0.4rem;
 }
 
-/* Image frame */
-.surface .image-block::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  box-shadow: inset 0 0 0 1px var(--border-light);
-  pointer-events: none;
-}
-
-/* ---------- IMAGE REVEAL (PAIR WITH JS) ---------- */
+/* ---------- IMAGE-ONLY SCROLL REVEAL ---------- */
 .image-block {
   opacity: 0;
   transform: translateY(28px);
@@ -380,23 +328,10 @@ a:hover { color: var(--gold-muted); }
   transform: translateY(0);
 }
 
-/* ---------- MOBILE REFINEMENT ---------- */
-@media (max-width: 900px) {
-
-  .surface .split-section {
-    gap: 2.2rem;
-  }
-
-  .surface .text-block {
-    max-width: 100%;
-  }
-
-  .surface .text-block::after {
-    display: none;
-  }
-
-  .surface .image-block img {
-    max-height: 260px;
+/* Mobile: slightly faster reveal */
+@media (max-width: 768px) {
+  .image-block {
+    transition-duration: 0.6s;
   }
 }
 /* ===================== GRID & CARDS ===================== */
