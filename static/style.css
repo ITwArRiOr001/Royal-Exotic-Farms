@@ -689,3 +689,16 @@ dialog.modal {
     box-shadow: none;
   }
 }
+/* ===================== ACCESSIBILITY: FOCUS ===================== */
+
+:focus-visible {
+  outline: 3px solid var(--gold-premium);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
+}
+
