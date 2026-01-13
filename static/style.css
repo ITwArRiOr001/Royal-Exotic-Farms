@@ -10,31 +10,23 @@
   --navy-darker: #071a2f;
   --gold-premium: #c5a047;
   --gold-muted: #a88b38;
-
   --text-dark: #0f172a;
   --text-muted: #4b5563;
-
   --bg-white: #ffffff;
   --bg-light: #f8f9fa;
   --bg-soft: #f3f5f7;
-
   --border-light: #e2e8f0;
-
   --shadow-subtle: 0 4px 12px rgba(13,37,66,0.08);
   --shadow-card: 0 10px 30px rgba(0,0,0,0.12);
-
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
-
   --transition: all 0.3s ease;
 }
 
 /* ===================== RESET ===================== */
 *, *::before, *::after { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -52,18 +44,54 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   margin-top: 0;
 }
-
 h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); }
 h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); }
 h3 { font-size: clamp(1.35rem, 4vw, 1.8rem); }
-
-p { color: var(--text-muted); margin-bottom: 1rem; }
+p { 
+  color: var(--text-muted); 
+  margin-bottom: 1rem; 
+  max-width: 64ch; /* optimal reading line length */
+}
 
 .lead { font-size: 1.1rem; font-weight: 500; }
+
+/* ===================== TYPOGRAPHY POLISH ===================== */
+.surface .text-block p {
+  margin-bottom: 1.2rem;
+}
+.surface .text-block p:last-child {
+  margin-bottom: 0;
+}
 
 /* ===================== LINKS ===================== */
 a { color: var(--gold-premium); text-decoration: none; }
 a:hover { color: var(--gold-muted); }
+
+/* ===================== ACCESSIBILITY: FOCUS ===================== */
+:focus-visible {
+  outline: 3px solid var(--gold-premium);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
+}
+
+/* ===================== ACCESSIBILITY: REDUCED MOTION ===================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .brand-gradient {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
 
 /* ===================== HERO ===================== */
 .hero {
@@ -75,14 +103,11 @@ a:hover { color: var(--gold-muted); }
   text-align: center;
   padding: 2.8rem 1.2rem 2.6rem;
 }
-
 .hero-content { max-width: 760px; margin: 0 auto; }
-
 .hero-title {
   font-size: 3.4rem;
   line-height: 1.12;
 }
-
 .hero-subtitle {
   font-size: 1.05rem;
   max-width: 90%;
@@ -104,14 +129,16 @@ a:hover { color: var(--gold-muted); }
 @media (max-width: 768px) {
   .hero {
     min-height: 38vh;
+    padding-top: 4.2rem; /* space for hamburger */
   }
-
   .hero-title {
     font-size: 2.6rem;
   }
-
   .hero-subtitle {
     font-size: 1rem;
+  }
+  .hero-content {
+    margin-top: 0.8rem;
   }
 }
 
@@ -147,7 +174,6 @@ a:hover { color: var(--gold-muted); }
     min-width: unset;
     border-radius: 40px;
   }
-
   .cta-btn.full-width { width: 100%; }
 }
 
@@ -168,14 +194,12 @@ a:hover { color: var(--gold-muted); }
   gap: 0.5rem;
   padding: 0.7rem 1rem;
 }
-
 .main-nav a {
   padding: 0.55rem 1.1rem;
   color: var(--primary-navy);
   font-weight: 500;
   border-radius: var(--radius-sm);
 }
-
 .main-nav a.active,
 .main-nav a:hover {
   background: rgba(197,160,71,0.12);
@@ -188,19 +212,23 @@ a:hover { color: var(--gold-muted); }
 /* Mobile ONLY hamburger */
 @media (max-width: 768px) {
   .main-nav { display: none; }
-
   .hamburger {
     display: inline-flex;
     position: absolute;
-    top: 1.1rem;
-    left: 1.1rem;
+    top: 0.9rem;
+    left: 0.9rem;
     z-index: 1100;
-    background: rgba(255,255,255,0.95);
-    border-radius: 8px;
+    background: rgba(255,255,255,0.96);
+    border-radius: 10px;
     padding: 0.35rem 0.5rem;
     font-size: 1.25rem;
     border: none;
     cursor: pointer;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
   }
 }
 
@@ -215,18 +243,17 @@ a:hover { color: var(--gold-muted); }
   transition: transform 0.3s ease;
   z-index: 2000;
 }
-
 .mobile-menu.open {
   transform: translateX(0);
   visibility: visible;
 }
-
 .mobile-menu a {
   display: block;
   padding: 0.9rem 0;
   font-size: 1.15rem;
   color: var(--primary-navy);
 }
+
 /* ===================== MOBILE MENU CLOSE BUTTON ===================== */
 .close-menu {
   position: absolute;
@@ -245,10 +272,10 @@ a:hover { color: var(--gold-muted); }
   align-items: center;
   justify-content: center;
 }
-
 .close-menu:hover {
   background: rgba(13,37,66,0.12);
 }
+
 /* Overlay */
 .overlay {
   position: fixed;
@@ -259,7 +286,6 @@ a:hover { color: var(--gold-muted); }
   transition: opacity 0.3s ease;
   z-index: 1500;
 }
-
 .overlay.open {
   opacity: 1;
   pointer-events: all;
@@ -274,17 +300,32 @@ a:hover { color: var(--gold-muted); }
   margin: 2.8rem auto;
   max-width: 1200px;
 }
-
 .surface.alt {
   background: linear-gradient(180deg, #f2f6fb, #ffffff);
 }
-
 .surface.cta-final {
   background: linear-gradient(rgba(13,37,66,0.92), rgba(13,37,66,0.88));
   color: white;
 }
-
 .surface-inner { max-width: 1050px; margin: auto; }
+
+/* ===================== SECTION SPACING RHYTHM ===================== */
+.surface + .surface {
+  margin-top: 4rem;
+}
+@media (max-width: 768px) {
+  .surface + .surface {
+    margin-top: 3rem;
+  }
+}
+
+/* ===================== HEADING MICRO-TUNING ===================== */
+h2 {
+  letter-spacing: -0.015em;
+}
+h3 {
+  letter-spacing: -0.01em;
+}
 
 /* ===================== SPLIT ===================== */
 .split-section {
@@ -293,22 +334,18 @@ a:hover { color: var(--gold-muted); }
   gap: 2.6rem;
   align-items: center;
 }
-
 @media (max-width: 900px) {
   .split-section { grid-template-columns: 1fr; }
 }
 
 /* =========================================================
    ELITE SPLIT SECTION ENHANCEMENTS (SAFE + SCOPED)
-   Gold underline • Image reveal • Section numbering
    ========================================================= */
-
 /* ---------- HEADING GOLD ACCENT (SPLIT SECTIONS ONLY) ---------- */
 .surface .text-block h2 {
   position: relative;
   padding-bottom: 0.9rem;
 }
-
 .surface .text-block h2::after {
   content: "";
   position: absolute;
@@ -325,7 +362,6 @@ a:hover { color: var(--gold-muted); }
 }
 
 /* ---------- SECTION NUMBERING (OPTIONAL, B2B AUTHORITY) ---------- */
-/* Usage: <section data-section="01"> */
 section[data-section] .text-block h2::before {
   content: attr(data-section);
   display: block;
@@ -346,18 +382,16 @@ section[data-section] .text-block h2::before {
     transform 0.85s ease;
   will-change: opacity, transform;
 }
-
 .image-block.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Mobile: slightly faster reveal */
 @media (max-width: 768px) {
   .image-block {
     transition-duration: 0.6s;
   }
 }
+
 /* ===================== GRID & CARDS ===================== */
 .grid {
   display: grid;
@@ -365,7 +399,6 @@ section[data-section] .text-block h2::before {
   gap: 1.8rem;
   margin-top: 2.2rem;
 }
-
 .card {
   background: white;
   border-radius: var(--radius-lg);
@@ -374,25 +407,22 @@ section[data-section] .text-block h2::before {
   border: 1px solid var(--border-light);
   transition: var(--transition);
 }
-
 .card:hover { transform: translateY(-6px); }
-
 .card-content { padding: 1.5rem; }
-/* ===================== CARD MEDIA (IMAGE + VIDEO) ===================== */
 
+/* ===================== CARD MEDIA ===================== */
 .card img,
 .card video {
   width: 100%;
-  height: 160px;                 /* controlled professional height */
-  object-fit: cover;             /* clean crop */
+  height: 160px;
+  object-fit: cover;
   display: block;
   margin: 0;
   padding: 0;
-  background: #000;              /* prevents white flash */
+  background: #000;
   border-bottom: 1px solid var(--border-light);
 }
 
-/* Desktop refinement */
 @media (min-width: 992px) {
   .card img,
   .card video {
@@ -405,37 +435,29 @@ section[data-section] .text-block h2::before {
   pointer-events: none;
 }
 
-/* ===================== VIDEO FADE-IN (POLISH) ===================== */
-
+/* ===================== VIDEO FADE-IN ===================== */
 .card video {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-
 .card video.is-loaded {
   opacity: 1;
 }
 
-/* ===================== DESKTOP HOVER PLAY ONLY ===================== */
+/* ===================== DESKTOP HOVER EFFECTS ===================== */
 @media (hover: hover) and (pointer: fine) {
-
   .card video {
     opacity: 0;
   }
-
   .card:hover video {
     opacity: 1;
   }
-
-}
-@media (hover: hover) and (pointer: fine) {
 
   .card {
     position: relative;
     overflow: hidden;
   }
 
-  /* ----- Media Zoom ----- */
   .card img,
   .card video {
     transition: transform 0.6s ease, filter 0.6s ease;
@@ -444,11 +466,10 @@ section[data-section] .text-block h2::before {
 
   .card:hover img,
   .card:hover video {
-    transform: scale(1.06); /* subtle, premium zoom */
+    transform: scale(1.06);
     filter: brightness(0.92);
   }
 
-  /* ----- Gold Gradient Overlay ----- */
   .card::after {
     content: "";
     position: absolute;
@@ -465,18 +486,17 @@ section[data-section] .text-block h2::before {
     pointer-events: none;
     z-index: 1;
   }
-
   .card:hover::after {
     opacity: 1;
   }
 
-  /* Keep text above overlay */
   .card-content {
     position: relative;
     z-index: 2;
     background: white;
   }
 }
+
 /* ===================== TRUST STRIP ===================== */
 .trust-strip {
   display: flex;
@@ -492,14 +512,12 @@ section[data-section] .text-block h2::before {
 
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
-
 .form-group label {
   display: block;
   margin-bottom: 0.45rem;
   font-weight: 600;
   color: var(--primary-navy);
 }
-
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -508,7 +526,6 @@ section[data-section] .text-block h2::before {
   border-radius: var(--radius-md);
   border: 1.5px solid var(--border-light);
 }
-
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
@@ -525,9 +542,7 @@ dialog.modal {
   width: 92%;
   padding: 0;
 }
-
 .modal-content { padding: 2rem; }
-
 .modal-close {
   position: absolute;
   top: 12px;
@@ -539,14 +554,12 @@ dialog.modal {
 }
 
 /* ================= FOOTER – ELITE & TRUST-FOCUSED ================= */
-
 .site-footer {
   background: #0b2545;
   color: #d1d5db;
   padding: 50px 20px 30px;
   font-size: 14px;
 }
-
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -557,7 +570,6 @@ dialog.modal {
 .footer-trust {
   margin-bottom: 35px;
 }
-
 .trust-badges {
   display: flex;
   justify-content: center;
@@ -566,15 +578,13 @@ dialog.modal {
   gap: 22px;
   margin-bottom: 18px;
 }
-
 .trust-badges img {
-  height: 48px;
+  height: 64px;
   width: auto;
   filter: grayscale(100%) brightness(1.1);
   opacity: 0.85;
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
-
 .trust-badges img:hover {
   opacity: 1;
   filter: grayscale(0%);
@@ -595,209 +605,88 @@ dialog.modal {
   flex-direction: column;
   gap: 12px;
 }
-
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 22px;
   flex-wrap: wrap;
 }
-
 .footer-links a {
   color: #9ca3af;
   text-decoration: none;
   font-size: 13.5px;
 }
-
 .footer-links a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
 
-/* Mobile polish */
+/* Mobile footer adjustments */
 @media (max-width: 768px) {
   .site-footer {
     padding: 40px 16px 25px;
   }
-
-  .trust-badges img {
-    height: 42px;
-  }
-
-  .trust-text {
-    font-size: 13.5px;
-  }
-}
-
-.trust-badges img { height: 64px; }
-/* =========================================================
-   MOBILE UX POLISH – ELITE CONTROL
-   ========================================================= */
-
-/* ---------- HERO SAFE ZONE ---------- */
-@media (max-width: 768px) {
-
-  .hero {
-    padding-top: 4.2rem; /* creates space for hamburger */
-  }
-
-  .hero-content {
-    margin-top: 0.8rem;
-  }
-}
-
-/* ---------- HAMBURGER POSITION FIX ---------- */
-@media (max-width: 768px) {
-
-  .hamburger {
-    top: 0.9rem;
-    left: 0.9rem;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    background: rgba(255,255,255,0.96);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    border-radius: 10px;
-  }
-}
-
-/* ---------- MOBILE CTA REFINEMENT ---------- */
-@media (max-width: 768px) {
-
-  .hero-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem; /* professional spacing */
-    margin-top: 1.6rem;
-  }
-
-  .cta-btn {
-    padding: 0.75rem 1.4rem;
-    font-size: 0.92rem;
-    border-radius: 36px;
-    box-shadow: 0 4px 14px rgba(197,160,71,0.28);
-  }
-}
-
-/* ---------- SECONDARY CTA VISUAL SOFTENING ---------- */
-@media (max-width: 768px) {
-
-  .cta-btn.secondary {
-    background: transparent;
-    border: 1.8px solid var(--gold-premium);
-    color: var(--gold-premium);
-    box-shadow: none;
-  }
-}
-/* ===================== ACCESSIBILITY: FOCUS ===================== */
-
-:focus-visible {
-  outline: 3px solid var(--gold-premium);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-button:focus-visible,
-a:focus-visible {
-  box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
-}
-/* ===================== FOOTER – MOBILE COMPACT MODE ===================== */
-@media (max-width: 768px) {
-
-  footer {
-    padding: 1.4rem 1rem; /* reduce height */
-  }
-
-  /* Force trust badges into ONE row */
   .trust-badges {
-    flex-wrap: nowrap;            /* 🔑 single line */
+    flex-wrap: nowrap;
     gap: 1rem;
-    overflow-x: auto;             /* safe if very small screens */
+    overflow-x: auto;
     justify-content: center;
     margin-bottom: 0.8rem;
   }
-
   .trust-badges img {
-    height: 40px;                 /* smaller icons */
-    flex-shrink: 0;               /* prevent wrapping */
+    height: 40px;
+    flex-shrink: 0;
   }
-
-  /* Compact trust text */
+  .trust-text,
   footer p {
     font-size: 0.85rem;
     line-height: 1.4;
     margin: 0.6rem 0;
     opacity: 0.85;
   }
-
-  /* Footer links tighter */
   .footer-links {
     margin-top: 0.6rem;
   }
-
   .footer-links a {
     font-size: 0.85rem;
     margin: 0 0.4rem;
   }
 }
+
 /* =========================================================
    ELITE BRAND TYPOGRAPHY (PLAYFAIR DISPLAY)
    ========================================================= */
-
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
   letter-spacing: -0.015em;
-
   background: linear-gradient(
     120deg,
-    #f59e0b,  /* gold */
-    #16a34a,  /* green */
-    #d97706,  /* amber */
-    #f97316   /* orange */
+    #f59e0b,
+    #16a34a,
+    #d97706,
+    #f97316
   );
   background-size: 250% 250%;
-
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-
   animation: brandFlow 85s ease-in-out infinite;
 }
 
-
-/* Smooth, slow, luxury movement */
 @keyframes brandFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .brand-gradient {
-    animation: none;
-    background-size: 100% 100%;
-  }
-}
 /* ===================== HERO BRAND SIZE FIX ===================== */
 .hero-title {
   font-size: 3.2rem;
   line-height: 1.15;
 }
-
-/* Mobile – make brand feel premium, not tiny */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.4rem;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .brand-gradient {
-    animation: none;
-    background-size: 100% 100%;
   }
 }
