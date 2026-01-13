@@ -701,4 +701,15 @@ button:focus-visible,
 a:focus-visible {
   box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
 }
+/* ===================== ACCESSIBILITY: REDUCED MOTION ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 
