@@ -628,3 +628,69 @@ footer {
     box-shadow: none;
   }
 }
+/* =========================================================
+   ELITE SPLIT SECTION ENHANCEMENTS
+   Gold underline • Image-only reveal • Section numbering
+   ========================================================= */
+
+/* ---------- SECTION HEADING GOLD ACCENT ---------- */
+.surface h2 {
+  position: relative;
+  padding-bottom: 0.9rem;
+}
+
+.surface h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--gold-premium),
+    var(--gold-muted)
+  );
+}
+
+/* Centered headings keep elegance */
+.surface.alt h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------- SECTION NUMBERING (OPTIONAL) ---------- */
+/* Usage: <section data-section="01"> */
+section[data-section] h2::before {
+  content: attr(data-section);
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--gold-muted);
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- IMAGE-ONLY SCROLL REVEAL ---------- */
+.image-block {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.image-block.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile: slightly faster */
+@media (max-width: 768px) {
+  .image-block {
+    transition-duration: 0.6s;
+  }
+}
