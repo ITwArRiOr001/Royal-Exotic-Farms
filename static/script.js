@@ -1,4 +1,6 @@
-/* ===================== SCROLL REVEAL (SECTIONS) ===================== */
+/* =========================================================
+   SCROLL REVEAL – SECTIONS
+   ========================================================= */
 function initScrollReveal() {
   const sections = document.querySelectorAll("section, .surface");
 
@@ -15,7 +17,9 @@ function initScrollReveal() {
   reveal();
 }
 
-/* ===================== MODALS ===================== */
+/* =========================================================
+   MODALS
+   ========================================================= */
 function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -47,7 +51,9 @@ function initModalSafety() {
   });
 }
 
-/* ===================== MOBILE MENU ===================== */
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 function toggleMobileMenu() {
   const menu = document.querySelector(".mobile-menu");
   const overlay = document.querySelector(".overlay");
@@ -59,7 +65,9 @@ function toggleMobileMenu() {
   document.body.style.overflow = isOpen ? "hidden" : "";
 }
 
-/* ===================== FAQ ===================== */
+/* =========================================================
+   FAQ
+   ========================================================= */
 function initFAQ() {
   document.querySelectorAll(".faq-item").forEach(item => {
     item.addEventListener("click", () => {
@@ -68,7 +76,9 @@ function initFAQ() {
   });
 }
 
-/* ===================== FLASH MESSAGES ===================== */
+/* =========================================================
+   FLASH MESSAGES
+   ========================================================= */
 function initFlashDismiss() {
   setTimeout(() => {
     document.querySelectorAll(".flash-message").forEach(msg => {
@@ -78,7 +88,9 @@ function initFlashDismiss() {
   }, 3000);
 }
 
-/* ===================== VIDEO FADE-IN ===================== */
+/* =========================================================
+   VIDEO FADE-IN
+   ========================================================= */
 function initVideoFadeIn() {
   document.querySelectorAll(".card video").forEach(video => {
     video.addEventListener(
@@ -89,7 +101,9 @@ function initVideoFadeIn() {
   });
 }
 
-/* ===================== PAUSE VIDEOS OFF-SCREEN (DESKTOP) ===================== */
+/* =========================================================
+   PAUSE VIDEOS OFF-SCREEN (DESKTOP ONLY)
+   ========================================================= */
 function initCardVideoObserver() {
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
@@ -100,6 +114,7 @@ function initCardVideoObserver() {
     entries => {
       entries.forEach(entry => {
         const video = entry.target;
+
         if (!entry.isIntersecting) {
           video.pause();
           video.currentTime = 0;
@@ -115,7 +130,9 @@ function initCardVideoObserver() {
   videos.forEach(video => observer.observe(video));
 }
 
-/* ===================== HOVER PLAY (DESKTOP ONLY) ===================== */
+/* =========================================================
+   HOVER PLAY (DESKTOP ONLY)
+   ========================================================= */
 function initCardVideoHover() {
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
@@ -136,7 +153,9 @@ function initCardVideoHover() {
   });
 }
 
-/* ===================== IMAGE-ONLY SCROLL REVEAL (ELITE) ===================== */
+/* =========================================================
+   IMAGE-ONLY SCROLL REVEAL (ELITE)
+   ========================================================= */
 function initImageReveal() {
   const images = document.querySelectorAll(".image-block");
 
@@ -150,7 +169,7 @@ function initImageReveal() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target); // performance
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -164,25 +183,29 @@ function initImageReveal() {
   images.forEach(img => observer.observe(img));
 }
 
-/* ===================== INIT (SINGLE SOURCE OF TRUTH) ===================== */
+/* =========================================================
+   INIT – SINGLE SOURCE OF TRUTH (RENDER SAFE)
+   ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Safe defaults
+  // Reset mobile state
   document.querySelector(".mobile-menu")?.classList.remove("open");
   document.querySelector(".overlay")?.classList.remove("open");
   document.body.style.overflow = "";
 
+  // Core UX
   initScrollReveal();
   initModalSafety();
   initFAQ();
   initFlashDismiss();
 
+  // Media polish
   initVideoFadeIn();
   initCardVideoObserver();
   initCardVideoHover();
   initImageReveal();
 
-  // Close mobile menu on link click
+  // Mobile nav links
   document.querySelectorAll(".mobile-menu a").forEach(link => {
     link.addEventListener("click", toggleMobileMenu);
   });
