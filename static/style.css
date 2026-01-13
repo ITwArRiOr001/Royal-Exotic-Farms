@@ -740,3 +740,30 @@ a:focus-visible {
     margin: 0 0.4rem;
   }
 }
+/* =========================================================
+   ELITE BRAND GRADIENT TEXT (SUBTLE ANIMATION)
+   ========================================================= */
+
+.brand-gradient {
+  font-weight: 700;
+  background: linear-gradient(
+    120deg,
+    #d97706,  /* amber */
+    #16a34a,  /* green */
+    #f59e0b,  /* gold */
+    #dc2626,  /* red */
+    #f97316   /* orange */
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: brandFlow 10s ease-in-out infinite;
+}
+
+/* Smooth, non-distracting movement */
+@keyframes brandFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
