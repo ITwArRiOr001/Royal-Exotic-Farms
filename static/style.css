@@ -701,15 +701,42 @@ button:focus-visible,
 a:focus-visible {
   box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
 }
-/* ===================== ACCESSIBILITY: REDUCED MOTION ===================== */
+/* ===================== FOOTER – MOBILE COMPACT MODE ===================== */
+@media (max-width: 768px) {
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  footer {
+    padding: 1.4rem 1rem; /* reduce height */
+  }
+
+  /* Force trust badges into ONE row */
+  .trust-badges {
+    flex-wrap: nowrap;            /* 🔑 single line */
+    gap: 1rem;
+    overflow-x: auto;             /* safe if very small screens */
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .trust-badges img {
+    height: 40px;                 /* smaller icons */
+    flex-shrink: 0;               /* prevent wrapping */
+  }
+
+  /* Compact trust text */
+  footer p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.6rem 0;
+    opacity: 0.85;
+  }
+
+  /* Footer links tighter */
+  .footer-links {
+    margin-top: 0.6rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    margin: 0 0.4rem;
   }
 }
-
-
