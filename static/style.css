@@ -713,3 +713,59 @@ dialog.modal {
     font-size: 2.4rem;
   }
 }
+/* ===================== FAQ MICRO ACCORDION ===================== */
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.2rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-icon {
+  font-size: 1.3rem;
+  transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer p {
+  margin: 0 0 1.2rem;
+  color: var(--text-muted);
+}
+
+/* Mobile comfort */
+@media (max-width: 768px) {
+  .faq-question {
+    font-size: 0.95rem;
+  }
+}
+
