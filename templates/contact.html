@@ -111,14 +111,22 @@
 
   <!-- Mobile Slide Menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
-    <nav aria-label="Mobile navigation">
-      <a href="/">Home</a>
-      <a href="/exports">Exports</a>
-      <a href="/imports">Imports</a>
-      <a href="/services">Services</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </div>
+
+  <button
+    class="close-menu"
+    aria-label="Close menu"
+    onclick="toggleMobileMenu()">
+    ✕
+  </button>
+
+  <nav aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/exports">Exports</a>
+    <a href="/imports">Imports</a>
+    <a href="/services">Services</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</div>
 
   <!-- Overlay -->
   <div class="overlay" onclick="toggleMobileMenu()" aria-hidden="true"></div>
