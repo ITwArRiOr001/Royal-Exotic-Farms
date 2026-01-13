@@ -713,22 +713,24 @@ dialog.modal {
     font-size: 2.4rem;
   }
 }
-/* ===================== FAQ MICRO ACCORDION ===================== */
+/* ===================== FAQ MICRO-ACCORDION (ELITE) ===================== */
+
 .faq-section h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.4rem;
 }
 
 .faq-item {
   border-bottom: 1px solid var(--border-light);
+  padding: 0 0.2rem;
 }
 
 .faq-question {
   width: 100%;
   background: none;
   border: none;
-  padding: 1.2rem 0;
-  font-size: 1rem;
+  padding: 1.25rem 0;
+  font-size: 1.02rem;
   font-weight: 600;
   color: var(--primary-navy);
   display: flex;
@@ -738,8 +740,13 @@ dialog.modal {
   text-align: left;
 }
 
+.faq-question:hover {
+  color: var(--gold-premium);
+}
+
 .faq-icon {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  color: var(--gold-premium);
   transition: transform 0.25s ease;
 }
 
@@ -754,18 +761,41 @@ dialog.modal {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 420px;
 }
 
 .faq-answer p {
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.9rem;
   color: var(--text-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.faq-answer a {
+  color: var(--gold-premium);
+  font-weight: 500;
+}
+
+/* CTA inside FAQ */
+.faq-cta {
+  text-align: center;
+  margin-top: 2.2rem;
+}
+
+.faq-cta p {
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: var(--primary-navy);
 }
 
 /* Mobile comfort */
 @media (max-width: 768px) {
   .faq-question {
     font-size: 0.95rem;
+    padding: 1.1rem 0;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
   }
 }
-
