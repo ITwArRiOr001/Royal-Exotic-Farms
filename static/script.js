@@ -1,4 +1,4 @@
-/* ===================== SCROLL REVEAL ===================== */
+/* ===================== SCROLL REVEAL (SECTIONS) ===================== */
 function initScrollReveal() {
   const sections = document.querySelectorAll("section, .surface");
 
@@ -68,7 +68,7 @@ function initFAQ() {
   });
 }
 
-/* ===================== FLASH ===================== */
+/* ===================== FLASH MESSAGES ===================== */
 function initFlashDismiss() {
   setTimeout(() => {
     document.querySelectorAll(".flash-message").forEach(msg => {
@@ -78,49 +78,45 @@ function initFlashDismiss() {
   }, 3000);
 }
 
-/* =========================================================
-   VIDEO FADE-IN ON LOAD
-   ========================================================= */
+/* ===================== VIDEO FADE-IN ===================== */
 function initVideoFadeIn() {
   document.querySelectorAll(".card video").forEach(video => {
-    video.addEventListener("loadeddata", () => {
-      video.classList.add("is-loaded");
-    }, { once: true });
+    video.addEventListener(
+      "loadeddata",
+      () => video.classList.add("is-loaded"),
+      { once: true }
+    );
   });
 }
 
-/* =========================================================
-   PAUSE VIDEOS WHEN OFF-SCREEN (DESKTOP ONLY)
-   ========================================================= */
+/* ===================== PAUSE VIDEOS OFF-SCREEN (DESKTOP) ===================== */
 function initCardVideoObserver() {
-
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   const videos = document.querySelectorAll(".card video");
   if (!videos.length) return;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const video = entry.target;
-
-      if (!entry.isIntersecting) {
-        video.pause();
-        video.currentTime = 0;
-        video.dataset.visible = "false";
-      } else {
-        video.dataset.visible = "true";
-      }
-    });
-  }, { threshold: 0.25 });
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (!entry.isIntersecting) {
+          video.pause();
+          video.currentTime = 0;
+          video.dataset.visible = "false";
+        } else {
+          video.dataset.visible = "true";
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
 
   videos.forEach(video => observer.observe(video));
 }
 
-/* =========================================================
-   HOVER PLAY (DESKTOP ONLY)
-   ========================================================= */
+/* ===================== HOVER PLAY (DESKTOP ONLY) ===================== */
 function initCardVideoHover() {
-
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   document.querySelectorAll(".card").forEach(card => {
@@ -140,7 +136,35 @@ function initCardVideoHover() {
   });
 }
 
-/* ===================== INIT ===================== */
+/* ===================== IMAGE-ONLY SCROLL REVEAL (ELITE) ===================== */
+function initImageReveal() {
+  const images = document.querySelectorAll(".image-block");
+
+  if (!("IntersectionObserver" in window) || images.length === 0) {
+    images.forEach(img => img.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); // performance
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px 0px -120px 0px",
+      threshold: 0.15
+    }
+  );
+
+  images.forEach(img => observer.observe(img));
+}
+
+/* ===================== INIT (SINGLE SOURCE OF TRUTH) ===================== */
 document.addEventListener("DOMContentLoaded", () => {
 
   // Safe defaults
@@ -156,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initVideoFadeIn();
   initCardVideoObserver();
   initCardVideoHover();
+  initImageReveal();
 
   // Close mobile menu on link click
   document.querySelectorAll(".mobile-menu a").forEach(link => {
@@ -164,32 +189,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector(".overlay")
     ?.addEventListener("click", toggleMobileMenu);
-});
-/* ===================== IMAGE SCROLL REVEAL (ELITE) ===================== */
-function initImageReveal() {
-  const images = document.querySelectorAll(".image-block");
-
-  if (!("IntersectionObserver" in window)) {
-    images.forEach(img => img.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
-
-  images.forEach(img => observer.observe(img));
-}
-
-/* Add to DOMContentLoaded */
-document.addEventListener("DOMContentLoaded", () => {
-  initImageReveal();
 });
