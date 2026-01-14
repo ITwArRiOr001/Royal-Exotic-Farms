@@ -137,59 +137,62 @@ body.high-contrast .cta-btn {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
   letter-spacing: -0.02em;
+  
   /* 🌊 Wavy layered gradient – Red & Blue dominant */
   background:
-    /* 🔵 Blue – now top layer for dominance */
+    /* 🔵 Blue – top layer, positioned farther right for clear "then blue" transition */
     radial-gradient(
-      150% 150% at 75% 25%, /* Moved slightly left for better center flow */
+      160% 160% at 80% 25%,
       rgba(37, 99, 235, 1),
-      transparent 58% /* Tighter fade to let red show through sooner */
+      transparent 55% /* Even tighter fade so blue is bold when centered */
     ),
-    /* 🔴 Red – secondary wave */
+    /* 🔴 Red – below blue, positioned left for initial dominance */
     radial-gradient(
-      150% 150% at 25% 30%, /* Shifted right a bit to overlap blue for purple blends */
+      160% 160% at 20% 35%,
       rgba(220, 38, 38, 1),
-      transparent 58%
+      transparent 55%
     ),
-    /* 🟢 Green – subtle depth only */
+    /* 🟢 Green – very subtle, pushed very low to avoid red overlap/yellow */
     radial-gradient(
-      110% 110% at 50% 90%, /* Pushed lower to reduce overlap/yellowing */
-      rgba(34, 197, 94, 0.24), /* Slightly lowered opacity for more subtlety */
-      transparent 75%
+      120% 120% at 50% 95%,
+      rgba(34, 197, 94, 0.16), /* Much lower opacity + tight fade */
+      transparent 82%
     ),
-    /* 🟠 Orange – light accent sparkle */
+    /* 🟠 Orange – very subtle, pushed high-right */
     radial-gradient(
-      95% 95% at 80% 15%, /* Shifted right/up to separate from green */
-      rgba(249, 115, 22, 0.18), /* Lowered opacity to prevent yellow dominance */
-      transparent 78%
+      110% 110% at 85% 10%,
+      rgba(249, 115, 22, 0.13), /* Even lower to keep it a sparkle only */
+      transparent 85%
     );
-  background-size: 320% 320%; /* Slightly smaller for tighter waves */
-  background-position: 0% 50%;
+  
+  background-size: 380% 380%; /* Larger for more dramatic movement with extreme position shifts */
+  background-position: -30% 50%; /* Start more left to emphasize initial red */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* 🌊 Slow royal wave */
-  animation: royalWave 20s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  
+  /* Faster, more lively royal wave */
+  animation: royalWave 18s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  background-blend-mode: screen; /* Key fix for yellow: brightens blends instead of muddying */
 }
 
+/* New keyframes: more extreme horizontal shift for red → blue sequence,
+   plus vertical wave for green/orange to peek in briefly at different points */
 @keyframes royalWave {
   0% {
-    background-position: 0% 50%;
+    background-position: -30% 40%; /* Start left-up: strong red + slight orange sparkle */
   }
-  20% {
-    background-position: 30% 25%; /* Gentle rise */
+  25% {
+    background-position: 30% 25%;  /* Move right, slight up: red fading, orange accent */
   }
-  40% {
-    background-position: 70% 35%; /* Peak curve */
+  50% {
+    background-position: 130% 50%; /* Far right: blue dominant */
   }
-  60% {
-    background-position: 100% 50%; /* Mid-right hold */
-  }
-  80% {
-    background-position: 70% 75%; /* Gentle fall */
+  75% {
+    background-position: 80% 75%;  /* Move left a bit, down: blue fading + slight green peek */
   }
   100% {
-    background-position: 0% 50%; /* Back to start */
+    background-position: -30% 40%; /* Back to start: red returns */
   }
 }
 /* Rest unchanged */
