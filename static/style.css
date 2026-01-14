@@ -141,27 +141,23 @@ body.high-contrast .cta-btn {
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
-  letter-spacing: -0.015em;
-  background: linear-gradient(
-    120deg,
-    #ff0000, 
-    #ffff00, 
-    #00ff00, 
-    #ffa500 
-  );
-  background-size: 300% 300%; 
+  letter-spacing: -0.02em;
+
+  /* 🌊 Wavy layered gradient */
+  background:
+    radial-gradient(120% 120% at 10% 20%, rgba(220,38,38,0.95), transparent 60%),
+    radial-gradient(120% 120% at 90% 30%, rgba(37,99,235,0.95), transparent 60%),
+    radial-gradient(100% 100% at 50% 80%, rgba(34,197,94,0.45), transparent 65%),
+    radial-gradient(100% 100% at 70% 10%, rgba(249,115,22,0.35), transparent 65%);
+
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: wavyBrandFlow 15s ease-in-out infinite; 
-}
-*/
 
-/* Safeguard: Disable on non-home pages (add 'home' class to <body> on homepage) */
-body:not(.home) .brand-gradient {
-  background: none;
-  color: #ffffff;
-  animation: none;
+  animation: royalWave 18s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 /* If you want to merge: Use this hybrid keyframes with skewY for extra "wavy" text distortion, but keep the radial gradients */
