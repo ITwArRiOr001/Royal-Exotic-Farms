@@ -160,13 +160,22 @@ body.high-contrast .cta-btn {
   animation: royalWave 18s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
-/* If you want to merge: Use this hybrid keyframes with skewY for extra "wavy" text distortion, but keep the radial gradients */
-@keyframes wavyBrandFlow {
-  0% { background-position: -30% 40%; transform: skewY(0); }
-  25% { background-position: 30% 25%; transform: skewY(2deg); } /* Wavy up */
-  50% { background-position: 130% 50%; transform: skewY(-2deg); } /* Wavy down */
-  75% { background-position: 80% 75%; transform: skewY(2deg); } /* Wavy up */
-  100% { background-position: -30% 40%; transform: skewY(0); } /* Reset */
+@keyframes royalWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 40% 20%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 60% 80%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 /* Rest unchanged */
 .hero-title {
