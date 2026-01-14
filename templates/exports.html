@@ -442,56 +442,62 @@
   </div>
 </section>
 
-<!-- Export Quote Modal -->
+<!-- Quote Modal -->
 <dialog class="modal" id="quoteModal" aria-label="Trade quote request modal">
   <div class="modal-content">
-    <button
-  type="button"
-  class="cta-btn primary large"
-  aria-label="Request export quotation"
-  onclick="openExportQuote()">
-  Request Export Quotation Today
-</button>
+    <button type="button" 
+            class="modal-close" 
+            aria-label="Close quote modal"
+            onclick="closeModal('quoteModal')">×</button>
 
-    <h3>Export Quotation Request</h3>
-    <p class="modal-subtitle">We'll reply within 24 hours with best possible offer</p>
+    <h3>Trade Quote Request</h3>
+    <p class="modal-subtitle">We usually reply within 24 hours</p>
 
     <form action="/submit-form" method="POST" novalidate>
-      <input type="hidden" name="form_type" value="Export Quote"/>
+      <input type="hidden" name="form_type" value="Quote Request"/>
 
       <div class="form-grid">
         <div class="form-group">
-          <label for="product">Product / Variety</label>
-          <input type="text" id="product" name="product" placeholder="e.g. Cavendish Banana Grade A" required/>
+          <label for="type">Trade Type</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Select type</option>
+            <option value="Export">Export from India</option>
+            <option value="Import">Import to India</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="quantity">Required Quantity / Frequency</label>
-          <input type="text" id="quantity" name="quantity" placeholder="e.g. 2×40ft per week" required/>
+          <label for="product">Product / Commodity</label>
+          <input type="text" id="product" name="product" required/>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="destination">Destination Port / City</label>
-        <input type="text" id="destination" name="destination" placeholder="e.g. Jebel Ali, Dubai" required/>
+        <label for="quantity">Quantity / Volume</label>
+        <input type="text" id="quantity" name="quantity" required/>
       </div>
 
       <div class="form-group">
-        <label for="name">Company / Name</label>
+        <label for="name">Your Name</label>
         <input type="text" id="name" name="name" required/>
       </div>
 
       <div class="form-group">
-        <label for="email">Business Email</label>
+        <label for="email">Email</label>
         <input type="email" id="email" name="email" required/>
       </div>
 
       <div class="form-group">
-        <label for="phone">WhatsApp / Mobile</label>
-        <input type="tel" id="phone" name="phone" placeholder="+971"/>
+        <label for="route">Route / Ports</label>
+        <input type="text" id="route" name="route" placeholder="e.g. Mumbai → Jebel Ali" required/>
       </div>
 
-      <button type="submit" class="cta-btn full-width">Submit Quotation Request</button>
+      <div class="form-group">
+        <label for="message">Additional Details</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="cta-btn full-width">Submit Request</button>
     </form>
   </div>
 </dialog>
