@@ -18,14 +18,18 @@ function initScrollReveal() {
 }
 
 /* =========================================================
-   MODALS
+   GLOBAL MODAL HANDLER (ALL PAGES)
    ========================================================= */
+
 function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
 
-  modal.showModal();
-  document.body.style.overflow = "hidden";
+  // Prevent double-open
+  if (!modal.open) {
+    modal.showModal();
+    document.body.style.overflow = "hidden";
+  }
 }
 
 function closeModal(id) {
@@ -36,21 +40,23 @@ function closeModal(id) {
   document.body.style.overflow = "";
 }
 
-function initModalSafety() {
-  document.querySelectorAll("dialog.modal").forEach(modal => {
-    modal.addEventListener("click", e => {
-      if (e.target === modal) modal.close();
-    });
-  });
+/* Close modal on backdrop click */
+document.addEventListener("click", (e) => {
+  if (e.target.tagName === "DIALOG") {
+    e.target.close();
+    document.body.style.overflow = "";
+  }
+});
 
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") {
-      document.querySelectorAll("dialog.modal").forEach(m => m.close());
+/* Close modal on ESC (safety fallback) */
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll("dialog[open]").forEach(dialog => {
+      dialog.close();
       document.body.style.overflow = "";
-    }
-  });
-}
-
+    });
+  }
+});
 /* =========================================================
    MOBILE MENU
    ========================================================= */
