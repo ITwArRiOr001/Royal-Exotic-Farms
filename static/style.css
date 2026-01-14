@@ -125,17 +125,21 @@ body.high-contrast .cta-btn {
   padding: 2.8rem 1.2rem 2.6rem;
 }
 .hero-content { max-width: 760px; margin: 0 auto; }
-/* INTEGRATED: Hero Text to Pure White + Brand Gradient Safeguard */
-/* FIXED: Prevent parent color override on brand-gradient by using more specific selector and !important for transparency */
-.hero-title {
-  color: #ffffff;
-}
+
+/* FIXED: Hero text white, but gradient span MUST be transparent to show colors */
+.hero-title,
 .hero-subtitle {
   color: #ffffff;
 }
+
 .hero-title .brand-gradient {
-  color: transparent !important; /* Ensure gradient visibility by forcing transparency */
+  color: transparent !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* Optional enhancement: subtle shadow to make vibrant gradient stand out on dark bg */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
+
 .hero-title {
   font-size: 3.2rem;
   line-height: 1.15;
@@ -146,6 +150,7 @@ body.high-contrast .cta-btn {
   margin: 0 auto 1.3rem;
   opacity: 0.95;
 }
+
 /* Desktop hero */
 @media (min-width: 992px) {
   .hero {
@@ -155,6 +160,7 @@ body.high-contrast .cta-btn {
     align-items: center;
   }
 }
+
 /* Mobile hero (controlled, no forehead) */
 @media (max-width: 768px) {
   .hero {
