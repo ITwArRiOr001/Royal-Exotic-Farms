@@ -126,20 +126,31 @@ body.high-contrast .cta-btn {
 }
 .hero-content { max-width: 760px; margin: 0 auto; }
 
-/* FIXED: Hero text white, but gradient span MUST be transparent to show colors */
+/* Hero base text = white, but NEVER override the gradient span */
 .hero-title,
 .hero-subtitle {
   color: #ffffff;
 }
 
+/* CRITICAL FIX: Isolate gradient span completely from parent color */
 .hero-title .brand-gradient {
-  color: transparent !important;
-  background-clip: text;
-  -webkit-background-clip: text;
-  /* Optional enhancement: subtle shadow to make vibrant gradient stand out on dark bg */
-  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  color: transparent !important;               /* Force no inherited color */
+  background-clip: text !important;
+  -webkit-background-clip: text !important;    /* Critical for WebKit browsers */
+  background-image: linear-gradient(          /* Reinforce gradient here too */
+    120deg,
+    #ff0000, #ffff00, #00ff00, #ffa500
+  ) !important;
+  background-size: 300% 300% !important;
+  animation: wavyBrandFlow 15s ease-in-out infinite !important;
+
+  /* Make it pop on dark overlay – grand & dope look */
+  text-shadow: 
+    0 2px 6px rgba(0,0,0,0.6), 
+    0 0 12px rgba(255,255,255,0.25);         /* Slight glow for vibrancy */
 }
 
+/* Rest unchanged */
 .hero-title {
   font-size: 3.2rem;
   line-height: 1.15;
