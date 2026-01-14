@@ -822,3 +822,118 @@ dialog.modal {
   margin-bottom: 0.6rem;
   color: var(--text-muted);
 }
+/* =========================================================
+   CONTACT PAGE – PROFESSIONAL UI/UX POLISH
+   Empathy-first • Trust-driven • B2B-safe
+   ========================================================= */
+
+/* ---------- CONTACT CHANNEL CARDS ---------- */
+
+.channel-card {
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.channel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(13,37,66,0.18);
+}
+
+.channel-icon {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--gold-premium);
+}
+
+.channel-card h3 {
+  margin-bottom: 0.35rem;
+}
+
+.channel-card a {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+
+.channel-card a:hover {
+  color: var(--gold-premium);
+  text-decoration: underline;
+}
+
+/* Subtle identity cues */
+.channel-card.whatsapp {
+  border-top: 3px solid #22c55e;
+}
+
+.channel-card.email {
+  border-top: 3px solid var(--gold-premium);
+}
+
+.channel-card.location {
+  border-top: 3px solid var(--primary-navy);
+}
+
+/* ---------- MAP CONTAINER ---------- */
+
+.map-wrapper {
+  margin-top: 1.4rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--border-light);
+}
+
+/* ---------- CONTACT FORM EMPATHY ---------- */
+
+form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-note {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Submit button confidence */
+form .cta-btn.primary.large {
+  margin-top: 1.2rem;
+  min-width: 260px;
+}
+
+/* ---------- SECTION FLOW SOFTENING ---------- */
+
+.contact-flow section + section {
+  margin-top: 3.6rem;
+}
+
+/* ---------- MOBILE REFINEMENTS ---------- */
+
+@media (max-width: 768px) {
+
+  .channel-icon {
+    font-size: 2rem;
+  }
+
+  .channel-card {
+    padding-top: 1.4rem;
+  }
+
+  .map-wrapper iframe {
+    height: 300px;
+  }
+
+  form {
+    padding-inline: 0.4rem;
+  }
+}
+
+/* ---------- ACCESSIBILITY REFINEMENT ---------- */
+
+.channel-card a:focus-visible {
+  outline: 3px solid var(--gold-premium);
+  outline-offset: 4px;
+}
