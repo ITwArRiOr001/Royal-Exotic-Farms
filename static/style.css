@@ -133,67 +133,45 @@ body.high-contrast .cta-btn {
   color: #ffffff;
 }
 
+/* =========================================================
+   ELITE BRAND TYPOGRAPHY (PLAYFAIR DISPLAY)
+   ========================================================= */
+/* INTEGRATED: Optimize Brand Gradient – Red-yellow-green-orange with faster wavy animation for authentic vibe */
+/* COMMENTED OUT TO AVOID OVERRIDE - Use the HERO version for red-blue dominant instead */
+/*
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  
-  /* 🌊 Wavy layered gradient – Red & Blue dominant */
-  background:
-    /* 🔵 Blue – top layer, positioned farther right for clear "then blue" transition */
-    radial-gradient(
-      160% 160% at 80% 25%,
-      rgba(37, 99, 235, 1),
-      transparent 55% /* Even tighter fade so blue is bold when centered */
-    ),
-    /* 🔴 Red – below blue, positioned left for initial dominance */
-    radial-gradient(
-      160% 160% at 20% 35%,
-      rgba(220, 38, 38, 1),
-      transparent 55%
-    ),
-    /* 🟢 Green – very subtle, pushed very low to avoid red overlap/yellow */
-    radial-gradient(
-      120% 120% at 50% 95%,
-      rgba(34, 197, 94, 0.16), /* Much lower opacity + tight fade */
-      transparent 82%
-    ),
-    /* 🟠 Orange – very subtle, pushed high-right */
-    radial-gradient(
-      110% 110% at 85% 10%,
-      rgba(249, 115, 22, 0.13), /* Even lower to keep it a sparkle only */
-      transparent 85%
-    );
-  
-  background-size: 380% 380%; /* Larger for more dramatic movement with extreme position shifts */
-  background-position: -30% 50%; /* Start more left to emphasize initial red */
+  letter-spacing: -0.015em;
+  background: linear-gradient(
+    120deg,
+    #ff0000, 
+    #ffff00, 
+    #00ff00, 
+    #ffa500 
+  );
+  background-size: 300% 300%; 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  
-  /* Faster, more lively royal wave */
-  animation: royalWave 18s cubic-bezier(0.42, 0, 0.58, 1) infinite;
-  background-blend-mode: screen; /* Key fix for yellow: brightens blends instead of muddying */
+  animation: wavyBrandFlow 15s ease-in-out infinite; 
+}
+*/
+
+/* Safeguard: Disable on non-home pages (add 'home' class to <body> on homepage) */
+body:not(.home) .brand-gradient {
+  background: none;
+  color: #ffffff;
+  animation: none;
 }
 
-/* New keyframes: more extreme horizontal shift for red → blue sequence,
-   plus vertical wave for green/orange to peek in briefly at different points */
-@keyframes royalWave {
-  0% {
-    background-position: -30% 40%; /* Start left-up: strong red + slight orange sparkle */
-  }
-  25% {
-    background-position: 30% 25%;  /* Move right, slight up: red fading, orange accent */
-  }
-  50% {
-    background-position: 130% 50%; /* Far right: blue dominant */
-  }
-  75% {
-    background-position: 80% 75%;  /* Move left a bit, down: blue fading + slight green peek */
-  }
-  100% {
-    background-position: -30% 40%; /* Back to start: red returns */
-  }
+/* If you want to merge: Use this hybrid keyframes with skewY for extra "wavy" text distortion, but keep the radial gradients */
+@keyframes wavyBrandFlow {
+  0% { background-position: -30% 40%; transform: skewY(0); }
+  25% { background-position: 30% 25%; transform: skewY(2deg); } /* Wavy up */
+  50% { background-position: 130% 50%; transform: skewY(-2deg); } /* Wavy down */
+  75% { background-position: 80% 75%; transform: skewY(2deg); } /* Wavy up */
+  100% { background-position: -30% 40%; transform: skewY(0); } /* Reset */
 }
 /* Rest unchanged */
 .hero-title {
