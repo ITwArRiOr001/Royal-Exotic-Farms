@@ -3,7 +3,6 @@
    Stabilized Elite UI • January 2026
    Mobile-first • Controlled density • B2B authority
    ========================================================================== */
-
 /* ===================== DESIGN TOKENS ===================== */
 :root {
   --primary-navy: #0d2542;
@@ -23,7 +22,6 @@
   --radius-lg: 18px;
   --transition: all 0.3s ease;
 }
-
 /* ===================== RESET ===================== */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -36,8 +34,8 @@ body {
   background: var(--bg-white);
   overflow-x: hidden;
 }
-
 /* ===================== TYPOGRAPHY ===================== */
+/* INTEGRATED: Section Headings Fix – Boost authority with navy */
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', Georgia, serif;
   color: var(--primary-navy);
@@ -47,14 +45,17 @@ h1, h2, h3, h4 {
 h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); }
 h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); }
 h3 { font-size: clamp(1.35rem, 4vw, 1.8rem); }
-p { 
-  color: var(--text-muted); 
-  margin-bottom: 1rem; 
+/* INTEGRATED: Body Text Empathy Fix – Muted base, darker for leads/emotional sections */
+p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
   max-width: 64ch; /* optimal reading line length */
 }
-
-.lead { font-size: 1.1rem; font-weight: 500; }
-
+.lead { 
+  font-size: 1.1rem; 
+  font-weight: 500; 
+  color: #1f2937; /* darker than muted for empathy */
+}
 /* ===================== TYPOGRAPHY POLISH ===================== */
 .surface .text-block p {
   margin-bottom: 1.2rem;
@@ -62,23 +63,19 @@ p {
 .surface .text-block p:last-child {
   margin-bottom: 0;
 }
-
 /* ===================== LINKS ===================== */
 a { color: var(--gold-premium); text-decoration: none; }
 a:hover { color: var(--gold-muted); }
-
 /* ===================== ACCESSIBILITY: FOCUS ===================== */
 :focus-visible {
   outline: 3px solid var(--gold-premium);
   outline-offset: 3px;
   border-radius: 4px;
 }
-
 button:focus-visible,
 a:focus-visible {
   box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
 }
-
 /* ===================== ACCESSIBILITY: REDUCED MOTION ===================== */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -92,21 +89,29 @@ a:focus-visible {
     background-size: 100% 100%;
   }
 }
-
 /* ===================== HERO ===================== */
+/* INTEGRATED: Critical Hero Readability Fix – Lighter overlay + pure white text */
 .hero {
   position: relative;
   background:
-    linear-gradient(rgba(13,37,66,0.78), rgba(13,37,66,0.86)),
+    linear-gradient(
+      rgba(13,37,66,0.62),
+      rgba(13,37,66,0.72)
+    ),
     url('/static/images/hero-bg.jpg') center / cover no-repeat;
   color: white;
   text-align: center;
   padding: 2.8rem 1.2rem 2.6rem;
 }
 .hero-content { max-width: 760px; margin: 0 auto; }
+/* INTEGRATED: Hero Text to Pure White + Brand Gradient Safeguard */
+.hero-title,
+.hero-subtitle {
+  color: #ffffff;
+}
 .hero-title {
-  font-size: 3.4rem;
-  line-height: 1.12;
+  font-size: 3.2rem;
+  line-height: 1.15;
 }
 .hero-subtitle {
   font-size: 1.05rem;
@@ -114,7 +119,6 @@ a:focus-visible {
   margin: 0 auto 1.3rem;
   opacity: 0.95;
 }
-
 /* Desktop hero */
 @media (min-width: 992px) {
   .hero {
@@ -124,7 +128,6 @@ a:focus-visible {
     align-items: center;
   }
 }
-
 /* Mobile hero (controlled, no forehead) */
 @media (max-width: 768px) {
   .hero {
@@ -132,7 +135,7 @@ a:focus-visible {
     padding-top: 4.2rem; /* space for hamburger */
   }
   .hero-title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
   }
   .hero-subtitle {
     font-size: 1rem;
@@ -141,8 +144,8 @@ a:focus-visible {
     margin-top: 0.8rem;
   }
 }
-
 /* ===================== CTA BUTTONS ===================== */
+/* Elite Color Map: CTA buttons = Gold */
 .cta-btn {
   display: inline-flex;
   align-items: center;
@@ -156,7 +159,6 @@ a:focus-visible {
   box-shadow: 0 6px 20px rgba(197,160,71,0.35);
   transition: var(--transition);
 }
-
 /* Desktop confidence */
 @media (min-width: 769px) {
   .cta-btn {
@@ -165,7 +167,6 @@ a:focus-visible {
     min-width: 260px;
   }
 }
-
 /* Mobile restraint */
 @media (max-width: 768px) {
   .cta-btn {
@@ -176,12 +177,10 @@ a:focus-visible {
   }
   .cta-btn.full-width { width: 100%; }
 }
-
 .cta-btn:hover {
   background: var(--gold-muted);
   transform: translateY(-2px);
 }
-
 /* ===================== NAVIGATION ===================== */
 .main-nav {
   position: sticky;
@@ -205,10 +204,8 @@ a:focus-visible {
   background: rgba(197,160,71,0.12);
   color: var(--gold-premium);
 }
-
 /* ===================== NAV VISIBILITY RULES ===================== */
 .hamburger { display: none; }
-
 /* Mobile ONLY hamburger */
 @media (max-width: 768px) {
   .main-nav { display: none; }
@@ -231,7 +228,6 @@ a:focus-visible {
     box-shadow: 0 6px 18px rgba(0,0,0,0.18);
   }
 }
-
 /* ===================== MOBILE MENU ===================== */
 .mobile-menu {
   position: fixed;
@@ -253,7 +249,6 @@ a:focus-visible {
   font-size: 1.15rem;
   color: var(--primary-navy);
 }
-
 /* ===================== MOBILE MENU CLOSE BUTTON ===================== */
 .close-menu {
   position: absolute;
@@ -275,7 +270,6 @@ a:focus-visible {
 .close-menu:hover {
   background: rgba(13,37,66,0.12);
 }
-
 /* Overlay */
 .overlay {
   position: fixed;
@@ -290,8 +284,8 @@ a:focus-visible {
   opacity: 1;
   pointer-events: all;
 }
-
 /* ===================== SURFACE SYSTEM ===================== */
+/* Elite Color Map: Cards/Dividers/Accents = White bg + Gold muted */
 .surface {
   background: linear-gradient(180deg, #ffffff, #f9fafb);
   border-radius: var(--radius-lg);
@@ -303,12 +297,28 @@ a:focus-visible {
 .surface.alt {
   background: linear-gradient(180deg, #f2f6fb, #ffffff);
 }
+/* INTEGRATED: CTA-Final Banner Fix – Darker gradient + white text + shadow */
 .surface.cta-final {
-  background: linear-gradient(rgba(13,37,66,0.92), rgba(13,37,66,0.88));
+  background:
+    linear-gradient(
+      180deg,
+      #0d2542 0%,
+      #0b1f38 100%
+    );
   color: white;
 }
+.surface.cta-final h2,
+.surface.cta-final p {
+  color: #ffffff;
+}
+.surface.cta-final .lead {
+  color: rgba(255,255,255,0.9);
+}
+.surface.cta-final h2 {
+  opacity: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25); /* optional micro-lift */
+}
 .surface-inner { max-width: 1050px; margin: auto; }
-
 /* ===================== SECTION SPACING RHYTHM ===================== */
 .surface + .surface {
   margin-top: 4rem;
@@ -318,7 +328,6 @@ a:focus-visible {
     margin-top: 3rem;
   }
 }
-
 /* ===================== HEADING MICRO-TUNING ===================== */
 h2 {
   letter-spacing: -0.015em;
@@ -326,7 +335,6 @@ h2 {
 h3 {
   letter-spacing: -0.01em;
 }
-
 /* ===================== SPLIT ===================== */
 .split-section {
   display: grid;
@@ -337,7 +345,6 @@ h3 {
 @media (max-width: 900px) {
   .split-section { grid-template-columns: 1fr; }
 }
-
 /* =========================================================
    ELITE SPLIT SECTION ENHANCEMENTS (SAFE + SCOPED)
    ========================================================= */
@@ -360,7 +367,6 @@ h3 {
     var(--gold-muted)
   );
 }
-
 /* ---------- SECTION NUMBERING (OPTIONAL, B2B AUTHORITY) ---------- */
 section[data-section] .text-block h2::before {
   content: attr(data-section);
@@ -372,7 +378,6 @@ section[data-section] .text-block h2::before {
   color: var(--gold-muted);
   margin-bottom: 0.4rem;
 }
-
 /* ---------- IMAGE-ONLY SCROLL REVEAL ---------- */
 .image-block {
   opacity: 0;
@@ -391,8 +396,8 @@ section[data-section] .text-block h2::before {
     transition-duration: 0.6s;
   }
 }
-
 /* ===================== GRID & CARDS ===================== */
+/* Elite Color Map: Cards = White background */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -409,7 +414,6 @@ section[data-section] .text-block h2::before {
 }
 .card:hover { transform: translateY(-6px); }
 .card-content { padding: 1.5rem; }
-
 /* ===================== CARD MEDIA ===================== */
 .card img,
 .card video {
@@ -422,19 +426,16 @@ section[data-section] .text-block h2::before {
   background: #000;
   border-bottom: 1px solid var(--border-light);
 }
-
 @media (min-width: 992px) {
   .card img,
   .card video {
     height: 190px;
   }
 }
-
 /* Prevent tap pause & flicker on mobile */
 .card video {
   pointer-events: none;
 }
-
 /* ===================== VIDEO FADE-IN ===================== */
 .card video {
   opacity: 0;
@@ -443,7 +444,6 @@ section[data-section] .text-block h2::before {
 .card video.is-loaded {
   opacity: 1;
 }
-
 /* ===================== DESKTOP HOVER EFFECTS ===================== */
 @media (hover: hover) and (pointer: fine) {
   .card video {
@@ -452,24 +452,20 @@ section[data-section] .text-block h2::before {
   .card:hover video {
     opacity: 1;
   }
-
   .card {
     position: relative;
     overflow: hidden;
   }
-
   .card img,
   .card video {
     transition: transform 0.6s ease, filter 0.6s ease;
     will-change: transform;
   }
-
   .card:hover img,
   .card:hover video {
     transform: scale(1.06);
     filter: brightness(0.92);
   }
-
   .card::after {
     content: "";
     position: absolute;
@@ -489,15 +485,14 @@ section[data-section] .text-block h2::before {
   .card:hover::after {
     opacity: 1;
   }
-
   .card-content {
     position: relative;
     z-index: 2;
     background: white;
   }
 }
-
 /* ===================== TRUST STRIP ===================== */
+/* Elite Color Map: Dividers/Accents = Gold muted */
 .trust-strip {
   display: flex;
   flex-wrap: wrap;
@@ -509,7 +504,6 @@ section[data-section] .text-block h2::before {
   margin-top: 2.2rem;
   font-weight: 500;
 }
-
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
 .form-group label {
@@ -533,7 +527,6 @@ section[data-section] .text-block h2::before {
   border-color: var(--gold-premium);
   box-shadow: 0 0 0 4px rgba(197,160,71,0.18);
 }
-
 /* ===================== MODALS ===================== */
 dialog.modal {
   border: none;
@@ -552,9 +545,8 @@ dialog.modal {
   border: none;
   cursor: pointer;
 }
-
 /* ================= FOOTER – ELITE & TRUST-FOCUSED ================= */
-
+/* Elite Color Map: Footer = Dark navy + light gray text */
 .site-footer {
   background: #0b2545;
   color: #d1d5db;
@@ -562,19 +554,15 @@ dialog.modal {
   font-size: 14px;
   text-align: center; /* FORCE global centering */
 }
-
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
 }
-
 /* ---------- TRUST BADGES ---------- */
-
 .footer-trust {
   margin-bottom: 28px;
 }
-
 .trust-badges {
   display: flex;
   justify-content: center;
@@ -583,50 +571,42 @@ dialog.modal {
   gap: 24px;
   margin-bottom: 16px;
 }
-
 /* 🔑 BADGES: COLORED BY DEFAULT */
 .trust-badges img {
   height: 64px;
   width: auto;
   opacity: 0.95;
-  filter: none;                 /* ❌ no grayscale */
+  filter: none; /* ❌ no grayscale */
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
-
 /* Optional micro-polish (NOT required to understand trust) */
 .trust-badges img:hover {
   transform: translateY(-2px);
   opacity: 1;
 }
-
 /* ---------- TRUST TEXT ---------- */
-
 .trust-text {
   font-size: 14px;
   line-height: 1.6;
   color: #cbd5e1;
   max-width: 760px;
-  margin: 0 auto;               /* perfect visual centering */
+  margin: 0 auto; /* perfect visual centering */
 }
-
 /* ---------- FOOTER BOTTOM ---------- */
-
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 18px;
   margin-top: 22px;
   display: flex;
   flex-direction: column;
-  align-items: center;          /* 🔑 hard center */
+  align-items: center; /* 🔑 hard center */
   gap: 12px;
 }
-
 .footer-bottom p {
   margin: 0;
   text-align: center;
   opacity: 0.85;
 }
-
 .footer-links {
   display: flex;
   justify-content: center;
@@ -634,25 +614,20 @@ dialog.modal {
   gap: 22px;
   flex-wrap: wrap;
 }
-
 .footer-links a {
   color: #9ca3af;
   text-decoration: none;
   font-size: 13.5px;
 }
-
 .footer-links a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
-
 /* ---------- MOBILE COMPACT MODE ---------- */
 @media (max-width: 768px) {
-
   .site-footer {
     padding: 36px 16px 24px;
   }
-
   /* Single-line badges on mobile */
   .trust-badges {
     flex-wrap: nowrap;
@@ -660,18 +635,15 @@ dialog.modal {
     overflow-x: auto;
     justify-content: center;
   }
-
   .trust-badges img {
     height: 40px;
     flex-shrink: 0;
   }
-
   .trust-text,
   .footer-bottom p {
     font-size: 0.85rem;
     line-height: 1.4;
   }
-
   .footer-links a {
     font-size: 0.85rem;
   }
@@ -679,6 +651,7 @@ dialog.modal {
 /* =========================================================
    ELITE BRAND TYPOGRAPHY (PLAYFAIR DISPLAY)
    ========================================================= */
+/* INTEGRATED: Brand Gradient Text Fix – Home-only, static white elsewhere */
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
@@ -696,35 +669,28 @@ dialog.modal {
   color: transparent;
   animation: brandFlow 85s ease-in-out infinite;
 }
-
+/* Safeguard: Disable on non-home pages (add 'home' class to <body> on homepage) */
+body:not(.home) .brand-gradient {
+  background: none;
+  color: #ffffff;
+  animation: none;
+}
 @keyframes brandFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
 /* ===================== HERO BRAND SIZE FIX ===================== */
-.hero-title {
-  font-size: 3.2rem;
-  line-height: 1.15;
-}
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.4rem;
-  }
-}
+/* Consolidated with main hero-title (no duplicate) */
 /* ===================== FAQ MICRO-ACCORDION (ELITE) ===================== */
-
 .faq-section h2 {
   text-align: center;
   margin-bottom: 2.4rem;
 }
-
 .faq-item {
   border-bottom: 1px solid var(--border-light);
   padding: 0 0.2rem;
 }
-
 .faq-question {
   width: 100%;
   background: none;
@@ -739,62 +705,51 @@ dialog.modal {
   cursor: pointer;
   text-align: left;
 }
-
 .faq-question:hover {
   color: var(--gold-premium);
 }
-
 .faq-icon {
   font-size: 1.35rem;
   color: var(--gold-premium);
   transition: transform 0.25s ease;
 }
-
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
 }
-
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.35s ease;
 }
-
 .faq-item.active .faq-answer {
   max-height: 420px;
 }
-
 .faq-answer p {
   margin: 0 0 0.9rem;
   color: var(--text-muted);
   font-size: 0.96rem;
   line-height: 1.6;
 }
-
 .faq-answer a {
   color: var(--gold-premium);
   font-weight: 500;
 }
-
 /* CTA inside FAQ */
 .faq-cta {
   text-align: center;
   margin-top: 2.2rem;
 }
-
 .faq-cta p {
   margin-bottom: 0.8rem;
   font-weight: 500;
   color: var(--primary-navy);
 }
-
 /* Mobile comfort */
 @media (max-width: 768px) {
   .faq-question {
     font-size: 0.95rem;
     padding: 1.1rem 0;
   }
-
   .faq-answer p {
     font-size: 0.9rem;
   }
@@ -806,18 +761,15 @@ dialog.modal {
   border-radius: var(--radius-md);
   padding: 1.8rem 1.6rem;
 }
-
 .muted-box h3 {
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--primary-navy);
 }
-
 .muted-box ol {
   margin: 0;
   padding-left: 1.2rem;
 }
-
 .muted-box li {
   margin-bottom: 0.6rem;
   color: var(--text-muted);
@@ -826,56 +778,44 @@ dialog.modal {
    CONTACT PAGE – PROFESSIONAL UI/UX POLISH
    Empathy-first • Trust-driven • B2B-safe
    ========================================================= */
-
 /* ---------- CONTACT CHANNEL CARDS ---------- */
-
 .channel-card {
   text-align: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-
 .channel-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(13,37,66,0.18);
 }
-
 .channel-icon {
   font-size: 2.4rem;
   margin-bottom: 0.6rem;
   color: var(--gold-premium);
 }
-
 .channel-card h3 {
   margin-bottom: 0.35rem;
 }
-
 .channel-card a {
   display: inline-block;
   margin-top: 0.4rem;
   font-weight: 600;
   color: var(--primary-navy);
 }
-
 .channel-card a:hover {
   color: var(--gold-premium);
   text-decoration: underline;
 }
-
 /* Subtle identity cues */
 .channel-card.whatsapp {
   border-top: 3px solid #22c55e;
 }
-
 .channel-card.email {
   border-top: 3px solid var(--gold-premium);
 }
-
 .channel-card.location {
   border-top: 3px solid var(--primary-navy);
 }
-
 /* ---------- MAP CONTAINER ---------- */
-
 .map-wrapper {
   margin-top: 1.4rem;
   border-radius: var(--radius-lg);
@@ -883,56 +823,42 @@ dialog.modal {
   box-shadow: var(--shadow-subtle);
   border: 1px solid var(--border-light);
 }
-
 /* ---------- CONTACT FORM EMPATHY ---------- */
-
 form {
   max-width: 720px;
   margin: 0 auto;
 }
-
 .form-note {
   margin-top: 0.9rem;
   font-size: 0.85rem;
   color: var(--text-muted);
   text-align: center;
 }
-
 /* Submit button confidence */
 form .cta-btn.primary.large {
   margin-top: 1.2rem;
   min-width: 260px;
 }
-
 /* ---------- SECTION FLOW SOFTENING ---------- */
-
 .contact-flow section + section {
   margin-top: 3.6rem;
 }
-
 /* ---------- MOBILE REFINEMENTS ---------- */
-
 @media (max-width: 768px) {
-
   .channel-icon {
     font-size: 2rem;
   }
-
   .channel-card {
     padding-top: 1.4rem;
   }
-
   .map-wrapper iframe {
     height: 300px;
   }
-
   form {
     padding-inline: 0.4rem;
   }
 }
-
 /* ---------- ACCESSIBILITY REFINEMENT ---------- */
-
 .channel-card a:focus-visible {
   outline: 3px solid var(--gold-premium);
   outline-offset: 4px;
