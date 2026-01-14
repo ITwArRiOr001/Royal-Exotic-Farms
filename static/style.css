@@ -46,15 +46,26 @@ h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); }
 h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); }
 h3 { font-size: clamp(1.35rem, 4vw, 1.8rem); }
 /* INTEGRATED: Body Text Empathy Fix – Muted base, darker for leads/emotional sections */
+/* INTEGRATED: Refine Typography – Increased line-height and letter-spacing for readability and emotional flow */
 p {
   color: var(--text-muted);
   margin-bottom: 1rem;
   max-width: 64ch; /* optimal reading line length */
+  line-height: 1.75; /* Empathy for readability */
+  letter-spacing: 0.01em; /* Subtle openness */
 }
-.lead { 
-  font-size: 1.1rem; 
-  font-weight: 500; 
+.lead {
+  font-size: 1.1rem;
+  font-weight: 500;
   color: #1f2937; /* darker than muted for empathy */
+  line-height: 1.75; /* Empathy for readability */
+  letter-spacing: 0.01em; /* Subtle openness */
+}
+/* INTEGRATED: Refine Typography – Variable font for fluid sizing (smart optimization) */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/playfair-variable.woff2') format('woff2-variations');
+  font-weight: 100 900; /* Smart weight fluidity */
 }
 /* ===================== TYPOGRAPHY POLISH ===================== */
 .surface .text-block p {
@@ -67,14 +78,24 @@ p {
 a { color: var(--gold-premium); text-decoration: none; }
 a:hover { color: var(--gold-muted); }
 /* ===================== ACCESSIBILITY: FOCUS ===================== */
+/* INTEGRATED: Boost Accessibility – Enhanced focus styles with increased offset and soft glow */
 :focus-visible {
   outline: 3px solid var(--gold-premium);
-  outline-offset: 3px;
+  outline-offset: 4px; /* Increased for touch empathy */
   border-radius: 4px;
+  box-shadow: 0 0 12px rgba(197,160,71,0.35); /* Soft glow for visibility */
 }
 button:focus-visible,
 a:focus-visible {
   box-shadow: 0 0 0 4px rgba(197,160,71,0.25);
+}
+/* INTEGRATED: Boost Accessibility – High-contrast variant (toggle via JS class on body for empathy mode) */
+body.high-contrast h2, body.high-contrast h3 {
+  color: #000000; /* Max contrast on light bg */
+}
+body.high-contrast .cta-btn {
+  background: #000000;
+  color: #ffffff;
 }
 /* ===================== ACCESSIBILITY: REDUCED MOTION ===================== */
 @media (prefers-reduced-motion: reduce) {
@@ -105,9 +126,15 @@ a:focus-visible {
 }
 .hero-content { max-width: 760px; margin: 0 auto; }
 /* INTEGRATED: Hero Text to Pure White + Brand Gradient Safeguard */
-.hero-title,
+/* FIXED: Prevent parent color override on brand-gradient by using more specific selector and !important for transparency */
+.hero-title {
+  color: #ffffff;
+}
 .hero-subtitle {
   color: #ffffff;
+}
+.hero-title .brand-gradient {
+  color: transparent !important; /* Ensure gradient visibility by forcing transparency */
 }
 .hero-title {
   font-size: 3.2rem;
@@ -180,6 +207,27 @@ a:focus-visible {
 .cta-btn:hover {
   background: var(--gold-muted);
   transform: translateY(-2px);
+}
+/* INTEGRATED: Streamline Navigation and CTAs – Floating CTA for intuitive flow (styled as golden icon; JS for visibility) */
+.floating-cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--gold-premium);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(197,160,71,0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 999;
+}
+.floating-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 /* ===================== NAVIGATION ===================== */
 .main-nav {
@@ -335,6 +383,14 @@ h2 {
 h3 {
   letter-spacing: -0.01em;
 }
+/* INTEGRATED: Refine Typography – Micro-animation for headings on hover (gentle underline wave) */
+h2:hover::after {
+  animation: wave-underline 1.5s ease-in-out; /* Wavy for uniqueness */
+}
+@keyframes wave-underline {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.1) skewX(-5deg); } /* Wavy motion */
+}
 /* ===================== SPLIT ===================== */
 .split-section {
   display: grid;
@@ -379,6 +435,7 @@ section[data-section] .text-block h2::before {
   margin-bottom: 0.4rem;
 }
 /* ---------- IMAGE-ONLY SCROLL REVEAL ---------- */
+/* INTEGRATED: Enhance Emotional Resonance – Nature-inspired fade-grow for images (bloom effect) */
 .image-block {
   opacity: 0;
   transform: translateY(28px);
@@ -391,6 +448,12 @@ section[data-section] .text-block h2::before {
   opacity: 1;
   transform: translateY(0);
 }
+.image-block img {
+  transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+}
+.image-block.is-visible img {
+  transform: scale(1.04); /* Slight bloom */
+}
 @media (max-width: 768px) {
   .image-block {
     transition-duration: 0.6s;
@@ -398,6 +461,7 @@ section[data-section] .text-block h2::before {
 }
 /* ===================== GRID & CARDS ===================== */
 /* Elite Color Map: Cards = White background */
+/* INTEGRATED: Enhance Emotional Resonance – Nature-inspired growth animation for cards (soft scale-up on reveal) */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -411,6 +475,13 @@ section[data-section] .text-block h2::before {
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-light);
   transition: var(--transition);
+  transform: translateY(12px) scale(0.98); /* Start subtle "hidden" state */
+  opacity: 0.85;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease; /* Organic easing */
+}
+.card.is-visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 .card:hover { transform: translateY(-6px); }
 .card-content { padding: 1.5rem; }
@@ -651,23 +722,23 @@ dialog.modal {
 /* =========================================================
    ELITE BRAND TYPOGRAPHY (PLAYFAIR DISPLAY)
    ========================================================= */
-/* INTEGRATED: Brand Gradient Text Fix – Home-only, static white elsewhere */
+/* INTEGRATED: Optimize Brand Gradient – Red-yellow-green-orange with faster wavy animation for authentic vibe */
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
   letter-spacing: -0.015em;
   background: linear-gradient(
     120deg,
-    #f59e0b,
-    #16a34a,
-    #d97706,
-    #f97316
+    #ff0000, /* Red */
+    #ffff00, /* Yellow */
+    #00ff00, /* Green */
+    #ffa500 /* Orange */
   );
-  background-size: 250% 250%;
+  background-size: 300% 300%; /* Larger for wavy flow */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: brandFlow 85s ease-in-out infinite;
+  animation: wavyBrandFlow 15s ease-in-out infinite; /* Faster, wavy */
 }
 /* Safeguard: Disable on non-home pages (add 'home' class to <body> on homepage) */
 body:not(.home) .brand-gradient {
@@ -675,10 +746,12 @@ body:not(.home) .brand-gradient {
   color: #ffffff;
   animation: none;
 }
-@keyframes brandFlow {
+@keyframes wavyBrandFlow {
   0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  25% { background-position: 50% 0%; transform: skewY(2deg); } /* Wavy up */
+  50% { background-position: 100% 50%; transform: skewY(-2deg); } /* Wavy down */
+  75% { background-position: 50% 100%; transform: skewY(2deg); } /* Wavy up */
+  100% { background-position: 0% 50%; transform: skewY(0); } /* Reset */
 }
 /* ===================== HERO BRAND SIZE FIX ===================== */
 /* Consolidated with main hero-title (no duplicate) */
