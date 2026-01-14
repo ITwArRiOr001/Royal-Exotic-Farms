@@ -137,66 +137,61 @@ body.high-contrast .cta-btn {
   font-family: 'Playfair Display', Georgia, serif !important;
   font-weight: 800;
   letter-spacing: -0.02em;
-
   /* 🌊 Wavy layered gradient – Red & Blue dominant */
   background:
-    /* 🔴 Red – primary wave */
+    /* 🔵 Blue – now top layer for dominance */
     radial-gradient(
-      140% 140% at 15% 25%,
-      rgba(220, 38, 38, 1),
-      transparent 62%
-    ),
-
-    /* 🔵 Blue – primary counter-wave */
-    radial-gradient(
-      140% 140% at 85% 30%,
+      150% 150% at 75% 25%, /* Moved slightly left for better center flow */
       rgba(37, 99, 235, 1),
-      transparent 62%
+      transparent 58% /* Tighter fade to let red show through sooner */
     ),
-
+    /* 🔴 Red – secondary wave */
+    radial-gradient(
+      150% 150% at 25% 30%, /* Shifted right a bit to overlap blue for purple blends */
+      rgba(220, 38, 38, 1),
+      transparent 58%
+    ),
     /* 🟢 Green – subtle depth only */
     radial-gradient(
-      100% 100% at 50% 85%,
-      rgba(34, 197, 94, 0.28),
-      transparent 70%
+      110% 110% at 50% 90%, /* Pushed lower to reduce overlap/yellowing */
+      rgba(34, 197, 94, 0.24), /* Slightly lowered opacity for more subtlety */
+      transparent 75%
     ),
-
     /* 🟠 Orange – light accent sparkle */
     radial-gradient(
-      90% 90% at 70% 10%,
-      rgba(249, 115, 22, 0.22),
-      transparent 72%
+      95% 95% at 80% 15%, /* Shifted right/up to separate from green */
+      rgba(249, 115, 22, 0.18), /* Lowered opacity to prevent yellow dominance */
+      transparent 78%
     );
-
-  background-size: 340% 340%;
+  background-size: 320% 320%; /* Slightly smaller for tighter waves */
   background-position: 0% 50%;
-
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-
   /* 🌊 Slow royal wave */
-  animation: royalWave 26s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: royalWave 20s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 @keyframes royalWave {
   0% {
     background-position: 0% 50%;
   }
-  25% {
-    background-position: 40% 20%;
+  20% {
+    background-position: 30% 25%; /* Gentle rise */
   }
-  50% {
-    background-position: 100% 50%;
+  40% {
+    background-position: 70% 35%; /* Peak curve */
   }
-  75% {
-    background-position: 60% 80%;
+  60% {
+    background-position: 100% 50%; /* Mid-right hold */
+  }
+  80% {
+    background-position: 70% 75%; /* Gentle fall */
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 50%; /* Back to start */
   }
 }
-
 /* Rest unchanged */
 .hero-title {
   font-size: 3.2rem;
