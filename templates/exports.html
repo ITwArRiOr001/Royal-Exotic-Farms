@@ -435,7 +435,7 @@
       <button type="button" 
               class="cta-btn primary large"
               aria-label="Request export quotation"
-              onclick="openModal('exportQuoteModal')">
+              onclick="openExportQuote()">
         Request Export Quotation Today
       </button>
     </div>
@@ -443,12 +443,15 @@
 </section>
 
 <!-- Export Quote Modal -->
-<dialog class="modal" id="exportQuoteModal" aria-label="Export quotation request modal">
+<dialog class="modal" id="quoteModal" aria-label="Trade quote request modal">
   <div class="modal-content">
-    <button type="button" 
-            class="modal-close" 
-            aria-label="Close quotation form"
-            onclick="closeModal('exportQuoteModal')">×</button>
+    <button
+  type="button"
+  class="cta-btn primary large"
+  aria-label="Request export quotation"
+  onclick="openExportQuote()">
+  Request Export Quotation Today
+</button>
 
     <h3>Export Quotation Request</h3>
     <p class="modal-subtitle">We'll reply within 24 hours with best possible offer</p>
@@ -532,6 +535,26 @@
 <script src="/static/script.js"></script>
 
 <script>
+  <script>
+function openExportQuote() {
+  const modal = document.getElementById('quoteModal');
+  if (!modal) return;
+
+  modal.showModal();
+
+  // Pre-fill Trade Type = Export
+  const tradeType = modal.querySelector('#type');
+  if (tradeType) {
+    tradeType.value = 'Export';
+  }
+
+  // Optional: hint route for Gulf
+  const route = modal.querySelector('#route');
+  if (route && route.value === '') {
+    route.value = 'Mumbai → Jebel Ali';
+  }
+}
+</script>
 // Flash auto-dismiss (consistent across all pages)
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.flash-message').forEach(msg => {
