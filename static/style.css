@@ -758,42 +758,6 @@ dialog.modal {
     font-size: 0.85rem;
   }
 }
-/* =========================================================
-   ELITE BRAND TYPOGRAPHY (PLAYFAIR DISPLAY)
-   ========================================================= */
-/* INTEGRATED: Optimize Brand Gradient – Red-yellow-green-orange with faster wavy animation for authentic vibe */
-.hero-title .brand-gradient {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-weight: 800;
-  letter-spacing: -0.015em;
-  background: linear-gradient(
-    120deg,
-    #ff0000, /* Red */
-    #ffff00, /* Yellow */
-    #00ff00, /* Green */
-    #ffa500 /* Orange */
-  );
-  background-size: 300% 300%; /* Larger for wavy flow */
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: wavyBrandFlow 15s ease-in-out infinite; /* Faster, wavy */
-}
-/* Safeguard: Disable on non-home pages (add 'home' class to <body> on homepage) */
-body:not(.home) .brand-gradient {
-  background: none;
-  color: #ffffff;
-  animation: none;
-}
-@keyframes wavyBrandFlow {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 0%; transform: skewY(2deg); } /* Wavy up */
-  50% { background-position: 100% 50%; transform: skewY(-2deg); } /* Wavy down */
-  75% { background-position: 50% 100%; transform: skewY(2deg); } /* Wavy up */
-  100% { background-position: 0% 50%; transform: skewY(0); } /* Reset */
-}
-/* ===================== HERO BRAND SIZE FIX ===================== */
-/* Consolidated with main hero-title (no duplicate) */
 /* ===================== FAQ MICRO-ACCORDION (ELITE) ===================== */
 .faq-section h2 {
   text-align: center;
