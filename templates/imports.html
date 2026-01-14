@@ -474,11 +474,59 @@
   </div>
 </dialog>
 
+            <!-- Import Modal -->
+<dialog class="modal" id="quoteModal" aria-label="Import assistance request modal">
+  <div class="modal-content">
+    <button type="button" 
+            class="modal-close" 
+            aria-label="Close import assistance form"
+            onclick="closeModal('quoteModal')">×</button>
+
+    <h3>Import Assistance Request</h3>
+    <p class="modal-subtitle">We usually reply within 24 hours with initial guidance</p>
+
+    <form action="/submit-form" method="POST" novalidate>
+      <input type="hidden" name="form_type" value="Import Assistance"/>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="product">Product / Category</label>
+          <input type="text" id="product" name="product" placeholder="e.g. Mobile accessories, CNC machine parts" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="origin">Country of Origin / Supplier Location</label>
+          <input type="text" id="origin" name="origin" placeholder="e.g. Shenzhen, China" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Estimated Quantity / Order Value</label>
+        <input type="text" id="quantity" name="quantity" placeholder="e.g. 5000 pcs / USD 15,000" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Your Name / Company</label>
+        <input type="text" id="name" name="name" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Business Email</label>
+        <input type="email" id="email" name="email" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">WhatsApp / Mobile</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91"/>
+      </div>
+
+      <button type="submit" class="cta-btn full-width">Submit Request</button>
+    </form>
+  </div>
+</dialog>
 
 <footer class="site-footer" aria-label="Company information and compliance">
   <div class="footer-inner">
-
-    <!-- Trust Badges -->
      <!-- Trust Badges -->
     <div class="footer-trust">
       <div class="trust-badges">
