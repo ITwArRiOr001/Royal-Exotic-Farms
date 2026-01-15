@@ -136,10 +136,10 @@ body.high-contrast .cta-btn {
 
   /* 🔥 RED → BLUE → ORANGE (NO GREEN, NO YELLOW) */
   background-image: linear-gradient(
-    140deg,
-    #dc2626 55%,     /* Red */
-    #48cae4 50%,    /* Blue (dominant) */
-    #ff5c00 25%     /* Orange */
+    120deg,
+    #dc2626 0%,     /* Red */
+    #2563eb 45%,    /* Blue (dominant) */
+    #f97316 85%     /* Orange */
   );
 
   background-size: 300% 300%;
@@ -151,16 +151,16 @@ body.high-contrast .cta-btn {
   color: transparent;
 
   /* 🌊 Smooth premium wave */
-  animation: brandWave 15s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: brandWave 16s ease-in-out infinite;
 
   /* Subtle depth without killing blue */
   text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 
 @keyframes brandWave {
-  0%   { background-position: 0% 55%; }
-  50%  { background-position: 100% 60%; }
-  100% { background-position: 20% 60%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Rest unchanged */
