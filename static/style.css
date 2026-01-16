@@ -1,8 +1,6 @@
 svg use {
-  fill: currentColor;
+  stroke: currentColor;
 }
-
-/* Base SVG icon */
 .svg-icon {
   width: 1.6em;
   height: 1.6em;
@@ -13,7 +11,6 @@ svg use {
   margin-right: 0.45rem;
   stroke-width: 1.8;
 }
-
 /* Micro-interaction */
 .card:hover .svg-icon,
 .trust-strip .svg-icon {
@@ -180,21 +177,23 @@ body.high-contrast .cta-btn {
 .home .hero-title {
   font-size: clamp(2.4rem, 6vw, 3.8rem);
 }
-
-/* CRITICAL FIX: Isolate gradient span completely from parent color */
+.home .hero-title,
+.exports .hero-title,
+.imports .hero-title,
+.services .hero-title {
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+}
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 800;
-  display: inline-block;
+  font-weight: 800;                 /* MATCH index authority */
   letter-spacing: -0.02em;
-  
+  display: inline-block;
 
-  /* 🔥 RED → BLUE → ORANGE (NO GREEN, NO YELLOW) */
   background-image: linear-gradient(
     120deg,
-    #dc2626 0%,     /* Red */
-    #2563eb 45%,    /* Blue (dominant) */
-    #f97316 85%     /* Orange */
+    #dc2626 15%,     /* red dominant */
+    #2563eb 35%,    /* blue dominant */
+    #f97316 80%     /* orange subtle */
   );
 
   background-size: 300% 300%;
@@ -205,13 +204,10 @@ body.high-contrast .cta-btn {
   -webkit-text-fill-color: transparent;
   color: transparent;
 
-  /* 🌊 Smooth premium wave */
-  animation: brandWave 16s ease-in-out infinite;
+  animation: brandWave 13s ease-in-out infinite;
 
-  /* Subtle depth without killing blue */
   text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
-
 @keyframes brandWave {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -459,6 +455,18 @@ body.high-contrast .cta-btn {
 @media (max-width: 768px) {
   .surface + .surface {
     margin-top: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .surface-inner {
+    text-align: center;
+  }
+
+  .surface-inner p,
+  .surface-inner .lead {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60ch;
   }
 }
 /* ===================== HEADING MICRO-TUNING ===================== */
