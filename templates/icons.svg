@@ -1,0 +1,30 @@
+<symbol id="icon-snowflake" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <path d="M12 2v20M4 12h16M6 6l12 12M6 18l12-12"/>
+</symbol>
+
+<symbol id="icon-globe" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <circle cx="12" cy="12" r="10"/>
+  <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+</symbol>
+
+<symbol id="icon-leaf" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <path d="M5 21c8 0 14-6 14-14C11 7 5 13 5 21z"/>
+</symbol>
+
+<symbol id="icon-link" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <path d="M10 14l4-4M7 17a5 5 0 010-7l3-3a5 5 0 017 7l-1 1"/>
+</symbol>
+
+<symbol id="icon-chat" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <path d="M21 15a4 4 0 01-4 4H7l-4 4V5a4 4 0 014-4h10a4 4 0 014 4z"/>
+</symbol>
+
+<symbol id="icon-mail" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <rect x="2" y="4" width="20" height="16" rx="2"/>
+  <path d="M2 6l10 7 10-7"/>
+</symbol>
+
+<symbol id="icon-location" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+  <path d="M12 21s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/>
+  <circle cx="12" cy="9" r="2.5"/>
+</symbol>
