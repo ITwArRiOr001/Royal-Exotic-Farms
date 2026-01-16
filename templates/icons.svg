@@ -1,30 +1,66 @@
-<symbol id="icon-snowflake" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <path d="M12 2v20M4 12h16M6 6l12 12M6 18l12-12"/>
-</symbol>
+<!-- ===================== SVG ICON SPRITE ===================== -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
 
-<symbol id="icon-globe" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <circle cx="12" cy="12" r="10"/>
-  <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
-</symbol>
+  <!-- ❄️ Cold Chain / Snowflake -->
+  <symbol id="icon-snowflake" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v20M4 12h16M6 6l12 12M6 18l12-12"/>
+  </symbol>
 
-<symbol id="icon-leaf" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <path d="M5 21c8 0 14-6 14-14C11 7 5 13 5 21z"/>
-</symbol>
+  <!-- 🌍 Global / Globe -->
+  <symbol id="icon-globe" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+  </symbol>
 
-<symbol id="icon-link" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <path d="M10 14l4-4M7 17a5 5 0 010-7l3-3a5 5 0 017 7l-1 1"/>
-</symbol>
+  <!-- 🍃 Agriculture / Leaf -->
+  <symbol id="icon-leaf" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 21c8 0 14-6 14-14C11 7 5 13 5 21z"/>
+  </symbol>
 
-<symbol id="icon-chat" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <path d="M21 15a4 4 0 01-4 4H7l-4 4V5a4 4 0 014-4h10a4 4 0 014 4z"/>
-</symbol>
+  <!-- 🔗 Trade / Link -->
+  <symbol id="icon-link" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 14l4-4"/>
+    <path d="M7 17a5 5 0 010-7l3-3a5 5 0 017 7l-1 1"/>
+  </symbol>
 
-<symbol id="icon-mail" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <rect x="2" y="4" width="20" height="16" rx="2"/>
-  <path d="M2 6l10 7 10-7"/>
-</symbol>
+  <!-- 💬 Communication / Chat -->
+  <symbol id="icon-chat" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a4 4 0 01-4 4H7l-4 4V5a4 4 0 014-4h10a4 4 0 014 4z"/>
+  </symbol>
 
-<symbol id="icon-location" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
-  <path d="M12 21s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/>
-  <circle cx="12" cy="9" r="2.5"/>
-</symbol>
+  <!-- ✉️ Email -->
+  <symbol id="icon-mail" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M2 6l10 7 10-7"/>
+  </symbol>
+
+  <!-- 📍 Location -->
+  <symbol id="icon-location" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/>
+    <circle cx="12" cy="9" r="2.5"/>
+  </symbol>
+
+  <!-- 📦 Logistics / Container -->
+  <symbol id="icon-container" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7" width="18" height="10" rx="2"/>
+    <path d="M3 10h18"/>
+  </symbol>
+
+  <!-- 🛡️ Compliance / Shield -->
+  <symbol id="icon-shield" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/>
+  </symbol>
+
+  <!-- 🧮 Cost / Calculator -->
+  <symbol id="icon-calculator" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="2" width="16" height="20" rx="2"/>
+    <path d="M8 6h8M8 10h2M12 10h2M16 10h2M8 14h2M12 14h2M16 14h2"/>
+  </symbol>
+
+  <!-- 📄 Document / HS Code -->
+  <symbol id="icon-document" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 2h9l5 5v15a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z"/>
+    <path d="M14 2v6h6"/>
+  </symbol>
+
+</svg>
