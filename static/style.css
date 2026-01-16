@@ -191,9 +191,9 @@ body.high-contrast .cta-btn {
 
   background-image: linear-gradient(
     120deg,
-    #dc2626 15%,     /* red dominant */
-    #2563eb 35%,    /* blue dominant */
-    #f97316 80%     /* orange subtle */
+    #dc2626 85%,     /* red dominant */
+    #2563eb 65%,    /* blue dominant */
+    #f97316 20%     /* orange subtle */
   );
 
   background-size: 300% 300%;
