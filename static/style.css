@@ -127,12 +127,17 @@ body.high-contrast .cta-btn {
 .hero-subtitle {
   color: #ffffff;
 }
+.home .hero-title {
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+}
 
 /* CRITICAL FIX: Isolate gradient span completely from parent color */
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;
+  display: inline-block;
   letter-spacing: -0.02em;
+  
 
   /* 🔥 RED → BLUE → ORANGE (NO GREEN, NO YELLOW) */
   background-image: linear-gradient(
