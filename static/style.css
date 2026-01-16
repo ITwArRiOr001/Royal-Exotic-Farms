@@ -4,8 +4,8 @@ svg use {
 .svg-icon {
   width: 1.6em;
   height: 1.6em;
-  fill: currentColor; 
-  stroke: none;        
+  stroke: currentColor;
+  fill: none;              /* correct for line icons */
   display: inline-block;
   vertical-align: middle;
 }
