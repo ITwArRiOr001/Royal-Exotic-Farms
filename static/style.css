@@ -1,7 +1,11 @@
+svg use {
+  fill: currentColor;
+}
 .svg-icon {
   width: 1.6em;
   height: 1.6em;
-  stroke: currentColor;
+  fill: currentColor; 
+  stroke: none;        
   display: inline-block;
   vertical-align: middle;
 }
