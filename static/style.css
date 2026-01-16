@@ -1,13 +1,53 @@
 svg use {
   fill: currentColor;
 }
+
+/* Base SVG icon */
 .svg-icon {
   width: 1.6em;
   height: 1.6em;
   stroke: currentColor;
-  fill: none;              /* correct for line icons */
+  fill: none;
   display: inline-block;
   vertical-align: middle;
+  margin-right: 0.45rem;
+  stroke-width: 1.8;
+}
+
+/* Micro-interaction */
+.card:hover .svg-icon,
+.trust-strip .svg-icon {
+  transition: transform 0.25s ease;
+}
+.card:hover .svg-icon {
+  transform: translateY(-1px);
+}
+.icon-compliance {
+  color: #2563eb;
+}
+.icon-cold {
+  color: #0ea5e9;
+}
+.icon-agri {
+  color: #16a34a;
+}
+.icon-global {
+  color: #1e3a8a;
+}
+.icon-logistics {
+  color: #9333ea; 
+}
+.icon-cost {
+  color: #c5a047;
+}
+.icon-communication {
+  color: #0891b2;
+}
+.icon-docs {
+  color: #475569; 
+}
+.icon-location {
+  color: #dc2626; 
 }
 /* ===================== DESIGN TOKENS ===================== */
 :root {
