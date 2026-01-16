@@ -9,7 +9,7 @@ svg use {
   display: inline-block;
   vertical-align: middle;
   margin-right: 0.45rem;
-  stroke-width: 1.8;
+  stroke-width: 2;
 }
 /* Micro-interaction */
 .card:hover .svg-icon,
