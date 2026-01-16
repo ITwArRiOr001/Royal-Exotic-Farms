@@ -1,4 +1,10 @@
-
+.svg-icon {
+  width: 1.6em;
+  height: 1.6em;
+  stroke: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+}
 /* ===================== DESIGN TOKENS ===================== */
 :root {
   --primary-navy: #0d2542;
