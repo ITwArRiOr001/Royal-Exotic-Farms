@@ -680,6 +680,11 @@ section[data-section] .text-block h2::before {
   margin-top: 2.2rem;
   font-weight: 500;
 }
+.trust-strip div {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
 .form-group label {
