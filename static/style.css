@@ -666,7 +666,6 @@ section[data-section] .text-block h2::before {
     z-index: 2;
     background: white;
   }
-}
 /* ===== TRUST PANEL (ELITE UPGRADE) ===== */
 .trust-strip {
   position: relative;
