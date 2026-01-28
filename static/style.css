@@ -359,16 +359,23 @@ body.high-contrast .cta-btn {
   background: white;
   box-shadow: var(--shadow-subtle);
   z-index: 1000;
+
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1rem;
+  justify-content: space-between;   /* 🔑 spread across screen */
+  align-items: center;
+
+  width: 100%;
+  padding: 1rem 4vw;                /* responsive edge spacing */
 }
+
 .main-nav a {
-  padding: 0.55rem 1.1rem;
+  padding: 0.6rem 1.4rem;
   color: var(--primary-navy);
-  font-weight: 500;
+  font-weight: 600;                 /* 🔑 stronger presence */
+  font-size: 1.05rem;               /* 🔑 larger text */
+  letter-spacing: 0.02em;           /* subtle authority */
   border-radius: var(--radius-sm);
+  white-space: nowrap;
 }
 .main-nav a.active,
 .main-nav a:hover {
@@ -419,6 +426,11 @@ body.high-contrast .cta-btn {
   padding: 0.9rem 0;
   font-size: 1.15rem;
   color: var(--primary-navy);
+}
+@media (min-width: 1200px) {
+  .main-nav a {
+    font-size: 1.1rem;
+  }
 }
 /* ===================== MOBILE MENU CLOSE BUTTON ===================== */
 .close-menu {
