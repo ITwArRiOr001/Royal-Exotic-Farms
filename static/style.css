@@ -793,57 +793,47 @@ section[data-section] .text-block h2::before {
 .trust-strip div:hover {
   background: none !important;
 }
-/* =========================================================
-   TRUST STRIP – CONTACT PAGE (AUDIENCE QUALIFIER)
-   Refined • Calm • Professional
-   ========================================================= */
 
-/* Scope ONLY when trust-strip follows "Who This Page Is For" */
-.surface .trust-strip {
-  margin-top: 2rem;
+
+.contact-audience .trust-strip {
+  max-width: 100%;
+  padding: 1.6rem 2rem;
 }
 
-/* Desktop / Laptop refinement */
+/* Desktop / Laptop */
 @media (min-width: 992px) {
 
-  .surface .trust-strip {
-    max-width: 980px;                 /* 🔑 slimmer than homepage */
-    padding: 1.8rem 2.4rem;
-    margin-left: auto;
-    margin-right: auto;
-
-    background: linear-gradient(
-      180deg,
-      #ffffff,
-      #f9fafb
-    );
-
-    box-shadow: 0 10px 28px rgba(13,37,66,0.06);
-    border-radius: 20px;
+  .contact-audience .trust-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 🔑 2x2 grid */
+    row-gap: 1.2rem;
+    column-gap: 2rem;
   }
 
-  .surface .trust-strip div {
-    font-size: 1.02rem;               /* 🔑 slightly smaller */
-    font-weight: 500;                 /* calmer authority */
-    gap: 0.65rem;
+  .contact-audience .trust-strip div {
+    white-space: normal;              /* 🔑 allow wrapping */
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 1.02rem;
+    line-height: 1.45;
   }
 
-  .surface .trust-strip .svg-icon {
-    width: 1.65em;
-    height: 1.65em;
-    stroke-width: 2;
-    opacity: 0.95;
-  }
-
-  /* Softer separators */
-  .surface .trust-strip div:not(:last-child) {
-    border-right: 1px solid rgba(13,37,66,0.08);
+  /* Remove vertical separators */
+  .contact-audience .trust-strip div {
+    border-right: none !important;
   }
 }
 
-/* Ensure NO hover theatrics on contact trust strip */
-.surface .trust-strip div:hover {
-  background: none !important;
+/* Large screens (optional polish) */
+@media (min-width: 1280px) {
+  .contact-audience .trust-strip {
+    grid-template-columns: repeat(4, 1fr); /* back to 4 only when space allows */
+  }
+
+  .contact-audience .trust-strip div {
+    text-align: center;
+    justify-content: center;
+  }
 }
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
