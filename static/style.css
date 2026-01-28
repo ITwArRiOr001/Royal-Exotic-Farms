@@ -1258,3 +1258,37 @@ form .cta-btn.primary.large {
   color: var(--gold-muted);
   margin-bottom: 0.4rem;
 }
+/* ================= REGULATORY GRID – DESKTOP ================= */
+@media (min-width: 992px) {
+
+  .regulatory-grid {
+    list-style: none;              /* ❌ kill bullets */
+    padding: 0;
+    margin: 2.8rem auto 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem 3rem;
+
+    max-width: 920px;
+  }
+
+  .regulatory-grid li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--primary-navy);
+    line-height: 1.55;
+  }
+
+  .regulatory-grid .svg-icon {
+    width: 1.8em;
+    height: 1.8em;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+}
+
