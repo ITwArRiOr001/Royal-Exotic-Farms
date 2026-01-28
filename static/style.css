@@ -1036,11 +1036,12 @@ form .cta-btn.primary.large {
 
 .process-steps li {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.6rem 0;
+  align-items: center;
+  gap: 0.45rem;              /* 🔑 this fixes the big space */
+  padding: 0.45rem 0;
   font-weight: 500;
   color: var(--primary-navy);
+  line-height: 1.5;
 }
 
 .process-steps li svg {
