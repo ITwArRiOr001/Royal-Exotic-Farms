@@ -862,9 +862,21 @@ dialog.modal {
   color: var(--gold-premium);
 }
 .faq-icon {
-  font-size: 1.35rem;
-  color: var(--gold-premium);
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-icon::before {
+  content: "+";
+  font-weight: 500;
   transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-icon::before {
+  content: "–";
 }
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
