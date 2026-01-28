@@ -198,8 +198,8 @@ body.high-contrast .cta-btn {
 }
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 800; /* MATCH index authority */
-  letter-spacing: -0.02em;
+  font-weight: 1000; /* MATCH index authority */
+  letter-spacing: -0.03em;
   display: inline-block;
   background-image:
     /* Main wave gradient: red dominant → blue → subtle orange → repeat */
