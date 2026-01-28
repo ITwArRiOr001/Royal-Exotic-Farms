@@ -198,62 +198,66 @@ body.high-contrast .cta-btn {
 }
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 1000; /* MATCH index authority */
-  letter-spacing: -0.03em;
+  font-weight: 800; /* MATCH index authority */
+  letter-spacing: -0.02em;
   display: inline-block;
-  background-image: 
+  background-image:
+    /* Main wave gradient: red dominant → blue → subtle orange → repeat */
     linear-gradient(
-      120deg,
-      #dc2626 85%, /* red dominant */
-      #2563eb 65%, /* blue dominant */
-      #f97316 20% /* orange subtle */
+      105deg,  /* slight diagonal for natural wave feel */
+      #dc2626 0%,    /* start red */
+      #dc2626 30%,   /* hold red */
+      #2563eb 40%,   /* transition to blue */
+      #2563eb 60%,   /* hold blue */
+      #f97316 70%,   /* subtle orange flash */
+      #f97316 75%,   /* short orange */
+      #dc2626 85%,   /* back to red for seamless loop */
+      #dc2626 100%
     ),
-    /* Glossy wet shine overlay for watery reflection */
+    /* Glossy wet shine overlay (static for focus on wave) */
     radial-gradient(
       ellipse at 30% 20%,
-      rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0.3) 40%,
-      transparent 70%
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.25) 45%,
+      transparent 75%
     ),
-    /* Subtle wet droplet highlight */
     radial-gradient(
-      circle at 70% 80%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0.1) 30%,
-      transparent 60%
+      circle at 70% 75%,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      transparent 70%
     );
-  background-size: 400% 400%, 200% 200%, 150% 150%;
+  background-size: 600% 100%, 200% 200%, 150% 150%;  /* wide for slow horizontal + vertical wave */
   background-position: 0% 50%, 0% 0%, 100% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: brandWave 8s ease-in-out infinite; /* Adjusted to ~8s for fluid 5-10s flow */
-  text-shadow: 
-    0 2px 6px rgba(0,0,0,0.45),
-    /* Wet shine shadow for depth */
-    0 0 20px rgba(220, 38, 38, 0.3),
-    0 0 30px rgba(37, 99, 235, 0.2);
-  filter: 
-    drop-shadow(0 0 4px rgba(255, 255, 255, 0.2)) /* Subtle glow for shine */
-    saturate(1.2); /* Boost color vibrancy for wet luster */
+  animation: waveFlow 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;  /* smooth wave easing */
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.5),
+    0 0 25px rgba(220, 38, 38, 0.35),
+    0 0 35px rgba(37, 99, 235, 0.25);
+  filter:
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.25))
+    saturate(1.25);
 }
 
-@keyframes brandWave {
-  0% { 
-    background-position: 0% 50%, 0% 0%, 100% 100%; 
+@keyframes waveFlow {
+  0% {
+    background-position: 0% 0%, 0% 0%, 100% 100%;
   }
-  25% { 
-    background-position: 100% 50%, 50% 100%, 0% 0%; 
+  25% {
+    background-position: -100% -30%, 20% 30%, 80% 70%;  /* wave crest moving down */
   }
-  50% { 
-    background-position: 200% 50%, 100% 0%, 50% 50%; 
+  50% {
+    background-position: -200% -60%, 40% 60%, 60% 40%;  /* peak wave down */
   }
-  75% { 
-    background-position: 100% 50%, 0% 100%, 100% 100%; 
+  75% {
+    background-position: -100% -30%, 20% 30%, 80% 70%;  /* wave receding up */
   }
-  100% { 
-    background-position: 0% 50%, 0% 0%, 100% 100%; 
+  100% {
+    background-position: 0% 0%, 0% 0%, 100% 100%;       /* seamless return */
   }
 }
 
