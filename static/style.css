@@ -835,6 +835,59 @@ section[data-section] .text-block h2::before {
     justify-content: center;
   }
 }
+/* =========================================================
+   TRUST STRIP – MOBILE ELITE (ENTERPRISE)
+   ========================================================= */
+@media (max-width: 991px) {
+
+  .trust-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+
+    margin: 1.8rem auto 0;
+    padding: 1.2rem 1.2rem;
+
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(197,160,71,0.22);
+    box-shadow: 0 10px 28px rgba(13,37,66,0.08);
+
+    max-width: 92%;
+  }
+
+  .trust-strip div {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    line-height: 1.45;
+
+    white-space: normal;
+    padding: 0;
+  }
+
+  .trust-strip .svg-icon {
+    width: 1.55em;
+    height: 1.55em;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  /* Soft separators for clarity */
+  .trust-strip div:not(:last-child) {
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid rgba(13,37,66,0.08);
+  }
+
+  /* Disable hover theatrics on mobile */
+  .trust-strip div:hover {
+    background: none;
+  }
+}
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
 .form-group label {
