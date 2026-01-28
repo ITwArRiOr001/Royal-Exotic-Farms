@@ -358,22 +358,21 @@ body.high-contrast .cta-btn {
   top: 0;
   background: white;
   box-shadow: var(--shadow-subtle);
-  z-index: 1000;
+  z-index: 900;
 
   display: flex;
   justify-content: space-between;   /* 🔑 spread across screen */
   align-items: center;
-
-  width: 80%;
+  width: 100%;
   padding: 1rem 4vw;                /* responsive edge spacing */
 }
 
 .main-nav a {
   padding: 0.6rem 1.4rem;
   color: var(--primary-navy);
-  font-weight: 600;                 /* 🔑 stronger presence */
-  font-size: 1.05rem;               /* 🔑 larger text */
-  letter-spacing: 0.01em;           /* subtle authority */
+  font-weight: 500;                 /* 🔑 stronger presence */
+  font-size: 1.01rem;               /* 🔑 larger text */
+  letter-spacing: 0.02em;           /* subtle authority */
   border-radius: var(--radius-sm);
   white-space: nowrap;
 }
