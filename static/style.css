@@ -198,23 +198,23 @@ body.high-contrast .cta-btn {
 }
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 1000; /* MATCH index authority */
-  letter-spacing: -0.03em;
+  font-weight: 800; /* MATCH index authority */
+  letter-spacing: -0.02em;
   display: inline-block;
   background-image:
-    /* Main wave gradient: red dominant → blue → subtle orange → repeat */
-    linear-gradient(
-      105deg,  /* slight diagonal for natural wave feel */
-      #dc2626 0%,    /* start red */
-      #dc2626 30%,   /* hold red */
-      #2563eb 40%,   /* transition to blue */
-      #2563eb 60%,   /* hold blue */
-      #f97316 70%,   /* subtle orange flash */
-      #f97316 75%,   /* short orange */
-      #dc2626 85%,   /* back to red for seamless loop */
+    /* Vertical repeating wave gradient: red → blue → subtle orange → repeat seamlessly */
+    repeating-linear-gradient(
+      to bottom,
+      #dc2626 0%,     /* red peak */
+      #dc2626 25%,    
+      #2563eb 30%,    /* transition to blue */
+      #2563eb 50%,    /* blue trough */
+      #f97316 55%,    /* subtle orange crest/foam */
+      #f97316 60%,
+      #dc2626 65%,    /* back to red for loop */
       #dc2626 100%
     ),
-    /* Glossy wet shine overlay (static for focus on wave) */
+    /* Static glossy wet shine overlays for luxury/watery reflection */
     radial-gradient(
       ellipse at 30% 20%,
       rgba(255, 255, 255, 0.55) 0%,
@@ -227,13 +227,13 @@ body.high-contrast .cta-btn {
       rgba(255, 255, 255, 0.1) 40%,
       transparent 70%
     );
-  background-size: 600% 100%, 200% 200%, 150% 150%;  /* wide for slow horizontal + vertical wave */
+  background-size: 100% 800%, 200% 200%, 150% 150%;  /* very tall for wave travel distance */
   background-position: 0% 50%, 0% 0%, 100% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: waveFlow 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;  /* smooth wave easing */
+  animation: seaWave 14s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;  /* smooth sine-like wave easing */
   text-shadow:
     0 2px 8px rgba(0,0,0,0.5),
     0 0 25px rgba(220, 38, 38, 0.35),
@@ -243,24 +243,20 @@ body.high-contrast .cta-btn {
     saturate(1.25);
 }
 
-@keyframes waveFlow {
-  0% {
-    background-position: 0% 0%, 0% 0%, 100% 100%;
+@keyframes seaWave {
+  0%, 100% {
+    background-position: 0% 50%, 0% 0%, 100% 100%;          /* rest position - red dominant */
   }
   25% {
-    background-position: -100% -30%, 20% 30%, 80% 70%;  /* wave crest moving down */
+    background-position: 0% 10%, 0% 0%, 100% 100%;          /* wave rising - blue starting to flow up */
   }
   50% {
-    background-position: -200% -60%, 40% 60%, 60% 40%;  /* peak wave down */
+    background-position: 0% -30%, 0% 0%, 100% 100%;         /* peak wave down - blue trough, orange hints */
   }
   75% {
-    background-position: -100% -30%, 20% 30%, 80% 70%;  /* wave receding up */
-  }
-  100% {
-    background-position: 0% 0%, 0% 0%, 100% 100%;       /* seamless return */
+    background-position: 0% 10%, 0% 0%, 100% 100%;          /* wave receding upward */
   }
 }
-
 /* Rest unchanged */
 .hero-title {
   font-size: 3.2rem;
