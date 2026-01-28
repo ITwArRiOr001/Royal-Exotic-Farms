@@ -202,17 +202,19 @@ body.high-contrast .cta-btn {
   letter-spacing: -0.02em;
   display: inline-block;
   background-image:
-    /* Vertical repeating wave gradient: red → blue → subtle orange → repeat seamlessly */
+    /* Horizontal repeating wave gradient: red → blue → subtle orange → repeat seamlessly for never-ending flow */
     repeating-linear-gradient(
-      to bottom,
-      #dc2626 0%,     /* red peak */
-      #dc2626 25%,    
-      #2563eb 30%,    /* transition to blue */
-      #2563eb 50%,    /* blue trough */
-      #f97316 55%,    /* subtle orange crest/foam */
-      #f97316 60%,
-      #dc2626 65%,    /* back to red for loop */
-      #dc2626 100%
+      to right,
+      #dc2626 0%,     /* red wave build-up */
+      #dc2626 20%,    
+      #2563eb 25%,    /* blue wave crest */
+      #2563eb 45%,    
+      #f97316 50%,    /* subtle orange peak/foam */
+      #f97316 55%,
+      #dc2626 60%,    /* back to red trough */
+      #dc2626 80%,
+      #2563eb 85%,    /* another blue for wave continuity */
+      #2563eb 100%
     ),
     /* Static glossy wet shine overlays for luxury/watery reflection */
     radial-gradient(
@@ -227,13 +229,13 @@ body.high-contrast .cta-btn {
       rgba(255, 255, 255, 0.1) 40%,
       transparent 70%
     );
-  background-size: 100% 800%, 200% 200%, 150% 150%;  /* very tall for wave travel distance */
+  background-size: 800% 100%, 200% 200%, 150% 150%;  /* very wide for horizontal wave travel distance */
   background-position: 0% 50%, 0% 0%, 100% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: seaWave 14s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;  /* smooth sine-like wave easing */
+  animation: seaWaveHorizontal 14s linear infinite;  /* linear for steady one-direction flow */
   text-shadow:
     0 2px 8px rgba(0,0,0,0.5),
     0 0 25px rgba(220, 38, 38, 0.35),
@@ -243,18 +245,12 @@ body.high-contrast .cta-btn {
     saturate(1.25);
 }
 
-@keyframes seaWave {
-  0%, 100% {
-    background-position: 0% 50%, 0% 0%, 100% 100%;          /* rest position - red dominant */
+@keyframes seaWaveHorizontal {
+  0% {
+    background-position: 0% 50%, 0% 0%, 100% 100%;          /* start position - red leading */
   }
-  25% {
-    background-position: 0% 10%, 0% 0%, 100% 100%;          /* wave rising - blue starting to flow up */
-  }
-  50% {
-    background-position: 0% -30%, 0% 0%, 100% 100%;         /* peak wave down - blue trough, orange hints */
-  }
-  75% {
-    background-position: 0% 10%, 0% 0%, 100% 100%;          /* wave receding upward */
+  100% {
+    background-position: -100% 50%, 0% 0%, 100% 100%;       /* endless shift left - seamless due to repeating */
   }
 }
 /* Rest unchanged */
