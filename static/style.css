@@ -198,11 +198,11 @@ body.high-contrast .cta-btn {
 }
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 900; /* Bumped to 900 for stronger, more authoritative logo presence */
+  font-weight: 900; 
   letter-spacing: -0.03em; /* Tighter spacing for bold, compact logo feel */
   display: inline-block;
   background-image:
-    /* Matte metallic base: Horizontal repeating gradient with metallic sheens (dark/light variants for depth) */
+    
     repeating-linear-gradient(
       to right,
       /* Red metallic: matte base with subtle shine */
@@ -737,90 +737,63 @@ section[data-section] .text-block h2::before {
     z-index: 2;
     background: white;
   }
-/* ===== TRUST PANEL (ELITE UPGRADE) ===== */
+/* Base (mobile stays simple & stacked) */
 .trust-strip {
   position: relative;
 }
 
-.trust-strip::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(197,160,71,0.25);
-  pointer-events: none;
-}
-
-.trust-strip div {
-  padding: 0.45rem 0.6rem;
-  border-radius: 6px;
-}
-
-@media (hover: hover) {
-  .trust-strip div:hover {
-    background: rgba(197,160,71,0.06);
-  }
-}
-/* =========================================================
-   TRUST STRIP – DESKTOP / LAPTOP ELITE EXPANSION
-   ========================================================= */
+/* ---------------- DESKTOP / LAPTOP ---------------- */
 @media (min-width: 992px) {
   .trust-strip {
-    display: flex;
-    justify-content: space-between;      /* 🔑 spread like nav */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);   /* 🔑 equal authority */
     align-items: center;
 
     width: 100%;
-    max-width: none;                     /* remove card feel */
-    margin: 3.2rem auto;
-    padding: 2.2rem 5vw;                 /* edge breathing */
+    max-width: 1200px;
+    margin: 3.5rem auto;
+    padding: 2.2rem 3rem;
 
-    border-radius: 20px;
-    background: linear-gradient(
-      180deg,
-      #ffffff,
-      #fafafa
-    );
-
-    box-shadow: 0 10px 30px rgba(13,37,66,0.08);
+    background: #ffffff;
+    border-radius: 22px;
+    border: 1px solid rgba(197,160,71,0.22);
+    box-shadow: 0 14px 36px rgba(13,37,66,0.08);
   }
-}
-@media (min-width: 992px) {
+
+  /* Each trust item */
   .trust-strip div {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    justify-content: center;      /* 🔑 perfect centering */
+    gap: 0.75rem;
 
-    font-size: 1.15rem;                 /* 🔑 bigger text */
+    padding: 0;                   /* ❌ no card feel */
+    background: none;
+    border-radius: 0;
+
+    font-size: 1.08rem;
     font-weight: 600;
     color: var(--primary-navy);
-
-    padding: 0.8rem 1.2rem;
     white-space: nowrap;
   }
-}
-@media (min-width: 992px) {
+
+  /* SVG icon sizing */
   .trust-strip .svg-icon {
-    width: 1.9em;
-    height: 1.9em;
-    stroke-width: 2.2;
-  }
-}
-@media (min-width: 992px) {
-  .trust-strip div:not(:last-child) {
-    position: relative;
+    width: 1.85em;
+    height: 1.85em;
+    stroke-width: 2.15;
+    margin: 0;
   }
 
-  .trust-strip div:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: -2.5vw;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 36px;
-    background: rgba(13,37,66,0.12);
+  /* Subtle vertical separators (elite signal) */
+  .trust-strip div:not(:last-child) {
+    border-right: 1px solid rgba(13,37,66,0.12);
   }
+}
+
+/* ❌ IMPORTANT: Disable hover backgrounds (enterprise rule) */
+.trust-strip div:hover {
+  background: none !important;
 }
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
