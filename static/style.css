@@ -199,66 +199,51 @@ body.high-contrast .cta-btn {
 .hero-title .brand-gradient {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 900;
-  letter-spacing: -0.03em; /* Tighter spacing for bold, compact logo feel */
+  letter-spacing: -0.04em;
   display: inline-block;
   background-image:
-    repeating-linear-gradient(
-      to right,
-      /* Deep matte gold base with subtle shine transitions */
-      #8b6508 0%,     /* deep matte gold */
-      #d4af37 15%,    /* shining gold highlight */
-      #d4af37 20%,    
-      /* Mid-tone gold metallic */
-      #b8860b 25%,    /* matte gold depth */
-      #ffd700 40%,    /* bright gold shine */
-      #ffd700 45%,    
-      /* Subtle warm gold peak */
-      #cd853f 50%,    /* deep matte warm gold */
-      #f5deb3 52%,    /* subtle gold gleam */
-      #f5deb3 55%,
-      /* Loop back with deep gold depth */
-      #8b6508 60%,    /* matte gold trough */
-      #8b6508 80%,
-      #b8860b 85%,    /* gold continuity */
-      #b8860b 100%
+    /* Base metallic gold (matte deep + shine layers) */
+    linear-gradient(
+      135deg,
+      #b8860b 0%,     /* deep matte antique gold */
+      #d4af37 20%,    /* warm gold mid */
+      #f5deb3 35%,    /* bright highlight edge */
+      #ffd700 50%,    /* peak metallic shine */
+      #f5deb3 65%,    /* fall-off */
+      #d4af37 80%,    /* warm return */
+      #b8860b 100%    /* deep matte close */
     ),
-    /* Subtle shine overlays: Low-opacity for balanced matte-shining metallic luster */
+    /* Subtle engraved/shine overlay (low opacity) */
     radial-gradient(
-      ellipse at 25% 30%,
-      rgba(255, 255, 200, 0.18) 0%,  /* faint warm highlight */
-      rgba(255, 255, 200, 0.06) 50%,
+      ellipse at 20% 30%,
+      rgba(255, 245, 180, 0.22) 0%,
+      rgba(255, 245, 180, 0.08) 50%,
       transparent 80%
     ),
     radial-gradient(
-      circle at 75% 60%,
-      rgba(255, 255, 200, 0.12) 0%,  /* subtler edge shine */
-      rgba(255, 255, 200, 0.03) 60%,
-      transparent 90%
+      circle at 80% 70%,
+      rgba(255, 245, 180, 0.15) 0%,
+      transparent 70%
     );
-  background-size: 600% 100%, 250% 250%, 180% 180%; /* Adjusted for smoother flow */
+  background-size: 200% 200%, 180% 180%, 140% 140%;
   background-position: 0% 50%, 0% 0%, 100% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: seaWaveHorizontal 16s linear infinite;
+  animation: subtleMetallic 18s ease-in-out infinite; /* slower, calmer wave */
   text-shadow:
-    0 3px 10px rgba(0,0,0,0.6),
-    0 0 15px rgba(184, 134, 11, 0.25),  /* subtle gold edge glow */
-    0 0 20px rgba(139, 101, 8, 0.2),    /* muted gold undertone */
-    inset 0 1px 3px rgba(255,255,200,0.12); /* inner shine for balanced depth */
+    0 4px 12px rgba(0,0,0,0.55),
+    inset 0 2px 5px rgba(255,255,220,0.35),  /* inner bevel shine */
+    inset 0 -2px 6px rgba(139,101,8,0.4);     /* depth shadow */
   filter:
-    drop-shadow(0 0 8px rgba(0,0,0,0.3))
-    saturate(0.82)  /* slightly desaturated for matte depth */
-    brightness(1.08) contrast(1.15);  /* enhanced shine with deep contrast */
+    drop-shadow(0 0 10px rgba(197,160,71,0.25))
+    brightness(1.1) contrast(1.18) saturate(0.88); /* matte luxury balance */
 }
-@keyframes seaWaveHorizontal {
-  0% {
-    background-position: 0% 50%, 0% 0%, 100% 100%; /* Start with deep gold dominance */
-  }
-  100% {
-    background-position: -100% 50%, 0% 0%, 100% 100%; /* Continuous horizontal wave shift */
-  }
+
+@keyframes subtleMetallic {
+  0%, 100% { background-position: 0% 50%, 0% 0%, 100% 100%; }
+  50%      { background-position: 100% 50%, 50% 100%, 0% 0%; }
 }
 /* Rest unchanged */
 .hero-title {
