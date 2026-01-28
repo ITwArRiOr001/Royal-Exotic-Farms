@@ -302,6 +302,35 @@ body.high-contrast .cta-btn {
   background: var(--gold-muted);
   transform: translateY(-2px);
 }
+/* ===================== HERO CTA – MOBILE ELITE FIX ===================== */
+@media (max-width: 768px) {
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .hero-cta .cta-btn {
+    width: 92%;
+    max-width: 320px;
+    padding: 0.75rem 1.4rem;     /* 🔑 tighter */
+    font-size: 0.95rem;
+    border-radius: 999px;
+  }
+
+  /* Secondary CTA = outline, not filled */
+  .cta-btn.secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1.5px solid rgba(255,255,255,0.7);
+    box-shadow: none;
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(255,255,255,0.1);
+  }
+}
 /* INTEGRATED: Streamline Navigation and CTAs – Floating CTA for intuitive flow (styled as golden icon; JS for visibility) */
 .floating-cta {
   position: fixed;
@@ -1038,6 +1067,10 @@ form .cta-btn.primary.large {
   font-weight: 500;
   color: var(--primary-navy);
   line-height: 1.5;
+  align-items: flex-start;
+}
+.process-steps li strong {
+  font-weight: 600;
 }
 
 .process-steps li svg {
