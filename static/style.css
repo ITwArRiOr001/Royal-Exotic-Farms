@@ -364,7 +364,7 @@ body.high-contrast .cta-btn {
   justify-content: space-between;   /* 🔑 spread across screen */
   align-items: center;
 
-  width: 100%;
+  width: 80%;
   padding: 1rem 4vw;                /* responsive edge spacing */
 }
 
@@ -373,7 +373,7 @@ body.high-contrast .cta-btn {
   color: var(--primary-navy);
   font-weight: 600;                 /* 🔑 stronger presence */
   font-size: 1.05rem;               /* 🔑 larger text */
-  letter-spacing: 0.02em;           /* subtle authority */
+  letter-spacing: 0.01em;           /* subtle authority */
   border-radius: var(--radius-sm);
   white-space: nowrap;
 }
