@@ -1016,3 +1016,23 @@ form .cta-btn.primary.large {
   outline: 3px solid var(--gold-premium);
   outline-offset: 4px;
 }
+/* ===== PROCESS STEPS – ADVISORY STYLE ===== */
+.process-steps {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.6rem;
+}
+
+.process-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  font-weight: 500;
+  color: var(--primary-navy);
+}
+
+.process-steps li svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
