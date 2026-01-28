@@ -667,23 +667,29 @@ section[data-section] .text-block h2::before {
     background: white;
   }
 }
-/* ===================== TRUST STRIP ===================== */
-/* Elite Color Map: Dividers/Accents = Gold muted */
+/* ===== TRUST PANEL (ELITE UPGRADE) ===== */
 .trust-strip {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.6rem;
-  padding: 1.8rem;
-  background: var(--bg-soft);
-  border-radius: var(--radius-lg);
-  margin-top: 2.2rem;
-  font-weight: 500;
+  position: relative;
 }
+
+.trust-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(197,160,71,0.25);
+  pointer-events: none;
+}
+
 .trust-strip div {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+}
+
+@media (hover: hover) {
+  .trust-strip div:hover {
+    background: rgba(197,160,71,0.06);
+  }
 }
 /* ===================== FORMS ===================== */
 .form-group { margin-bottom: 1.4rem; }
