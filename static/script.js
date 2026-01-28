@@ -72,16 +72,18 @@ function toggleMobileMenu() {
 }
 
 /* =========================================================
-   FAQ
+   FAQ – BUTTON CONTROLLED (ELITE, SAFE)
    ========================================================= */
 function initFAQ() {
-  document.querySelectorAll(".faq-item").forEach(item => {
-    item.addEventListener("click", () => {
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = button.closest(".faq-item");
+      if (!item) return;
+
       item.classList.toggle("active");
     });
   });
 }
-
 /* =========================================================
    FLASH MESSAGES
    ========================================================= */
@@ -201,7 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Core UX
   initScrollReveal();
-  initModalSafety();
   initFAQ();
   initFlashDismiss();
 
